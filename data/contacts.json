@@ -1,0 +1,19 @@
+[
+    {
+        "name": "Sagrada Existencia",
+        "description": "Lecturas y guías de tarot",
+        "links": {
+            "logo": "https://i.imgur.com/TPaa6n5.jpg",
+            "catalogo": {
+                "url": "https://www.whatsapp.com/catalog/56993168926",
+                "icon": "catalogo",
+                "label": "Catálogo"
+            },
+            "whatsapp": "https://wa.me/56993168926",
+            "instagram": "https://instagram.com/sagrada.existencia",
+            "tiktok": "https://www.tiktok.com/@sagrada.existencia",
+            "youtube": "https://www.youtube.com/@sagrada.existencia",
+            "facebook": "https://www.facebook.com/people/Sagrada-Existencia/100093779442366/"
+        }
+    }
+]

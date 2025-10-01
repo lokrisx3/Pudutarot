@@ -1,0 +1,76 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>PuduTarot</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+
+<body>
+  <div class="background">
+    <img src="images/fondo.svg" alt="Cielo estrellado">
+  </div>
+  <div class="container">
+    <button id="toggle-full-tarot" class="deck-button">Tarot Completo</button>
+    <button id="show-arcana-list" class="deck-button">Listado de Arcanos Mayores</button>
+    <div class="header-brand">
+      <img class="header-brand-icon" src="images/lune.svg" alt="Luna decorativa">
+      <h1>PuduTarot</h1>
+    </div>
+    <div id="tarot-container">
+      <div id="pudu-container" class="visible">
+        <img id="pudu-mago" src="images/pudu-mago.svg" alt="Pudú Mago">
+      </div>
+      <div id="pudu-shuffling-container" class="hidden">
+        <img id="pudu-shuffling" src="images/pudu-shuffling.svg" alt="Pudú Revolviendo">
+      </div>
+      <div id="card-container" class="hidden">
+        <img id="tarot-card" src="" alt="Carta de Tarot">
+        <h2 id="card-name"></h2>
+        <p id="card-description"></p>
+      </div>
+    </div>
+
+    <div class="actions-row">
+      <button id="consult-button">Consultar</button>
+    </div>
+
+    <!-- Botones con espacio reducido -->
+    <div class="deck-buttons-container">
+      <button id="deck-marseille" class="deck-button selected">Marseille</button>
+      <button id="deck-raider" class="deck-button">Raider-Waite</button>
+    </div>
+
+
+
+    <!-- Sección: lista de Arcanos Mayores -->
+    <div id="arcana-section" class="hidden" style="margin-top:18px; width:100%;">
+      <h2 style="color:#f0c929; font-size:16px; text-align:center; margin-bottom:8px;">Arcanos Mayores</h2>
+      <div id="arcana-list" style="display:flex; flex-wrap:wrap; gap:8px; justify-content:center;"></div>
+      <div id="arcana-detail" class="hidden"
+        style="margin-top:12px; text-align:left; padding:10px; background:rgba(240,201,41,0.06); border-radius:8px;">
+        <img id="arcana-detail-image" src="" alt=""
+          style="display:block; margin:0 auto 8px auto; max-width:140px; border-radius:6px;" />
+        <h3 id="arcana-detail-name" style="margin:0 0 6px 0; color:#f0c929; font-size:14px;"></h3>
+        <p id="arcana-detail-desc" style="margin:0 0 6px 0;"></p>
+        <small id="arcana-detail-history" style="color:#cfcfcf;"></small>
+      </div>
+      <!--Contacto-->
+      <div class="button-contact-footer">
+        <button id="contacts-socials-boton" class="deck-button">¿Quieres conocer mas sobre el Tarot?</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sección: contactos (se rellenará dinámicamente desde data/contacts.json) -->
+  <div id="contacts-section" class="hidden" style="margin-top:18px; width:100%;">
+    <h2 style="color:#f0c929; font-size:16px; text-align:center; margin-bottom:8px;">Contactos</h2>
+    <div id="contacts-container"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

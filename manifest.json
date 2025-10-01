@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "PuduTarot - Tarot",
+  "version": "1.0.2",
+  "description": "Consulta sobre tu destino al Oráculo Pudu, en PuduTarot",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "128": "images/app-icon.png"
+    }
+  },
+  "icons": {
+    "128": "images/app-icon.png"
+  },
+  "permissions": []
+}

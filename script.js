@@ -1,0 +1,639 @@
+/**
+ * PuduTarot popup script
+ * ----------------------
+ * Responsable de la lógica de la UI del popup:
+ * - carga de datos (majorArcana)
+ * - selección aleatoria de cartas y renderizado
+ * - manejo de la lista de arcanos
+ * - renderizado dinámico de la sección de contactos (desde data/contacts.json)
+ *
+ * Diseño:
+ * - usa fetch para cargar JSON local (data/majorArcanaMarseille.json, data/majorArcanaRaider.json y data/contacts.json)
+ * - mantiene fallbacks locales cuando la carga remota / externa falla
+ * - no incluye dependencias externas en runtime (three.js se sirve localmente)
+ *
+ * Nota: este archivo se ejecuta dentro del popup (document root del popup). Las rutas
+ * relativas (p.ej. data/...) están relativas al paquete de la extensión.
+ */
+
+/**
+ * Módulo popup: script.js
+ * ----------------------
+ * API pública (documentada):
+ * - getMajorArcana(deck): Array<Object>  — devuelve la lista de arcanos para el mazo solicitado.
+ * - getRandomCard(): Object             — retorna una carta aleatoria del mazo actual.
+ * - showCard(card): void                — muestra la carta en el UI (maneja imagen y reactivación del botón).
+ * - loadAndRenderContacts(): Promise<void> — carga `data/contacts.json` y renderiza la tabla de contactos.
+ * - renderContactsTable(contacts): void — renderiza tabla de contactos (2 por fila) con logos y enlaces.
+ * - applyCellBackgroundWithFallback(cell, logoUrl): void — intenta precargar logo y aplica fallback local si falla.
+ * - renderArcanaList(): void            — renderiza el listado lateral de arcanos.
+ *
+ * Contratos (forma resumida):
+ * - Carta: { id:number, name:string, file:string, image:string, meaning?:object, description?:string, history?:string }
+ * - Contacto: { name:string, description?:string, logo?:string, links: { [key]: string|{url,icon?,label?} } }
+ *
+ * Consideraciones de errores:
+ * - Las cargas de JSON usan fetch y aplican fallback local si fallan (no interrumpen la UI).
+ * - applyCellBackgroundWithFallback tiene timeout y onerror para evitar bloqueos por recursos externos lentos.
+ */
+
+document.addEventListener('DOMContentLoaded', function () {
+  const consultButton = document.getElementById('consult-button');
+  const puduContainer = document.getElementById('pudu-container');
+  const puduShufflingContainer = document.getElementById('pudu-shuffling-container');
+  const cardContainer = document.getElementById('card-container');
+  const tarotCard = document.getElementById('tarot-card');
+  const cardName = document.getElementById('card-name');
+  const cardDescription = document.getElementById('card-description');
+  const deckIaButton = document.getElementById('deck-marseille');
+  const deckRaiderButton = document.getElementById('deck-raider');
+  let currentDeck = 'Marseille';
+
+  // Prefer loading the cards from JSON; keep an in-file fallback if fetch fails
+  const majorArcanaFallback = [
+    { id: 0, name: 'El Loco', file: 'fool', description: 'Nuevos comienzos, espontaneidad, fe en la vida.' },
+    { id: 1, name: 'El Mago', file: 'magician', description: 'Manifestación, poder personal, habilidad.' },
+    { id: 2, name: 'La Sacerdotisa', file: 'high-priestess', description: 'Intuición, sabiduría inconsciente, misterio.' },
+    { id: 3, name: 'La Emperatriz', file: 'empress', description: 'Fertilidad, creatividad, abundancia.' },
+    { id: 4, name: 'El Emperador', file: 'emperor', description: 'Autoridad, estructura, control, liderazgo.' },
+    { id: 5, name: 'El Hierofante', file: 'hierophant', description: 'Tradición, conformidad, moralidad, ética.' },
+    { id: 6, name: 'Los Enamorados', file: 'lovers', description: 'Amor, armonía, relaciones, valores, elecciones.' },
+    { id: 7, name: 'El Carro', file: 'chariot', description: 'Control, voluntad, éxito, determinación.' },
+    { id: 8, name: 'La Fuerza', file: 'strength', description: 'Coraje, persuasión, influencia, compasión.' },
+    { id: 9, name: 'El Ermitaño', file: 'hermit', description: 'Introspección, búsqueda, orientación interna.' },
+    { id: 10, name: 'La Rueda de la Fortuna', file: 'wheel-of-fortune', description: 'Cambio, ciclos, destino, punto de inflexión.' },
+    { id: 11, name: 'La Justicia', file: 'justice', description: 'Justicia, equidad, verdad, ley, equilibrio.' },
+    { id: 12, name: 'El Colgado', file: 'hanged-man', description: 'Rendición, perspectiva, suspensión, sacrificio.' },
+    { id: 13, name: 'La Muerte', file: 'death', description: 'Fin de un ciclo, cambio, transformación, transición.' },
+    { id: 14, name: 'La Templanza', file: 'temperance', description: 'Balance, moderación, paciencia, propósito.' },
+    { id: 15, name: 'El Diablo', file: 'devil', description: 'Sombra, apegos, adicción, restricción, sexualidad.' },
+    { id: 16, name: 'La Torre', file: 'tower', description: 'Cambio repentino, liberación, revelación, despertar.' },
+    { id: 17, name: 'La Estrella', file: 'star', description: 'Esperanza, fe, propósito, renovación, espiritualidad.' },
+    { id: 18, name: 'La Luna', file: 'moon', description: 'Ilusión, miedo, ansiedad, subconsciente, intuición.' },
+    { id: 19, name: 'El Sol', file: 'sun', description: 'Positividad, diversión, calidez, éxito, vitalidad.' },
+    { id: 20, name: 'El Juicio', file: 'judgement', description: 'Reflexión, renacimiento, renovación interna, absolución.' },
+    { id: 21, name: 'El Mundo', file: 'world', description: 'Realización, integración, logro, viaje, armonía.' }
+  ];
+
+  // Fuentes de datos por mazo (Marseille y Raider)
+  const deckSources = {
+    Marseille: 'data/majorArcanaMarseille.json',
+    raider: 'data/majorArcanaRaider.json'
+  };
+  const deckImageFolders = {
+    Marseille: 'images/cards/Marseille',
+    raider: 'images/cards/raider'
+  };
+  const majorArcanaDeckData = {
+    Marseille: [],
+    raider: []
+  };
+  const deckLoadState = {
+    Marseille: false,
+    raider: false
+  };
+  const deckLoadPromises = {};
+  
+  /**
+   * Intenta cargar los listados de arcanos mayores para cada mazo desde sus
+   * respectivos archivos JSON. Si falla, se utilizar� el fallback embebido.
+   */
+  (async function preloadDecks() {
+    try {
+      await Promise.all(Object.keys(deckSources).map(loadDeckData));
+    } catch (error) {
+      console.warn('Error preloading decks, using fallback data.', error);
+    }
+    majorArcana = getMajorArcana(currentDeck);
+    document.dispatchEvent(new CustomEvent('pudutarot:major-arcana-loaded', { detail: { deck: currentDeck } }));
+  })();
+  
+  function normalizeCard(card) {
+    return {
+      id: card.id,
+      name: card.name,
+      file: card.file,
+      meaning: card.meaning || {},
+      description: card.description,
+      history: card.history || ''
+    };
+  }
+  
+  async function loadDeckData(deck) {
+    if (deckLoadState[deck]) return majorArcanaDeckData[deck];
+    if (deckLoadPromises[deck]) return deckLoadPromises[deck];
+  
+    const source = deckSources[deck];
+    deckLoadPromises[deck] = (async () => {
+      try {
+        const res = await fetch(source);
+        if (!res.ok) throw new Error('JSON not available');
+        const data = await res.json();
+        const cards = Array.isArray(data)
+          ? data.filter(item => typeof item.id === 'number').map(normalizeCard)
+          : [];
+        if (!cards.length) throw new Error('Empty deck data');
+        majorArcanaDeckData[deck] = cards;
+      } catch (error) {
+        console.warn('Could not load ' + source + ', using fallback data.', error);
+        majorArcanaDeckData[deck] = majorArcanaFallback.map(normalizeCard);
+      } finally {
+        deckLoadState[deck] = true;
+        deckLoadPromises[deck] = null;
+      }
+      return majorArcanaDeckData[deck];
+    })();
+  
+    return deckLoadPromises[deck];
+  }
+  
+  function pickImagePathForDeckFile(deck, filePath) {
+    if (!filePath) return filePath;
+    if (filePath.toLowerCase().includes('arcanosmayores/')) {
+      return filePath.replace(/\.jpg$/i, '.JPG');
+    }
+    return filePath;
+  }
+
+  function normalizePath(value) {
+    return typeof value === 'string' ? value.split('\\').join('/') : '';
+  }
+
+  function resolveDeckImage(deck, card) {
+    const folder = deckImageFolders[deck] || deckImageFolders.raider;
+    const fileField = (card && typeof card.file === 'string') ? card.file.trim() : '';
+    if (fileField) {
+      if (fileField.includes('/') && /\.[a-z0-9]+$/i.test(fileField)) {
+        const adjusted = pickImagePathForDeckFile(deck, fileField);
+        return normalizePath(`${folder}/${adjusted}`);
+      }
+      if (/\.[a-z0-9]+$/i.test(fileField)) {
+        return normalizePath(`${folder}/${fileField}`);
+      }
+      const normalized = (deck === 'Marseille' && fileField === 'hermit') ? 'ermitano' : fileField;
+      return normalizePath(`${folder}/${normalized}.jpg`);
+    }
+    return normalizePath(`${folder}/fool.jpg`);
+  }
+
+  function getMajorArcana(deck) {
+    const rawDeck = (majorArcanaDeckData[deck] && majorArcanaDeckData[deck].length)
+      ? majorArcanaDeckData[deck]
+      : majorArcanaFallback.map(normalizeCard);
+  
+    return rawDeck
+      .filter(card => typeof card.id === 'number' && card.name)
+      .map(card => ({
+        id: card.id,
+        name: card.name,
+        file: card.file,
+        image: resolveDeckImage(deck, card),
+        meaning: card.meaning || {},
+        description: card.description,
+        history: card.history || ''
+      }));
+  }
+  let majorArcana = getMajorArcana(currentDeck);
+
+  // Función para seleccionar una carta aleatoria
+  function getRandomCard() {
+    const randomIndex = Math.floor(Math.random() * majorArcana.length);
+    return majorArcana[randomIndex];
+  }
+
+  /**
+   * showCard(card)
+   * ----------------
+   * Muestra la carta seleccionada en el popup: actualiza la imagen, el título
+   * y la descripción. Además gestiona la reactivación del botón de "Consultar"
+   * cuando la imagen haya terminado de cargarse para evitar múltiples clics
+   * durante la animación de revelado.
+   *
+   * Parámetros:
+   * - card: objeto con al menos { image, name, meaning?, description? }
+   */
+
+  /**
+   * Muestra la carta seleccionada en el popup.
+   *
+   * @param {Object} card - Carta con al menos { image, name, meaning?, description? }
+   * @returns {void}
+   */
+  function showCard(card) {
+    tarotCard.src = card.image;
+    cardName.textContent = card.name;
+
+    // Reactivar el botón de consultar cuando la imagen haya terminado de cargarse y la carta esté visible
+    function enableConsultButton() {
+      consultButton.disabled = false;
+      consultButton.classList.remove('disabled');
+    }
+
+    // Si la imagen se carga correctamente, aseguramos reactivar el botón
+    // usamos 'load' porque garantiza que la imagen se ha renderizado y las dimensiones son conocidas
+    tarotCard.addEventListener('load', function () {
+      // pequeña espera para garantizar que las transiciones de visibilidad hayan terminado
+      setTimeout(function () {
+        if (cardContainer.classList.contains('visible')) enableConsultButton();
+      }, 90);
+    });
+    // show meanings (derecho / invertido) when available
+    const upright = (card.meaning && card.meaning.upright) ? card.meaning.upright : (card.description || '');
+    const reversed = (card.meaning && card.meaning.reversed) ? card.meaning.reversed : '';
+    // Mostrar la tabla horizontal de Derecho / Invertido
+    cardDescription.innerHTML = createMeaningTableHTML(upright, reversed);
+    puduShufflingContainer.classList.remove('visible');
+    puduShufflingContainer.classList.add('hidden');
+    cardContainer.classList.remove('hidden');
+    cardContainer.classList.add('visible');
+    // ensure arcana detail is hidden when showing a random card
+    const arcanaDetail = document.getElementById('arcana-detail');
+    if (arcanaDetail) arcanaDetail.classList.add('hidden');
+  }
+
+  // Evento al hacer clic en el botón de consulta
+  consultButton.addEventListener('click', function () {
+    // deshabilitar el botón para evitar múltiples consultas mientras se procesa
+    consultButton.disabled = true;
+    consultButton.classList.add('disabled');
+
+    puduContainer.classList.remove('visible');
+    puduContainer.classList.add('hidden');
+    puduShufflingContainer.classList.remove('hidden');
+    puduShufflingContainer.classList.add('visible');
+    cardContainer.classList.remove('visible');
+    cardContainer.classList.add('hidden');
+    setTimeout(function () {
+      const selectedCard = getRandomCard();
+      showCard(selectedCard);
+    }, 2000);
+  });
+
+  // Alternar mazo
+  async function switchDeck(deck) {
+    if (!deckSources[deck]) return;
+    currentDeck = deck;
+    await loadDeckData(deck);
+    majorArcana = getMajorArcana(deck);
+    if (deck === 'Marseille') {
+      deckIaButton.classList.add('selected');
+      deckRaiderButton.classList.remove('selected');
+    } else {
+      deckRaiderButton.classList.add('selected');
+      deckIaButton.classList.remove('selected');
+    }
+    if (typeof renderArcanaList === 'function' && arcanaSection && !arcanaSection.classList.contains('hidden')) {
+      renderArcanaList();
+    }
+    document.dispatchEvent(new CustomEvent('pudutarot:deck-changed', { detail: { deck } }));
+  }
+
+  deckIaButton.addEventListener('click', function () {
+    switchDeck('Marseille');
+  });
+  deckRaiderButton.addEventListener('click', function () {
+    switchDeck('raider');
+  });
+
+  // --- Lista de Arcanos: renderizar y manejar clicks ---
+  const arcanaListContainer = document.getElementById('arcana-list');
+  const arcanaDetail = document.getElementById('arcana-detail');
+  const arcanaDetailName = document.getElementById('arcana-detail-name');
+  const arcanaDetailDesc = document.getElementById('arcana-detail-desc');
+  const arcanaDetailHistory = document.getElementById('arcana-detail-history');
+
+  const showArcanaListButton = document.getElementById('show-arcana-list');
+  const arcanaSection = document.getElementById('arcana-section');
+
+  document.addEventListener('pudutarot:major-arcana-loaded', function () {
+    majorArcana = getMajorArcana(currentDeck);
+    if (typeof renderArcanaList === 'function' && arcanaSection && !arcanaSection.classList.contains('hidden')) {
+      renderArcanaList();
+    }
+  });
+
+
+  function generateHistoryText(card) {
+    // Prefer an explicit history field from JSON when available
+    if (card.history && card.history.trim().length > 0) return card.history;
+    const desc = (card.description && typeof card.description === 'string') ? card.description : ((card.meaning && card.meaning.upright) ? card.meaning.upright : 'significados tradicionales');
+    return `Historia (prueba): La carta "${card.name}" tiene raíces simbólicas que se remontan a tradiciones antiguas; representa ${desc.toLowerCase()} y su iconografía ha variado según las escuelas.`;
+  }
+
+  /**
+   * Crea el HTML de una tabla de 2 celdas (horizontal) con Derecho / Invertido.
+   * Devuelve una cadena con marcado seguro para su uso en innerHTML. Conserva
+   * enlaces/formatos que vengan en los textos (el proyecto ya usa innerHTML en
+   * otros lugares) — si se requiere sanitización más adelante, aplicar una
+   * librería de sanitización.
+   *
+   * @param {string} upright - texto o HTML para la lectura en posición normal
+   * @param {string} reversed - texto o HTML para la lectura invertida
+   * @returns {string} HTML de una tabla responsiva con dos celdas
+   */
+  function createMeaningTableHTML(upright, reversed) {
+    const u = upright || '';
+    const r = reversed || '';
+    return `
+      <table class="meaning-table" style="width:100%;border-collapse:collapse;">
+        <tr>
+          <td style="vertical-align:top;padding:8px;width:50%;border-right:1px solid rgba(255,255,255,0.04);">
+            <div style="font-weight:600;margin-bottom:6px;color:#f0c929;">Derecho</div>
+            <div class="meaning-upright">${u}</div>
+          </td>
+          <td style="vertical-align:top;padding:8px;width:50%;">
+            <div style="font-weight:600;margin-bottom:6px;color:#f0c929;">Invertido</div>
+            <div class="meaning-reversed">${r}</div>
+          </td>
+        </tr>
+      </table>
+    `;
+  }
+
+  function renderArcanaList() {
+    if (!arcanaListContainer) return;
+    // build list using current deck images when available
+    const deckCards = getMajorArcana(currentDeck);
+    arcanaListContainer.innerHTML = '';
+    deckCards.forEach(c => {
+      const btn = document.createElement('button');
+      btn.className = 'arcana-item';
+      btn.type = 'button';
+      btn.innerHTML = `<img src="${c.image}" alt="${c.name}" class="arcana-thumb"><div class="arcana-label">${c.name}</div>`;
+      // Al click en un ítem de arcana mostramos su detalle en el panel lateral
+      btn.addEventListener('click', function () {
+        // show detail
+        if (arcanaDetail) {
+          arcanaDetailName.textContent = c.name;
+          // show both upright and reversed meanings in the detail area
+          const upright = (c.meaning && c.meaning.upright) ? c.meaning.upright : (c.description || '');
+          const reversed = (c.meaning && c.meaning.reversed) ? c.meaning.reversed : '';
+          // usar la tabla de 2 celdas para separar Derecho / Invertido
+          arcanaDetailDesc.innerHTML = createMeaningTableHTML(upright, reversed);
+          arcanaDetailHistory.textContent = generateHistoryText(c);
+          // set big image
+          const imgEl = document.getElementById('arcana-detail-image');
+          if (imgEl) {
+            imgEl.src = c.image;
+            imgEl.alt = c.name;
+          }
+          arcanaDetail.classList.remove('hidden');
+          // scroll into view
+          arcanaDetail.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      });
+      arcanaListContainer.appendChild(btn);
+    });
+  }
+
+
+
+
+
+
+  // show/hide arcana list vs consultation
+  if (showArcanaListButton) {
+    showArcanaListButton.addEventListener('click', function () {
+      // toggle arcana section visibility without hiding the consultation UI
+      const hidden = arcanaSection.classList.contains('hidden');
+      if (hidden) {
+        arcanaSection.classList.remove('hidden');
+        renderArcanaList();
+        this.textContent = 'Ocultar Listado';
+        // optionally focus the list
+        arcanaSection.scrollIntoView({ behavior: 'smooth', block: 'end' });
+      } else {
+        arcanaSection.classList.add('hidden');
+        this.textContent = 'Listado de Arcanos Mayores';
+      }
+    });
+  }
+
+  // ---------------------- Contactos dinámicos ----------------------
+  const contactsButton = document.getElementById('contacts-socials-boton');
+  const contactsSection = document.getElementById('contacts-section');
+  const contactsContainer = document.getElementById('contacts-container');
+
+  // íconos simples inline por red (se pueden ampliar)
+  const socialIcons = {
+    whatsapp: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.52 3.48A11.93 11.93 0 0 0 12 0C5.373 0 .003 5.373 0 12c0 2.12.557 4.17 1.616 5.98L0 24l6.29-1.604A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12 0-3.2-1.25-6.2-3.48-8.52z" fill="#25D366"/><path d="M17.472 14.382c-.297-.149-1.76-.867-2.033-.966-.273-.099-.472-.148-.672.15-.198.297-.768.966-.942 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.884-.787-1.48-1.761-1.652-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.447-.52.149-.174.198-.298.297-.497.099-.198.05-.372-.025-.52-.074-.148-.672-1.62-.92-2.219-.243-.58-.49-.5-.672-.51l-.573-.01c-.198 0-.52.074-.793.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487 2.982 1.287 2.982.858 3.517.806.536-.05 1.76-.717 2.005-1.409.247-.692.247-1.285.173-1.409-.074-.124-.273-.198-.57-.347z" fill="#fff"/></svg>',
+    instagram: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#f58529"/><stop offset="0.5" stop-color="#dd2a7b"/><stop offset="1" stop-color="#515bd4"/></linearGradient><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5z" stroke="url(#g1)" stroke-width="1.6" fill="none"/><circle cx="12" cy="12" r="3.2" stroke="url(#g1)" stroke-width="1.6" fill="none"/><circle cx="18.2" cy="5.8" r="0.6" fill="#dd2a7b"/></svg>',
+    tiktok: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2v12.5A4.5 4.5 0 1 1 9 10V6h3z" fill="#010101"/></svg>',
+    youtube: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.186a2.88 2.88 0 0 0-2.027-2.036C19.427 3.5 12 3.5 12 3.5s-7.427 0-9.471.65A2.88 2.88 0 0 0 .502 6.186 30.19 30.19 0 0 0 0 12a30.19 30.19 0 0 0 .502 5.814 2.88 2.88 0 0 0 2.027 2.036C4.573 20.5 12 20.5 12 20.5s7.427 0 9.471-.65a2.88 2.88 0 0 0 2.027-2.036A30.19 30.19 0 0 0 24 12a30.19 30.19 0 0 0-.502-5.814z" fill="#FF0000"/><path d="M10 15.5l5.5-3.5L10 8.5v7z" fill="#fff"/></svg>',
+    facebook: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2.3V12h2.3V9.8c0-2.3 1.4-3.6 3.4-3.6.98 0 2 .18 2 .18v2.2h-1.12c-1.1 0-1.45.69-1.45 1.4V12h2.46l-.39 2.9h-2.07v7A10 10 0 0 0 22 12z" fill="#1877F2"/></svg>',
+    linkedin: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 8.97h4v12H3v-12zM9 8.97h3.84v1.64h.05c.54-1.02 1.86-2.1 3.84-2.1 4.11 0 4.87 2.7 4.87 6.21v7.25H20V15.7c0-2.12-.04-4.85-3-4.85-3 0-3.46 2.34-3.46 4.66v7.46H9v-12z" fill="#0077B5"/></svg>'
+    ,
+    catalogo: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="4" width="18" height="16" rx="2" stroke="#f0c929" stroke-width="1.4" fill="none"/><path d="M7 8h10M7 12h10M7 16h6" stroke="#f0c929" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+  };
+
+  /**
+   * loadAndRenderContacts
+   * ----------------------
+   * Lee `data/contacts.json` y llama a renderContactsTable(). Si la carga falla,
+   * muestra un mensaje alternativo en el contenedor.
+   */
+
+  // Render contacts in a table with 2 per row
+  async function loadAndRenderContacts() {
+    try {
+      const res = await fetch('data/contacts.json');
+      const contacts = await res.json();
+      renderContactsTable(contacts);
+    } catch (e) {
+      console.warn('No se pudo cargar data/contacts.json', e);
+      contactsContainer.innerHTML = '<p style="color:#cfcfcf;">No hay contactos disponibles.</p>';
+    }
+  }
+
+  function renderContactsTable(contacts) {
+    if (!contacts || !contacts.length) {
+      contactsContainer.innerHTML = '<p style="color:#cfcfcf;">No hay contactos disponibles.</p>';
+      return;
+    }
+
+    // create a responsive table layout: 2 columns per row
+    const table = document.createElement('div');
+    table.className = 'contacts-table';
+
+    let row;
+    contacts.forEach((c, idx) => {
+      if (idx % 2 === 0) {
+        row = document.createElement('div');
+        row.className = 'contacts-row';
+        table.appendChild(row);
+      }
+
+      const cell = document.createElement('div');
+      cell.className = 'contacts-cell';
+
+      // detectar campo logo (puede venir dentro de links.logo o como c.logo)
+      const logoUrl = (c.logo) ? c.logo : (c.links && c.links.logo) ? c.links.logo : null;
+      if (logoUrl) {
+        // aplicar background con comprobación: si la imagen externa no carga, usar fallback local
+        applyCellBackgroundWithFallback(cell, logoUrl);
+      }
+
+      const title = document.createElement('div');
+      title.className = 'contact-title';
+      title.textContent = c.name;
+      cell.appendChild(title);
+
+      const desc = document.createElement('div');
+      desc.className = 'contact-desc';
+      desc.textContent = c.description || '';
+      cell.appendChild(desc);
+
+      const linksWrap = document.createElement('div');
+      linksWrap.className = 'contact-links';
+
+      // iterate over known keys; preserve any arbitrary keys present. Skip 'logo' so it isn't rendered as a link
+      Object.keys(c.links || {}).forEach(key => {
+        if (key === 'logo') return;
+        let raw = c.links[key];
+        if (!raw) return;
+        // soportar dos formatos: string URL o { url, icon, label }
+        let url, iconKey, label;
+        if (typeof raw === 'string') {
+          url = raw;
+          iconKey = key;
+          label = key.charAt(0).toUpperCase() + key.slice(1);
+        } else if (typeof raw === 'object' && raw.url) {
+          url = raw.url;
+          iconKey = raw.icon || key;
+          label = raw.label || (key.charAt(0).toUpperCase() + key.slice(1));
+        } else {
+          return;
+        }
+
+        // Normalizar enlaces de imgur: si detectamos una URL de galería o imgur.com/ID,
+        // intentamos convertirla a i.imgur.com/ID.jpg (si ya es directa no la tocamos).
+        if (url.includes('imgur.com') && !url.includes('i.imgur.com')) {
+          try {
+            const u = new URL(url);
+            const parts = u.pathname.split('/').filter(Boolean);
+            const last = parts[parts.length - 1];
+            if (last && !last.includes('a') && !last.includes('gallery')) {
+              url = `https://i.imgur.com/${last}.jpg`;
+            }
+          } catch (e) {
+            // noop
+          }
+        }
+
+        // Construcción del enlace (<a>) con icono y texto
+        const a = document.createElement('a');
+        a.href = url;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        a.className = 'contact-link';
+        // accesibilidad: title y aria-label
+        a.title = `${label} de ${c.name}`;
+        a.setAttribute('aria-label', `Abrir ${label} de ${c.name}`);
+        // icon
+        const iconSpan = document.createElement('span');
+        iconSpan.className = 'contact-icon';
+        iconSpan.innerHTML = socialIcons[iconKey] || '';
+        a.appendChild(iconSpan);
+        // label text after icon as hyperlink text
+        const text = document.createElement('span');
+        text.className = 'contact-link-text';
+        text.textContent = label;
+        a.appendChild(text);
+        linksWrap.appendChild(a);
+      });
+
+      cell.appendChild(linksWrap);
+      row.appendChild(cell);
+      // animación de entrada: staggered
+      setTimeout(() => cell.classList.add('entered'), 80 * (idx % 2 === 0 ? Math.floor(idx / 2) : Math.floor(idx / 2) + 1));
+    });
+
+    contactsContainer.innerHTML = '';
+    contactsContainer.appendChild(table);
+  }
+
+  /**
+   * Intenta precargar una URL de logo; si falla o tiempo agotado, aplica un fallback local.
+   * Se aplica como background con un overlay sutil para preservar legibilidad del texto.
+   *
+   * @param {HTMLElement} cell - Elemento donde aplicar el background
+   * @param {string} logoUrl - URL del logo a precargar
+   */
+  function applyCellBackgroundWithFallback(cell, logoUrl) {
+    const testImg = new Image();
+    let settled = false;
+    const applyBg = (url) => {
+      // usar un overlay sutil para atenuar la imagen y mantener legibilidad
+      cell.style.backgroundImage = `linear-gradient(rgba(255,255,255,0.16), rgba(0,0,0,0.9)), url('${url}')`;
+      cell.style.backgroundSize = 'cover';
+      cell.style.backgroundPosition = 'center';
+    };
+
+    // onload / onerror gestionan éxito o fallo de carga
+    testImg.onload = function () {
+      if (settled) return;
+      settled = true;
+      applyBg(logoUrl);
+    };
+    testImg.onerror = function () {
+      if (settled) return;
+      settled = true;
+      // fallback a imagen local incluida en el repo
+      applyBg('images/app-icon.png');
+    };
+
+    // timeout: si no responde en 2500ms, usar fallback para evitar bloqueos de UI
+    setTimeout(function () {
+      if (settled) return;
+      settled = true;
+      applyBg('images/app-icon.png');
+    }, 2500);
+
+    // iniciar carga
+    testImg.src = logoUrl;
+  }
+
+  function scrollFirstContactIntoView() {
+    if (!contactsContainer) return;
+    requestAnimationFrame(() => {
+      const firstContact = contactsContainer.querySelector('.contacts-cell');
+      const target = firstContact || contactsContainer;
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (typeof window !== 'undefined' && typeof window.scrollBy === 'function') {
+        setTimeout(() => window.scrollBy({ top: -20, behavior: 'smooth' }), 250);
+      }
+    });
+  }
+
+  // toggle display from button
+  if (contactsButton && contactsSection) {
+    contactsButton.addEventListener('click', function () {
+      const hidden = contactsSection.classList.contains('hidden');
+      if (hidden) {
+        contactsSection.classList.remove('hidden');
+        loadAndRenderContacts().then(scrollFirstContactIntoView);
+        contactsButton.textContent = 'Ocultar Contactos';
+        // marcar visualmente el botón como seleccionado
+        contactsButton.classList.add('selected');
+      } else {
+        contactsSection.classList.add('hidden');
+        contactsButton.textContent = '¿Quieres conocer mas sobre el Tarot?';
+        contactsButton.classList.remove('selected');
+      }
+    });
+  }
+
+  // --- Fallback de logo: si la URL externa no carga, usar imagen local por defecto ---
+  // Comprobación por cada celda en renderContactsTable: intentamos precargar la imagen y
+  // si falla, reemplazamos el background con un fallback estático.
+
+});
+
+
+
+
+
+
+
+
+

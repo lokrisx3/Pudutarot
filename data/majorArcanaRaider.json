@@ -1,0 +1,225 @@
+[
+    {
+        "TypeCard": "Marseille"
+    },
+    {
+        "id": 0,
+        "name": "El Loco",
+        "file": "arcanosmayores/0loco.jpg",
+        "meaning": {
+            "upright": "Nuevos comienzos, espontaneidad, confianza, potencial",
+            "reversed": "Inmadurez, falta de dirección, imprudencia o temeridad."
+        },
+        "history": "Historia: El Loco es el llamado a la aventura: el héroe parte sin mapa, movido por la inocencia y la fe. Representa el primer paso fuera del mundo ordinario, dispuesto a lo desconocido."
+    },
+    {
+        "id": 1,
+        "name": "El Mago",
+        "file": "arcanosmayores/1mago.jpg",
+        "meaning": {
+            "upright": "Habilidad, concentración, iniciativa y el poder de transformar ideas en acción.",
+            "reversed": "Manipulación, engaño, falta de recursos o intención errada."
+        },
+        "history": "Historia: El Mago es el despertar del poder personal: el héroe descubre que posee los recursos internos para emprender el viaje. Es el momento del 'como arriba, así abajo' — la magia de la voluntad consciente."
+    },
+    {
+        "id": 2,
+        "name": "La Sacerdotisa",
+        "file": "arcanosmayores/2sacerdotisa.jpg",
+        "meaning": {
+            "upright": "Intuición, conocimiento interior y misterio; receptividad a lo inconsciente.",
+            "reversed": "Falta de conexión interna, secretos revelados o bloqueo de la intuición."
+        },
+        "history": "Historia: La Sacerdotisa es el umbral del conocimiento oculto: el héroe escucha la voz interior antes de cruzar al mundo extraordinario. Guardiana de los misterios que preparan para la iniciación."
+    },
+    {
+        "id": 3,
+        "name": "La Emperatriz",
+        "file": "arcanosmayores/3emperatriz.jpg",
+        "meaning": {
+            "upright": "Fertilidad, abundancia, creatividad y fertilidad material o emocional.",
+            "reversed": "Estancamiento creativo, dependencia o sobreprotección."
+        },
+        "history": "Historia: La Emperatriz es la nutrición del viaje: el héroe se prepara, se alimenta de la tierra, de la creatividad y del amor antes de enfrentar las pruebas. Es la diosa que sostiene antes de la batalla."
+    },
+    {
+        "id": 4,
+        "name": "El Emperador",
+        "file": "arcanosmayores/4emperador.jpg",
+        "meaning": {
+            "upright": "Orden, autoridad, disciplina y liderazgo responsable.",
+            "reversed": "Tiranía, rigidez, abuso de poder o pérdida de control."
+        },
+        "history": "Historia: El Emperador representa la estructura del mundo antiguo: el héroe internaliza las leyes antes de desafiarlas. Es el padre arquetípico cuya autoridad debe integrarse o trascenderse."
+    },
+    {
+        "id": 5,
+        "name": "El Hierofante",
+        "file": "arcanosmayores/5sacerdote.jpg",
+        "meaning": {
+            "upright": "Tradición, enseñanza, guía espiritual y conformidad con valores establecidos.",
+            "reversed": "Dogmatismo, cuestionamiento de reglas o búsqueda de un camino propio."
+        },
+        "history": "Historia: El Hierofante es el mentor de la tradición: el héroe recibe enseñanzas, rituales y sistemas de creencias que lo preparan — pero también lo limitan — antes de su transformación radical."
+    },
+    {
+        "id": 6,
+        "name": "Los Enamorados",
+        "file": "arcanosmayores/6enamorados.jpg",
+        "meaning": {
+            "upright": "Amor, unión, decisiones importantes y armonía de valores.",
+            "reversed": "Indecisión, conflicto en las relaciones o malas elecciones."
+        },
+        "history": "Historia: Los Enamorados son la elección crucial: el héroe debe decidir entre caminos, valores o amores. Es el cruce del primer umbral, donde el corazón define el destino."
+    },
+    {
+        "id": 7,
+        "name": "El Carro",
+        "file": "arcanosmayores/7carro.jpg",
+        "meaning": {
+            "upright": "Determinación, victoria mediante disciplina y control de fuerzas opuestas.",
+            "reversed": "Pérdida de control, conflictos internos o fracaso por impulsividad."
+        },
+        "history": "Historia: El Carro es la voluntad en acción: el héroe toma las riendas de su destino, domina fuerzas opuestas y avanza con determinación. Triunfo del ego consciente sobre el caos interno."
+    },
+    {
+        "id": 8,
+        "name": "La Fuerza",
+        "file": "arcanosmayores/8fuerza.jpg",
+        "meaning": {
+            "upright": "Valentía, compasión, dominio de las pasiones y fortaleza interna.",
+            "reversed": "Duda, inseguridad, abuso de fuerza o falta de compasión."
+        },
+        "history": "Historia: La Fuerza es el dominio de la sombra: el héroe enfrenta sus instintos más salvajes con compasión, no con violencia. Es la victoria del alma sobre el ego, la verdadera fortaleza interior."
+    },
+    {
+        "id": 9,
+        "name": "El Ermitaño",
+        "file": "arcanosmayores/9ermitano.jpg",
+        "meaning": {
+            "upright": "Soledad buscada para la reflexión, guía interior y sabiduría.",
+            "reversed": "Aislamiento excesivo, soledad no deseada o pérdida de rumbo."
+        },
+        "history": "Historia: El Ermitaño es el descenso al abismo: el héroe se retira del mundo para buscar la luz interior. Es la etapa de introspección profunda antes de la muerte simbólica."
+    },
+    {
+        "id": 10,
+        "name": "La Rueda de la Fortuna",
+        "file": "arcanosmayores/10ruedafortuna.jpg",
+        "meaning": {
+            "upright": "Cambio, giros del destino y oportunidades que llegan con el ciclo.",
+            "reversed": "Resistencia al cambio, retrocesos temporales o mala racha."
+        },
+        "history": "Historia: La Rueda de la Fortuna es el giro del destino: el héroe comprende que no controla todo, y se entrega al flujo del universo. Es el momento en que el azar se convierte en gracia."
+    },
+    {
+        "id": 11,
+        "name": "La Justicia",
+        "file": "arcanosmayores/11justicia.jpg",
+        "meaning": {
+            "upright": "Equidad, responsabilidad, decisiones justas y consecuencias claras.",
+            "reversed": "Injusticia, parcialidad, evasión de responsabilidad o decisiones sesgadas."
+        },
+        "history": "Historia: La Justicia es la ley del karma: el héroe enfrenta las consecuencias de sus actos. Es el equilibrio cósmico que prepara para la transformación final — nada escapa a la balanza."
+    },
+    {
+        "id": 12,
+        "name": "El Colgado",
+        "file": "arcanosmayores/12colgado.jpg",
+        "meaning": {
+            "upright": "Nueva perspectiva, sacrificio voluntario y pausa consciente para ver distinto.",
+            "reversed": "Estancamiento, sacrificio inútil, resistencia a soltar o retrasos."
+        },
+        "history": "Historia: El Colgado es la entrega voluntaria: el héroe se detiene, se invierte, se sacrifica. Es la muerte simbólica del ego — colgado para ver el mundo desde otra perspectiva."
+    },
+    {
+        "id": 13,
+        "name": "La Muerte",
+        "file": "arcanosmayores/13muerte.jpg",
+        "meaning": {
+            "upright": "Transformación profunda, fin necesario y comienzo de algo nuevo.",
+            "reversed": "Resistencia al cambio, estancamiento o miedo a soltar lo viejo."
+        },
+        "history": "Historia: La Muerte es la transformación radical: el héroe muere a su antiguo ser. No es destrucción, sino metamorfosis — el cascarón que se rompe para que nazca el nuevo ser."
+    },
+    {
+        "id": 14,
+        "name": "La Templanza",
+        "file": "arcanosmayores/14templanza.jpg",
+        "meaning": {
+            "upright": "Equilibrio, moderación, mezcla armoniosa y curación gradual.",
+            "reversed": "Desequilibrio, impaciencia, excesos o falta de armonía."
+        },
+        "history": "Historia: La Templanza es la integración de opuestos: el héroe mezcla lo humano y lo divino, lo masculino y lo femenino. Es la alquimia del alma después de la muerte."
+    },
+    {
+        "id": 15,
+        "name": "El Diablo",
+        "file": "arcanosmayores/15diablo.jpg",
+        "meaning": {
+            "upright": "Apego, tentación, materialismo y ataduras que limitan el crecimiento.",
+            "reversed": "Liberación de cadenas, confrontación de sombras y recuperación de poder."
+        },
+        "history": "Historia: El Diablo es el encuentro con la sombra: el héroe enfrenta sus cadenas, deseos y miedos. Las ataduras son ilusorias — la verdadera prisión está en la mente."
+    },
+    {
+        "id": 16,
+        "name": "La Torre",
+        "file": "arcanosmayores/16torre.jpg",
+        "meaning": {
+            "upright": "Ruptura súbita, revelación que conduce a la reconstrucción y libertad.",
+            "reversed": "Evitar la caída, miedo al cambio o bloques que retrasan la liberación."
+        },
+        "history": "Historia: La Torre es la purificación por el fuego: el héroe ve cómo su mundo falso se derrumba. Es la revelación forzada que libera — solo cuando todo cae, puede construirse lo verdadero."
+    },
+    {
+        "id": 17,
+        "name": "La Estrella",
+        "file": "arcanosmayores/17estrella.jpg",
+        "meaning": {
+            "upright": "Esperanza renovada, inspiración espiritual y guía amable.",
+            "reversed": "Desilusión, falta de fe o bloqueo creativo temporal."
+        },
+        "history": "Historia: La Estrella es la sanación después de la tormenta: el héroe encuentra esperanza, se reconecta con lo divino. Es la guía que brilla en la oscuridad, recordándole su propósito."
+    },
+    {
+        "id": 18,
+        "name": "La Luna",
+        "file": "arcanosmayores/18luna.jpg",
+        "meaning": {
+            "upright": "Intuición, sueños, símbolos y exploración del mundo interior.",
+            "reversed": "Confusión aclarada, miedos conscientes o engaños descubiertos."
+        },
+        "history": "Historia: La Luna es el valle de las sombras: el héroe enfrenta sus miedos inconscientes, ilusiones y engaños. Es la prueba final antes de la iluminación — lo que el Sol no muestra, la Luna lo revela."
+    },
+    {
+        "id": 19,
+        "name": "El Sol",
+        "file": "arcanosmayores/19sol.jpg",
+        "meaning": {
+            "upright": "Éxito, claridad, alegría y energía vital plena.",
+            "reversed": "Optimismo forzado, retrasos menores o falta temporal de brillo."
+        },
+        "history": "Historia: El Sol es la iluminación: el héroe alcanza la claridad, la alegría pura y la plenitud. Es el niño interior recuperado — inocente, pero consciente. La meta del viaje."
+    },
+    {
+        "id": 20,
+        "name": "El Juicio",
+        "file": "arcanosmayores/20juicio.jpg",
+        "meaning": {
+            "upright": "Llamado a la renovación, evaluación y renacimiento espiritual.",
+            "reversed": "Autocrítica paralizante, duda o rechazo del llamado a cambiar."
+        },
+        "history": "Historia: El Juicio es el llamado a despertar: el héroe es convocado a regresar, transformado. Es la resurrección del ser auténtico — listo para servir, compartir y sanar al mundo."
+    },
+    {
+        "id": 21,
+        "name": "El Mundo",
+        "file": "arcanosmayores/21mundo.jpg",
+        "meaning": {
+            "upright": "Culminación, logro, integración y sensación de plenitud.",
+            "reversed": "Falta de cierre, proyectos inconclusos o retrasos en la culminación."
+        },
+        "history": "Historia: El Mundo es el maestro de dos mundos: el héroe ha completado el ciclo. Vive en armonía consigo mismo, con los demás y con el cosmos. Es la integración total — y el comienzo de un nuevo viaje."
+    }
+]

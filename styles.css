@@ -1,0 +1,470 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #1a1a2e;
+  color: #e6e6e6;
+  width: 350px;
+  height: 500px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Fondo ocupa toda la pantalla detrás del contenido */
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  /* 🔹 queda detrás del contenido */
+  overflow: hidden;
+}
+
+.background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* 🔹 mantiene proporción y rellena */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  /* 👈 mejor que space-between para que no "salte" */
+
+  min-height: 100vh;
+  /* 👈 ocupa toda la altura de la ventana */
+  width: 100%;
+
+  padding: 20px;
+  box-sizing: border-box;
+
+  position: relative;
+  z-index: 1;
+  /* 👈 asegura que quede sobre el fondo estrellado */
+
+  /* Fondo eliminado, ya lo maneja la capa .background */
+  background: transparent;
+}
+
+.actions-row {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+h1 {
+  font-family: 'MedievalSharp', cursive;
+  font-size: 30px;
+  margin-top: 30px;
+  color: #ffffff;
+  text-shadow:
+    0 0 5px #1e8eac66,
+    0 0 10px #1e738d33;
+  letter-spacing: 0.5px;
+  text-align: center;
+  padding: 8px 16px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  position: relative;
+  z-index: 2;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px auto 0;
+}
+
+
+.header-brand h1 {
+  margin: 0;
+}
+
+.header-brand-icon {
+  width: 40px;
+  height: auto;
+  display: block;
+}
+
+#tarot-container {
+  position: relative;
+  width: 100%;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+#pudu-container,
+#pudu-shuffling-container,
+#card-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.5s ease;
+  z-index: 2;
+}
+
+#pudu-mago,
+#pudu-shuffling {
+  max-width: 80%;
+  max-height: 80%;
+}
+
+#tarot-card {
+  max-width: 70%;
+  max-height: 70%;
+  box-shadow: 0 0 20px #f0c92966;
+  border-radius: 10px;
+  z-index: 3;
+  /* transición para animar escalado horizontal sutil */
+  transform-origin: center center;
+  transition: transform 320ms cubic-bezier(.2, .9, .2, 1), box-shadow 320ms ease;
+  will-change: transform;
+}
+
+#card-name {
+  margin-top: 15px;
+  font-size: 18px;
+  color: #f0c929;
+  text-align: center;
+}
+
+#card-description {
+  font-size: 14px;
+  text-align: center;
+  margin-top: 5px;
+  max-width: 90%;
+}
+
+/* Botones */
+.deck-buttons-container {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  /* espacio reducido entre botones */
+  margin-bottom: 8px;
+  /* espacio inferior reducido */
+}
+
+/* Botones */
+.deck-buttons-container {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  /* espacio reducido entre botones */
+  margin-bottom: 8px;
+  /* espacio inferior reducido */
+}
+
+/* No aplicar el borde/halo amarillo al bot贸n de contactos cuando est茅 seleccionado */
+#contacts-socials-boton.selected {
+  /* mantener apariencia base de botones */
+  background: linear-gradient(135deg, #0a3d4a, #0d5c5c);
+  color: #ffffff;
+  /* sombra neutra en lugar del halo amarillo */
+  box-shadow: 0 2px 8px rgba(74, 20, 140, 0.3);
+}
+
+.deck-button,
+#deck-marseille,
+#deck-raider {
+  background: linear-gradient(135deg, #0a3d4a, #0d5c5c);
+  color: #ffffff;
+  /* Cambié el color de texto a blanco para mejor contraste */
+  border: none;
+  padding: 6px 12px;
+  /* botones más pequeños */
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(74, 20, 140, 0.3);
+  /* Sombra acorde al morado oscuro */
+  transition: all 0.3s ease;
+  outline: none;
+  position: relative;
+  z-index: 5;
+}
+
+.deck-button.selected,
+#deck-marseille.selected,
+#deck-raider.selected {
+  background-color: #e6b800;
+  box-shadow: 0 0 12px #f0c92999;
+}
+
+.deck-button:hover,
+#deck-marseille:hover,
+#deck-raider:hover {
+  background-color: #e6b800;
+  transform: scale(1.05);
+}
+
+.deck-button:active,
+#deck-marseille:active,
+#deck-raider:active {
+  transform: scale(0.95);
+}
+
+/* Botón Consultar */
+#consult-button {
+  background: linear-gradient(135deg, #0a3d4a, #0d5c5c);
+  color: #ffffff;
+  border: none;
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 5;
+  margin-bottom: 20px;
+}
+
+#consult-button:hover {
+  background-color: #e6b800;
+  transform: scale(1.05);
+}
+
+#consult-button:active {
+  transform: scale(0.95);
+}
+
+/* Estado deshabilitado para el botón Consultar */
+#consult-button:disabled,
+#consult-button.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+  filter: grayscale(0.08) saturate(0.9);
+}
+
+#contact-section {
+  margin-top: 24px;
+  text-align: center;
+}
+
+#contact-section h2 {
+  font-size: 18px;
+  color: #f0c929;
+  margin-bottom: 8px;
+}
+
+#contact-section p {
+  margin: 2px 0;
+}
+
+#contacts-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.contacts-table {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.contacts-row {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contacts-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(14, 25, 46, 0.55);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28);
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: rgba(41, 201, 240, 0.18);
+  color: #f0c929;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0.85;
+}
+
+.contact-link:hover {
+  background: rgba(41, 201, 240, 0.32);
+  transform: translateY(-2px);
+  opacity: 1;
+}
+
+.contact-link:active {
+  transform: translateY(0);
+}
+
+.contact-icon svg {
+  display: block;
+}
+
+.contact-link-text {
+  font-size: 13px;
+}
+
+.contact-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: #f0c929;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.contact-desc {
+  font-size: 12px;
+  color: #d5d5d5;
+  line-height: 1.5;
+}
+
+/* Estilos para visibilidad */
+.visible {
+  opacity: 1;
+  z-index: 4;
+}
+
+.hidden {
+  opacity: 0;
+  z-index: 0;
+  display: none;
+  /* remove from layout to prevent overlap */
+}
+
+/* Cuando se muestra la carta en una consulta aleatoria, expandirla sutilmente en X */
+#card-container.visible #tarot-card {
+  transform: scaleX(1.06);
+  /* ligero estiramiento horizontal */
+  box-shadow: 0 0 26px #f0c92988;
+  /* realzar un poco mientras está expandida */
+}
+
+#toggle-full-tarot {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 6px 12px;
+  font-size: 12px;
+  border-radius: 6px;
+  z-index: 30;
+}
+
+/* small corner button to show arcana list */
+#show-arcana-list {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 6px 12px;
+  font-size: 12px;
+  border-radius: 6px;
+  z-index: 30;
+}
+
+.arcana-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 64px;
+  height: 88px;
+  padding: 6px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.arcana-item .arcana-thumb {
+  width: 48px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.arcana-label {
+  margin-top: 6px;
+  font-size: 11px;
+  color: #e6e6e6;
+  text-align: center;
+}
+
+/* Estilo de cartas */
+#card-container.alt-style #tarot-card {
+  box-shadow: 0 0 30px #29c9f0cc, 0 0 10px #f0c92999;
+  border-radius: 50px;
+  border: 3px solid #29c9f0;
+  background: linear-gradient(135deg, #23234a 0%, #29c9f0 100%);
+}
+
+#card-container.alt-style #card-name {
+  color: #29c9f0;
+  text-shadow: 0 0 8px #29c9f099;
+}
+
+#card-container.alt-style #card-description {
+  color: #e6e6e6;
+  background: rgba(41, 201, 240, 0.08);
+  border-radius: 8px;
+  padding: 6px 10px;
+}
+
+/* Arcana detail: increase description and history size for readability */
+.button-contact-footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+#arcana-detail {
+  padding: 12px;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+#arcana-detail #arcana-detail-desc {
+  font-size: 13px;
+  line-height: 1.5;
+  margin-bottom: 8px;
+  color: #e6e6e6;
+}
+
+#arcana-detail #arcana-detail-history {
+  font-size: 13px;
+  line-height: 1.4;
+  color: #cfcfcf;
+}
+
+#arcana-detail #arcana-detail-image {
+  width: 140px;
+  height: auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}

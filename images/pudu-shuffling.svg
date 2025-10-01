@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="480" height="480" viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pudú mago antropomorfo con cara ovalada y cartas de tarot">
+  <defs>
+    <!-- Gradientes -->
+    <linearGradient id="robeGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4b3ca6"/>
+      <stop offset="1" stop-color="#2d2470"/>
+    </linearGradient>
+    <linearGradient id="furGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7a4d2c"/>
+      <stop offset="1" stop-color="#5b371e"/>
+    </linearGradient>
+    <linearGradient id="hatGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3a2f8f"/>
+      <stop offset="1" stop-color="#221c58"/>
+    </linearGradient>
+    <linearGradient id="staffGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d7a04a"/>
+      <stop offset="1" stop-color="#a6792c"/>
+    </linearGradient>
+
+    <!-- Sombra suave -->
+    <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" in="SourceAlpha"/>
+      <feOffset dx="0" dy="3"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Símbolo carta de tarot -->
+    <symbol id="tarotCard" viewBox="0 0 60 90">
+      <rect x="3" y="3" rx="8" ry="8" width="54" height="84" fill="#f5f0e6" stroke="#c9b9a2" stroke-width="3"/>
+      <g opacity="0.9">
+        <circle cx="30" cy="45" r="14" fill="#f2d15b" stroke="#b28d2c" stroke-width="2"/>
+        <path d="M30 30 34 42 47 42 36 49 40 62 30 53 20 62 24 49 13 42 26 42Z" fill="#fff5c1" stroke="#c9a83e" stroke-width="1.5" />
+      </g>
+    </symbol>
+
+    <!-- Estrella decorativa -->
+    <symbol id="star" viewBox="0 0 100 100">
+      <path d="M50 8 60 38 92 38 66 56 76 86 50 68 24 86 34 56 8 38 40 38Z" />
+    </symbol>
+  </defs>
+
+  <!-- Sombra al piso -->
+  <ellipse cx="240" cy="420" rx="120" ry="20" fill="#000" opacity="0.25" filter="url(#softShadow)"/>
+
+  <!-- Cuerpo del pudú mago -->
+  <g id="pudu" transform="translate(0,0)">
+    <!-- BATA -->
+    <g id="robe" filter="url(#softShadow)">
+      <path d="M180,190 C180,150 300,150 300,190 L330,370 C330,395 305,415 240,415 C175,415 150,395 150,370 Z"
+            fill="url(#robeGrad)"/>
+      <rect x="165" y="255" width="150" height="14" rx="7" fill="#e0b85a" />
+      <circle cx="240" cy="262" r="10" fill="#f7d97a" stroke="#b8923b" stroke-width="2"/>
+    </g>
+
+    <!-- Piernas -->
+    <g id="legs">
+      <rect x="200" y="380" width="28" height="38" rx="8" fill="url(#furGrad)"/>
+      <rect x="252" y="380" width="28" height="38" rx="8" fill="url(#furGrad)"/>
+      <rect x="195" y="415" width="38" height="12" rx="6" fill="#2a243e"/>
+      <rect x="247" y="415" width="38" height="12" rx="6" fill="#2a243e"/>
+    </g>
+
+    <!-- Cabeza y cuello -->
+    <g id="head" transform="translate(0,-10)">
+      <rect x="220" y="170" width="40" height="28" rx="14" fill="url(#furGrad)"/>
+      <g id="face" filter="url(#softShadow)">
+        <!-- CARA MÁS OVALADA HORIZONTALMENTE -->
+        <ellipse cx="240" cy="135" rx="50" ry="30" fill="url(#furGrad)"/>
+
+        <!-- Mejillas -->
+        <ellipse cx="200" cy="140" rx="8" ry="5" fill="#8a5a36" opacity="0.6"/>
+        <ellipse cx="280" cy="140" rx="8" ry="5" fill="#8a5a36" opacity="0.6"/>
+
+        <!-- Ojos -->
+        <circle cx="220" cy="130" r="5" fill="#1b1b1b"/>
+        <circle cx="260" cy="130" r="5" fill="#1b1b1b"/>
+        <circle cx="221" cy="128" r="2" fill="#fff" opacity="0.8"/>
+        <circle cx="261" cy="128" r="2" fill="#fff" opacity="0.8"/>
+
+        <!-- Nariz -->
+        <path d="M235,145 Q240,150 245,145" fill="#1b1b1b"/>
+        
+        <!-- Orejas -->
+        <ellipse cx="185" cy="98" rx="14" ry="18" fill="#6c4426"/>
+        <ellipse cx="295" cy="98" rx="14" ry="18" fill="#6c4426"/>
+
+        <!-- Astillas / pequeños cuernos -->
+        <rect x="230" y="78" width="6" height="16" rx="3" fill="#c7b08a"/>
+        <rect x="244" y="78" width="6" height="16" rx="3" fill="#c7b08a"/>
+      </g>
+
+      <!-- Sombrero -->
+      <g id="hat" transform="translate(0,-8)" filter="url(#softShadow)">
+        <path d="M240,40 C245,40 285,90 290,98 C295,106 283,110 240,110 C197,110 185,106 190,98 C195,90 235,40 240,40 Z"
+              fill="url(#hatGrad)"/>
+        <rect x="185" y="108" width="110" height="14" rx="7" fill="#e0b85a"/>
+        <!-- Cuernos-->
+        <path d="M210,80 Q205,100 215,110 Q220,115 225,110" fill="#c7b08a" stroke="#a68d67" stroke-width="1.5"/>
+        <path d="M270,80 Q275,100 265,110 Q260,115 255,110" fill="#c7b08a" stroke="#a68d67" stroke-width="1.5"/>
+      </g>
+    </g>
+
+    <!-- Brazos con mini-cartas -->
+    <g transform="translate(175,210)">
+      <g id="armLeft">
+        <path d="M0,0 C10,15 25,40 40,55 C48,63 62,58 70,48 C78,38 70,28 60,20 C45,8 20,-2 0,0 Z" fill="url(#furGrad)"/>
+        <path d="M-8,-12 C12,-10 22,0 24,10 C26,22 14,28 -2,24 C-16,20 -18,0 -8,-12 Z" fill="url(#robeGrad)"/>
+        <g transform="translate(62,46) rotate(-12)">
+          <ellipse cx="0" cy="0" rx="10" ry="8" fill="#7a4d2c"/>
+          <use href="#tarotCard" transform="translate(-30,-45) rotate(-8) scale(0.1)"/>
+          <use href="#tarotCard" transform="translate(-20,-40) rotate(6) scale(0.1)"/>
+        </g>
+        <animateTransform attributeName="transform" type="rotate" values="-14; 8; -14" dur="1.2s" repeatCount="indefinite" additive="sum"/>
+      </g>
+    </g>
+
+    <g transform="translate(305,210)">
+      <g id="armRight">
+        <path d="M0,0 C-10,15 -25,40 -40,55 C-48,63 -62,58 -70,48 C-78,38 -70,28 -60,20 C-45,8 -20,-2 0,0 Z" fill="url(#furGrad)"/>
+        <path d="M8,-12 C-12,-10 -22,0 -24,10 C-26,22 -14,28 2,24 C16,20 18,0 8,-12 Z" fill="url(#robeGrad)"/>
+        <g transform="translate(-62,46) rotate(12)">
+          <ellipse cx="0" cy="0" rx="10" ry="8" fill="#7a4d2c"/>
+          <use href="#tarotCard" transform="translate(-30,-45) rotate(-5) scale(0.1)"/>
+          <use href="#tarotCard" transform="translate(-20,-40) rotate(10) scale(0.1)"/>
+        </g>
+        <animateTransform attributeName="transform" type="rotate" values="12; -10; 12" dur="1.2s" begin="0.2s" repeatCount="indefinite" additive="sum"/>
+      </g>
+    </g>
+
+    <!-- Bastón -->
+    <g transform="translate(120,230) rotate(-8)">
+      <rect x="0" y="0" width="12" height="180" rx="6" fill="url(#staffGrad)" />
+      <circle cx="6" cy="-6" r="16" fill="#7a4d2c" stroke="#7a4d2c" stroke-width="3"/>
+      <g opacity="0.5">
+        <use href="#star" fill="#fff" transform="translate(-13,-27) scale(0.08)"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- Brillo -->
+  <g opacity="0.7">
+    <circle cx="240" cy="260" r="0">
+      <animate attributeName="r" values="0;18;0" dur="1.8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.8;0;0.8" dur="1.8s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+</svg>
