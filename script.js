@@ -197,8 +197,74 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Función para seleccionar una carta aleatoria
   function getRandomCard() {
-    const randomIndex = Math.floor(Math.random() * majorArcana.length);
-    return majorArcana[randomIndex];
+    // If full deck mode is enabled include minor arcana when available
+    const useFull = fullDeckMode && minorArcanaLoaded;
+    const pool = useFull ? getMajorArcana(currentDeck).concat(getMinorArcana(currentDeck)) : getMajorArcana(currentDeck);
+    const randomIndex = Math.floor(Math.random() * pool.length);
+    return pool[randomIndex];
+  }
+
+  // --- Minor Arcana support (Tarot Completo) ---
+  let fullDeckMode = false;
+  const minorArcanaSource = 'data/minorArcana.json';
+  let minorArcanaRaw = [];
+  let minorArcanaLoaded = false;
+  let minorArcanaLoadPromise = null;
+
+  function normalizeMinorCard(card) {
+    return {
+      id: card.id,
+      name: card.name,
+      file: card.file,
+      suit: card.suit || null,
+      meaning: card.meaning || {},
+      description: card.description || '',
+      history: card.history || ''
+    };
+  }
+
+  async function loadMinorArcana() {
+    if (minorArcanaLoaded) return minorArcanaRaw;
+    if (minorArcanaLoadPromise) return minorArcanaLoadPromise;
+
+    minorArcanaLoadPromise = (async () => {
+      try {
+        const res = await fetch(minorArcanaSource);
+        if (!res.ok) throw new Error('minorArcana.json not available');
+        const data = await res.json();
+        const cards = Array.isArray(data) ? data.filter(it => typeof it.id === 'number').map(normalizeMinorCard) : [];
+        if (!cards.length) throw new Error('Empty minor arcana data');
+        minorArcanaRaw = cards;
+        minorArcanaLoaded = true;
+      } catch (err) {
+        console.warn('Could not load ' + minorArcanaSource + ', minor arcana will be unavailable.', err);
+        minorArcanaRaw = [];
+        minorArcanaLoaded = false;
+      } finally {
+        minorArcanaLoadPromise = null;
+      }
+      return minorArcanaRaw;
+    })();
+
+    return minorArcanaLoadPromise;
+  }
+
+  function getMinorArcana(deck) {
+    if (!minorArcanaRaw || !minorArcanaRaw.length) return [];
+    return minorArcanaRaw.map(card => ({
+      id: card.id,
+      name: card.name,
+      file: card.file,
+      suit: card.suit,
+      image: resolveDeckImage(deck, card),
+      meaning: card.meaning || {},
+      description: card.description || '',
+      history: card.history || ''
+    }));
+  }
+
+  function getCombinedDeck(deck) {
+    return getMajorArcana(deck).concat(getMinorArcana(deck));
   }
 
   /**
@@ -304,6 +370,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const showArcanaListButton = document.getElementById('show-arcana-list');
   const arcanaSection = document.getElementById('arcana-section');
+  const toggleFullTarotButton = document.getElementById('toggle-full-tarot');
 
   document.addEventListener('pudutarot:major-arcana-loaded', function () {
     majorArcana = getMajorArcana(currentDeck);
@@ -353,13 +420,15 @@ document.addEventListener('DOMContentLoaded', function () {
   function renderArcanaList() {
     if (!arcanaListContainer) return;
     // build list using current deck images when available
-    const deckCards = getMajorArcana(currentDeck);
+    const majors = getMajorArcana(currentDeck);
+    const minors = (fullDeckMode && minorArcanaLoaded) ? getMinorArcana(currentDeck) : [];
+    const combined = majors.concat(minors);
     arcanaListContainer.innerHTML = '';
-    deckCards.forEach(c => {
+    combined.forEach(c => {
       const btn = document.createElement('button');
       btn.className = 'arcana-item';
       btn.type = 'button';
-      btn.innerHTML = `<img src="${c.image}" alt="${c.name}" class="arcana-thumb"><div class="arcana-label">${c.name}</div>`;
+      btn.innerHTML = `<img src="${c.image}" alt="${c.name}" class="arcana-thumb"><div class="arcana-label">${c.name}</div><div class="arcana-history">${truncateText(generateHistoryText(c), 120)}</div>`;
       // Al click en un ítem de arcana mostramos su detalle en el panel lateral
       btn.addEventListener('click', function () {
         // show detail
@@ -386,6 +455,13 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  // small helper: truncate text safely
+  function truncateText(s, max) {
+    if (!s) return '';
+    if (s.length <= max) return s;
+    return s.slice(0, max - 1) + '…';
+  }
+
 
 
 
@@ -404,8 +480,31 @@ document.addEventListener('DOMContentLoaded', function () {
         arcanaSection.scrollIntoView({ behavior: 'smooth', block: 'end' });
       } else {
         arcanaSection.classList.add('hidden');
-        this.textContent = 'Listado de Arcanos Mayores';
+        this.textContent = fullDeckMode ? 'Listado de Arcanos' : 'Listado de Arcanos Mayores';
       }
+    });
+  }
+
+  // Tarot Completo toggle handler
+  if (toggleFullTarotButton) {
+    toggleFullTarotButton.addEventListener('click', async function () {
+      fullDeckMode = !fullDeckMode;
+      // load minor arcana lazily when enabling full deck
+      if (fullDeckMode && !minorArcanaLoaded) {
+        await loadMinorArcana();
+      }
+      // update button visual
+      if (fullDeckMode) {
+        this.classList.add('selected');
+      } else {
+        this.classList.remove('selected');
+      }
+      // update show list button text if arcana section hidden
+      if (showArcanaListButton) {
+        showArcanaListButton.textContent = arcanaSection.classList.contains('hidden') ? (fullDeckMode ? 'Listado de Arcanos' : 'Listado de Arcanos Mayores') : 'Ocultar Listado';
+      }
+      // if the section is visible, re-render to include minors
+      if (!arcanaSection.classList.contains('hidden')) renderArcanaList();
     });
   }
 
