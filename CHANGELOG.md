@@ -16,6 +16,7 @@ Formato: seguimos una convención tipo "Keep a Changelog" simplificada en españ
 ### Agregados
 - Se Agrega "Modo Completo" donde usan los arcanos menores del tarot
 - Se agrega imagen de luna y sol con animación
+- Se agrega modo tarot completo
 
 
 

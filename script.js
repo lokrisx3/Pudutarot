@@ -428,7 +428,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const btn = document.createElement('button');
       btn.className = 'arcana-item';
       btn.type = 'button';
-      btn.innerHTML = `<img src="${c.image}" alt="${c.name}" class="arcana-thumb"><div class="arcana-label">${c.name}</div><div class="arcana-history">${truncateText(generateHistoryText(c), 120)}</div>`;
+      btn.innerHTML = `<img src="${c.image}" alt="${c.name}" class="arcana-thumb"><div class="arcana-label">${c.name}</div>`;
       // Al click en un ítem de arcana mostramos su detalle en el panel lateral
       btn.addEventListener('click', function () {
         // show detail
