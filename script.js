@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function () {
     raider: false
   };
   const deckLoadPromises = {};
-  
+
   /**
    * Intenta cargar los listados de arcanos mayores para cada mazo desde sus
    * respectivos archivos JSON. Si falla, se utilizar� el fallback embebido.
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function () {
     majorArcana = getMajorArcana(currentDeck);
     document.dispatchEvent(new CustomEvent('pudutarot:major-arcana-loaded', { detail: { deck: currentDeck } }));
   })();
-  
+
   function normalizeCard(card) {
     return {
       id: card.id,
@@ -118,11 +118,11 @@ document.addEventListener('DOMContentLoaded', function () {
       history: card.history || ''
     };
   }
-  
+
   async function loadDeckData(deck) {
     if (deckLoadState[deck]) return majorArcanaDeckData[deck];
     if (deckLoadPromises[deck]) return deckLoadPromises[deck];
-  
+
     const source = deckSources[deck];
     deckLoadPromises[deck] = (async () => {
       try {
@@ -143,10 +143,10 @@ document.addEventListener('DOMContentLoaded', function () {
       }
       return majorArcanaDeckData[deck];
     })();
-  
+
     return deckLoadPromises[deck];
   }
-  
+
   function pickImagePathForDeckFile(deck, filePath) {
     if (!filePath) return filePath;
     if (filePath.toLowerCase().includes('arcanosmayores/')) {
@@ -180,7 +180,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const rawDeck = (majorArcanaDeckData[deck] && majorArcanaDeckData[deck].length)
       ? majorArcanaDeckData[deck]
       : majorArcanaFallback.map(normalizeCard);
-  
+
     return rawDeck
       .filter(card => typeof card.id === 'number' && card.name)
       .map(card => ({
@@ -626,6 +626,19 @@ document.addEventListener('DOMContentLoaded', function () {
   // --- Fallback de logo: si la URL externa no carga, usar imagen local por defecto ---
   // Comprobación por cada celda en renderContactsTable: intentamos precargar la imagen y
   // si falla, reemplazamos el background con un fallback estático.
+
+  const sunLogo = document.querySelector(".sun-logo");
+  const moonLogo = document.querySelector(".header-brand-icon");
+
+  if (sunLogo && moonLogo) {
+    const toggleCelestialBodies = () => {
+      const sunHidden = sunLogo.classList.toggle("animate-sun");
+      moonLogo.classList.toggle("animate-moon", sunHidden);
+    };
+
+    sunLogo.addEventListener("click", toggleCelestialBodies);
+    moonLogo.addEventListener("click", toggleCelestialBodies);
+  }
 
 });
 

@@ -54,27 +54,28 @@ body {
   display: flex;
   justify-content: center;
   gap: 8px;
-  margin-top: 10px;
+  margin-top: 6px;
   width: 100%;
 }
 
 h1 {
   font-family: 'MedievalSharp', cursive;
   font-size: 30px;
-  margin-top: 30px;
+  margin-top: 40px;
   color: #ffffff;
   text-shadow:
     0 0 5px #1e8eac66,
     0 0 10px #1e738d33;
   letter-spacing: 0.5px;
   text-align: center;
-  padding: 8px 16px;
+  padding: 8px 13px;
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   position: relative;
   z-index: 2;
 }
 
+/*Sol y Luna*/
 .header-brand {
   display: flex;
   align-items: center;
@@ -83,15 +84,69 @@ h1 {
   margin: 20px auto 0;
 }
 
+.celestial-toggle {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+.celestial-toggle img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
 
 .header-brand h1 {
   margin: 0;
 }
 
 .header-brand-icon {
-  width: 40px;
-  height: auto;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transform: translateY(40%) scale(0.85);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.sun {
+  font-size: 10rem;
+  width: 100%;
+  height: 100%;
   display: block;
+}
+
+.sun-logo {
+  opacity: 1;
+  transform: translateY(0) rotateZ(0deg);
+  transition: all 1s ease-out;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.animate-sun {
+  opacity: 0;
+  transform: translateY(20%) rotateZ(100deg);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.animate-sun path {
+  fill: white;
+}
+
+.header-brand-icon.animate-moon {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+  cursor: pointer;
+  z-index: 2;
 }
 
 #tarot-container {
@@ -101,7 +156,6 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1;
 }
 
 #pudu-container,
@@ -115,7 +169,12 @@ h1 {
   justify-content: center;
   align-items: center;
   transition: opacity 0.5s ease;
-  z-index: 2;
+}
+
+#card-container {
+  padding: 18px 0 12px 0;
+  gap: 0;
+  box-sizing: border-box;
 }
 
 #pudu-mago,
@@ -125,11 +184,10 @@ h1 {
 }
 
 #tarot-card {
-  max-width: 70%;
-  max-height: 70%;
-  box-shadow: 0 0 20px #f0c92966;
+  max-width: 60%;
+  max-height: 60%;
+  box-shadow: 0 0 10px #f0c92966;
   border-radius: 10px;
-  z-index: 3;
   /* transición para animar escalado horizontal sutil */
   transform-origin: center center;
   transition: transform 320ms cubic-bezier(.2, .9, .2, 1), box-shadow 320ms ease;
@@ -137,40 +195,39 @@ h1 {
 }
 
 #card-name {
-  margin-top: 15px;
-  font-size: 18px;
+  margin-top: 18px;
+  margin-bottom: 2px;
+  font-size: 15px;
   color: #f0c929;
   text-align: center;
 }
 
 #card-description {
-  font-size: 14px;
+  font-size: 12px;
+  line-height: 1.4;
   text-align: center;
-  margin-top: 5px;
+  margin-top: 0;
   max-width: 90%;
 }
 
-/* Botones */
-.deck-buttons-container {
-  display: flex;
-  justify-content: center;
-  gap: 6px;
-  /* espacio reducido entre botones */
-  margin-bottom: 8px;
-  /* espacio inferior reducido */
+#card-description .meaning-table,
+#card-description .meaning-table td,
+#card-description .meaning-table div {
+  font-size: inherit;
+  line-height: 1.6;
 }
 
 /* Botones */
 .deck-buttons-container {
   display: flex;
   justify-content: center;
-  gap: 6px;
+  gap: 8px;
   /* espacio reducido entre botones */
-  margin-bottom: 8px;
-  /* espacio inferior reducido */
+  margin-bottom: 5px;
 }
 
-/* No aplicar el borde/halo amarillo al bot贸n de contactos cuando est茅 seleccionado */
+
+/* No aplicar el borde/halo amarillo al boton de contactos cuando esta seleccionado */
 #contacts-socials-boton.selected {
   /* mantener apariencia base de botones */
   background: linear-gradient(135deg, #0a3d4a, #0d5c5c);
@@ -229,8 +286,8 @@ h1 {
   border-radius: 5px;
   cursor: pointer;
   transition: all 0.3s ease;
-  z-index: 5;
-  margin-bottom: 20px;
+  margin-top: 5px;
+  margin-bottom: 15px;
 }
 
 #consult-button:hover {
@@ -371,7 +428,7 @@ h1 {
 
 #toggle-full-tarot {
   position: absolute;
-  top: 10px;
+  top: 7px;
   left: 10px;
   padding: 6px 12px;
   font-size: 12px;
@@ -382,7 +439,7 @@ h1 {
 /* small corner button to show arcana list */
 #show-arcana-list {
   position: absolute;
-  top: 10px;
+  top: 7px;
   right: 10px;
   padding: 6px 12px;
   font-size: 12px;
@@ -431,10 +488,11 @@ h1 {
 }
 
 #card-container.alt-style #card-description {
+  font-size: 5px;
   color: #e6e6e6;
   background: rgba(41, 201, 240, 0.08);
   border-radius: 8px;
-  padding: 6px 10px;
+  padding: 3px 10px;
 }
 
 /* Arcana detail: increase description and history size for readability */
@@ -445,16 +503,23 @@ h1 {
 }
 
 #arcana-detail {
-  padding: 12px;
+  padding: 5px;
   max-width: 320px;
   margin: 0 auto;
 }
 
 #arcana-detail #arcana-detail-desc {
-  font-size: 13px;
-  line-height: 1.5;
-  margin-bottom: 8px;
+  font-size: 12px;
+  line-height: 1.45;
+  margin-bottom: 6px;
   color: #e6e6e6;
+}
+
+#arcana-detail #arcana-detail-desc .meaning-table,
+#arcana-detail #arcana-detail-desc .meaning-table td,
+#arcana-detail #arcana-detail-desc .meaning-table div {
+  font-size: inherit;
+  line-height: 1.6;
 }
 
 #arcana-detail #arcana-detail-history {

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+        <svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 200 200" role="img"
+            aria-labelledby="title desc">
+            <title id="title">Sol radiante</title>
+            <desc id="desc">Sol con halo brillante y rayos animados con efecto de pulso suave.</desc>
+
+            <style>
+                :root {
+                    --sun: #FFD93B;
+                    --accent: #FFC700;
+                    --glow: #FFF5B7;
+                    --ray: #FFD93B;
+                }
+
+                /* Animación de pulso para halo */
+                .soft-pulse {
+                    animation: pulseGlow 4s ease-in-out infinite;
+                }
+
+                @keyframes pulseGlow {
+                    0% {
+                        opacity: 0.25;
+                    }
+
+                    50% {
+                        opacity: 0.55;
+                    }
+
+                    100% {
+                        opacity: 0.25;
+                    }
+                }
+
+                /* Animación de rotación lenta de rayos */
+                .rotate-ray {
+                    transform-origin: 50% 50%;
+                    animation: rotateRay 20s linear infinite;
+                }
+
+                @keyframes rotateRay {
+                    0% {
+                        transform: rotate(0deg);
+                    }
+
+                    100% {
+                        transform: rotate(360deg);
+                    }
+                }
+            </style>
+
+            <defs>
+                <!-- Halo exterior -->
+                <radialGradient id="sunHalo" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="var(--glow)" stop-opacity="0.35" />
+                    <stop offset="100%" stop-color="var(--glow)" stop-opacity="0" />
+                </radialGradient>
+
+                <!-- Filtro de brillo suave -->
+                <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
+                    <feMerge>
+                        <feMergeNode in="blur" />
+                        <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                </filter>
+            </defs>
+
+            <!-- Fondo transparente -->
+            <rect width="100%" height="100%" fill="transparent" />
+
+            <!-- Halo animado -->
+            <circle class="soft-pulse" cx="100" cy="100" r="90" fill="url(#sunHalo)" />
+
+            <!-- Cuerpo del sol con brillo -->
+            <g filter="url(#softGlow)">
+                <circle cx="100" cy="100" r="50" fill="var(--sun)" />
+                <circle class="soft-pulse" cx="100" cy="100" r="58" fill="var(--glow)" opacity="0.58" />
+            </g>
+
+            <!-- Rayos del sol -->
+            <g class="rotate-ray" stroke="var(--ray)" stroke-width="3" stroke-linecap="round">
+                <line x1="100" y1="10" x2="100" y2="0" />
+                <line x1="100" y1="190" x2="100" y2="200" />
+                <line x1="10" y1="100" x2="0" y2="100" />
+                <line x1="190" y1="100" x2="200" y2="100" />
+                <line x1="30" y1="30" x2="20" y2="20" />
+                <line x1="170" y1="30" x2="180" y2="20" />
+                <line x1="30" y1="170" x2="20" y2="180" />
+                <line x1="170" y1="170" x2="180" y2="180" />
+            </g>
+
+        </svg>
