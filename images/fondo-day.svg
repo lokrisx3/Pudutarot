@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice">
+  <!-- Gradiente del cielo -->
+  <defs>
+    <linearGradient id="skyGrad" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#87CEFA"/>
+      <stop offset="100%" stop-color="#B3E5FF"/>
+    </linearGradient>
+
+    <!-- Difuminado suave para todas las nubes -->
+    <filter id="softBlur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.9" />
+      </feComponentTransfer>
+    </filter>
+
+    <!-- Forma de nube -->
+    <g id="cloudShape">
+      <ellipse cx="0" cy="0" rx="55" ry="30"/>
+      <ellipse cx="40" cy="-10" rx="50" ry="32"/>
+      <ellipse cx="-40" cy="-8" rx="48" ry="30"/>
+      <ellipse cx="10" cy="12" rx="60" ry="34"/>
+    </g>
+  </defs>
+
+  <!-- Fondo -->
+  <rect x="0" y="0" width="1200" height="600" fill="url(#skyGrad)"/>
+
+  <!-- Grupo de nubes con difuminado -->
+  <g fill="#ffffff" filter="url(#softBlur)" opacity="0.95">
+
+    <!-- Capa lejana -->
+    <g transform="translate(1300,100) scale(0.9)">
+      <use href="#cloudShape"/>
+      <animateTransform attributeName="transform" type="translate"
+        from="1300 100" to="-900 100" dur="55s" repeatCount="indefinite"/>
+    </g>
+
+    <g transform="translate(1600,70) scale(0.7)">
+      <use href="#cloudShape"/>
+      <animateTransform attributeName="transform" type="translate"
+        from="1600 70" to="-1000 70" dur="60s" repeatCount="indefinite"/>
+    </g>
+
+    <g transform="translate(1000,40) scale(0.6)">
+      <use href="#cloudShape"/>
+      <animateTransform attributeName="transform" type="translate"
+        from="1000 40" to="-1200 40" dur="65s" repeatCount="indefinite"/>
+    </g>
+
+    <!-- Capa intermedia -->
+    <g transform="translate(1400,220) scale(1.0)">
+      <use href="#cloudShape"/>
+      <animateTransform attributeName="transform" type="translate"
+        from="1400 220" to="-800 220" dur="40s" repeatCount="indefinite"/>
+    </g>
+
+    <g transform="translate(1100,180) scale(0.9)">
+      <use href="#cloudShape"/>
+      <animateTransform attributeName="transform" type="translate"
+        from="1100 180" to="-900 180" dur="42s" repeatCount="indefinite"/>
+    </g>
+
+    <g transform="translate(600,200) scale(1.2)">
+      <use href="#cloudShape"/>
+      <animateTransform attributeName="transform" type="translate"
+        from="600 200" to="-1200 200" dur="38s" repeatCount="indefinite"/>
+    </g>
+
+    <!-- Capa cercana -->
+    <g transform="translate(1200,330) scale(1.3)">
+      <use href="#cloudShape"/>
+      <animateTransform attributeName="transform" type="translate"
+        from="1200 330" to="-900 330" dur="28s" repeatCount="indefinite"/>
+    </g>
+
+    <g transform="translate(900,360) scale(1.2)">
+      <use href="#cloudShape"/>
+      <animateTransform attributeName="transform" type="translate"
+        from="900 360" to="-1000 360" dur="30s" repeatCount="indefinite"/>
+    </g>
+
+    <g transform="translate(450,320) scale(1.4)">
+      <use href="#cloudShape"/>
+      <animateTransform attributeName="transform" type="translate"
+        from="450 320" to="-1300 320" dur="32s" repeatCount="indefinite"/>
+    </g>
+
+    <!-- Nubes adicionales pequeñas -->
+    <g transform="translate(200,50) scale(0.5)">
+      <use href="#cloudShape"/>
+      <animateTransform attributeName="transform" type="translate"
+        from="200 50" to="-600 50" dur="26s" repeatCount="indefinite"/>
+    </g>
+
+    <g transform="translate(980,120) scale(0.55)">
+      <use href="#cloudShape"/>
+      <animateTransform attributeName="transform" type="translate"
+        from="980 120" to="-700 120" dur="34s" repeatCount="indefinite"/>
+    </g>
+
+    <g transform="translate(700,400) scale(0.8)">
+      <use href="#cloudShape"/>
+      <animateTransform attributeName="transform" type="translate"
+        from="700 400" to="-900 400" dur="36s" repeatCount="indefinite"/>
+    </g>
+
+    <g transform="translate(300,450) scale(1.0)">
+      <use href="#cloudShape"/>
+      <animateTransform attributeName="transform" type="translate"
+        from="300 450" to="-1000 450" dur="38s" repeatCount="indefinite"/>
+    </g>
+
+  </g>
+</svg>

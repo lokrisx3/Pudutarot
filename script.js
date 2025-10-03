@@ -777,14 +777,96 @@ document.addEventListener('DOMContentLoaded', function () {
   const sunLogo = document.querySelector(".sun-logo");
   const moonLogo = document.querySelector(".header-brand-icon");
 
+  // background toggle state (persisted)
+  const bgImageEl = document.querySelector('.background img');
+  let isNight = false;
+  try {
+    const saved = localStorage.getItem('pudutarot:isNight');
+    if (saved === null) {
+      // first run: default to sunny (day)
+      isNight = false;
+    } else {
+      isNight = saved === '1';
+    }
+  } catch (e) {
+    isNight = false;
+  }
+  // helper to set background with fade
+  const backgroundDiv = document.querySelector('.background');
+  function setBackgroundImage(src) {
+    if (bgImageEl) {
+      // fade out
+      bgImageEl.style.opacity = '0';
+      setTimeout(() => {
+        bgImageEl.src = src;
+        // force reflow then fade in
+        void bgImageEl.offsetWidth;
+        bgImageEl.style.opacity = '1';
+      }, 220);
+    }
+    if (backgroundDiv) {
+      backgroundDiv.style.transition = 'background-image 0.4s ease-in-out';
+      backgroundDiv.style.backgroundImage = `url('${src}')`;
+    }
+  }
+
+  // ensure initial background matches state
+  if (bgImageEl) { bgImageEl.style.opacity = '1'; }
+  // If there's no saved preference (first run), set sunny immediately without fade.
+  try {
+    const saved = localStorage.getItem('pudutarot:isNight');
+    if (saved === null) {
+      if (bgImageEl) bgImageEl.src = 'images/fondo-day.svg';
+      if (backgroundDiv) backgroundDiv.style.backgroundImage = `url('${'images/fondo-day.svg'}')`;
+    } else {
+      // respect saved preference (use fade)
+      setBackgroundImage(isNight ? 'images/fondo-night.svg' : 'images/fondo-day.svg');
+    }
+  } catch (e) {
+    setBackgroundImage(isNight ? 'images/fondo-night.svg' : 'images/fondo-day.svg');
+  }
+
+  // sync icon classes with current state so UI matches background
+  if (sunLogo && moonLogo) {
+    // when isNight is true, sun should be hidden (animate-sun), moon visible (animate-moon)
+    sunLogo.classList.toggle('animate-sun', isNight);
+    moonLogo.classList.toggle('animate-moon', isNight);
+  }
+
   if (sunLogo && moonLogo) {
     const toggleCelestialBodies = () => {
-      const sunHidden = sunLogo.classList.toggle("animate-sun");
-      moonLogo.classList.toggle("animate-moon", sunHidden);
+      // toggle sun hidden class; when sunHidden is true => night mode
+      const sunHidden = sunLogo.classList.toggle('animate-sun');
+      moonLogo.classList.toggle('animate-moon', sunHidden);
+      // derive isNight directly from sunHidden
+      isNight = !!sunHidden;
+      setBackgroundImage(isNight ? 'images/fondo-night.svg' : 'images/fondo-day.svg');
+      try { localStorage.setItem('pudutarot:isNight', isNight ? '1' : '0'); } catch (e) { /* ignore */ }
     };
 
-    sunLogo.addEventListener("click", toggleCelestialBodies);
-    moonLogo.addEventListener("click", toggleCelestialBodies);
+    // allow clicking the whole toggle area
+    const celestialToggleWrap = document.querySelector('.celestial-toggle');
+    if (celestialToggleWrap) celestialToggleWrap.addEventListener('click', toggleCelestialBodies);
+    sunLogo.addEventListener('click', toggleCelestialBodies);
+    moonLogo.addEventListener('click', toggleCelestialBodies);
+  }
+
+  // resilient toggle: ensure the container wrap also toggles background even if icons missing
+  const celestialToggleWrapFallback = document.querySelector('.celestial-toggle');
+  if (celestialToggleWrapFallback) {
+    celestialToggleWrapFallback.addEventListener('click', function () {
+      // If icons exist, mirror their toggling logic to keep state coherent
+      if (sunLogo && moonLogo) {
+        const sunHiddenNow = sunLogo.classList.toggle('animate-sun');
+        moonLogo.classList.toggle('animate-moon', sunHiddenNow);
+        isNight = !!sunHiddenNow;
+      } else {
+        // fallback: flip boolean
+        isNight = !isNight;
+      }
+      setBackgroundImage(isNight ? 'images/fondo-night.svg' : 'images/fondo-day.svg');
+      try { localStorage.setItem('pudutarot:isNight', isNight ? '1' : '0'); } catch (e) { }
+    });
   }
 
 });
