@@ -419,40 +419,88 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function renderArcanaList() {
     if (!arcanaListContainer) return;
+    const arcanaSectionTitle = document.getElementById('arcana-section-title');
     // build list using current deck images when available
     const majors = getMajorArcana(currentDeck);
-    const minors = (fullDeckMode && minorArcanaLoaded) ? getMinorArcana(currentDeck) : [];
-    const combined = majors.concat(minors);
+    const minors = (minorArcanaLoaded && fullDeckMode) ? getMinorArcana(currentDeck) : [];
     arcanaListContainer.innerHTML = '';
-    combined.forEach(c => {
+
+    // helper to create a card button and attach click handler
+    function createCardButton(c) {
       const btn = document.createElement('button');
       btn.className = 'arcana-item';
       btn.type = 'button';
       btn.innerHTML = `<img src="${c.image}" alt="${c.name}" class="arcana-thumb"><div class="arcana-label">${c.name}</div>`;
-      // Al click en un ítem de arcana mostramos su detalle en el panel lateral
       btn.addEventListener('click', function () {
-        // show detail
         if (arcanaDetail) {
           arcanaDetailName.textContent = c.name;
-          // show both upright and reversed meanings in the detail area
           const upright = (c.meaning && c.meaning.upright) ? c.meaning.upright : (c.description || '');
           const reversed = (c.meaning && c.meaning.reversed) ? c.meaning.reversed : '';
-          // usar la tabla de 2 celdas para separar Derecho / Invertido
           arcanaDetailDesc.innerHTML = createMeaningTableHTML(upright, reversed);
           arcanaDetailHistory.textContent = generateHistoryText(c);
-          // set big image
           const imgEl = document.getElementById('arcana-detail-image');
           if (imgEl) {
             imgEl.src = c.image;
             imgEl.alt = c.name;
           }
           arcanaDetail.classList.remove('hidden');
-          // scroll into view
           arcanaDetail.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
       });
-      arcanaListContainer.appendChild(btn);
+      return btn;
+    }
+
+    if (!fullDeckMode || !minorArcanaLoaded) {
+      // only majors
+      if (arcanaSectionTitle) arcanaSectionTitle.textContent = 'Arcanos Mayores';
+      majors.forEach(c => arcanaListContainer.appendChild(createCardButton(c)));
+      return;
+    }
+
+    // When full deck is active, render groups in the order: Majors, Bastos, Copas, Espadas, Oros
+    // Normalize suits to expected Spanish names
+    function normalizeSuit(s) {
+      if (!s) return 'otros';
+      const t = String(s).toLowerCase();
+      if (t.includes('basto') || t.includes('wands')) return 'bastos';
+      if (t.includes('copa') || t.includes('cups')) return 'copas';
+      if (t.includes('espada') || t.includes('sword')) return 'espadas';
+      if (t.includes('oro') || t.includes('pentacle') || t.includes('coin') || t.includes('pent')) return 'oros';
+      return 'otros';
+    }
+
+    const minorsBySuit = { bastos: [], copas: [], espadas: [], oros: [], otros: [] };
+    minors.forEach(m => {
+      const s = normalizeSuit(m.suit || m.suitName || m.suit_name);
+      minorsBySuit[s] = minorsBySuit[s] || [];
+      minorsBySuit[s].push(m);
     });
+
+    // function to render a titled group
+    function renderGroup(title, cards) {
+      if (!cards || !cards.length) return;
+      const titleEl = document.createElement('div');
+      titleEl.className = 'arcana-group-title';
+      titleEl.textContent = title;
+      // full width header
+      titleEl.style.width = '100%';
+      titleEl.style.textAlign = 'center';
+      titleEl.style.color = '#f0c929';
+      titleEl.style.fontSize = '14px';
+      titleEl.style.margin = '10px 0 6px 0';
+      arcanaListContainer.appendChild(titleEl);
+      cards.forEach(c => arcanaListContainer.appendChild(createCardButton(c)));
+    }
+
+    // Render groups
+    if (arcanaSectionTitle) arcanaSectionTitle.textContent = 'Listado de Arcanos';
+    renderGroup('Arcanos Mayores', majors);
+    renderGroup('Bastos', minorsBySuit.bastos);
+    renderGroup('Copas', minorsBySuit.copas);
+    renderGroup('Espadas', minorsBySuit.espadas);
+    renderGroup('Oros', minorsBySuit.oros);
+    // any other suits last
+    if (minorsBySuit.otros && minorsBySuit.otros.length) renderGroup('Otros', minorsBySuit.otros);
   }
 
   // small helper: truncate text safely
