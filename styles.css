@@ -354,6 +354,8 @@ body.celestial-theme #contacts-socials-boton.selected {
   background: linear-gradient(135deg, #4bb7ed, #1f8cd9);
   box-shadow: 0 0 12px rgba(91, 205, 255, 0.7);
   color: #ffffff;
+  background-color: #e6b800;
+  box-shadow: 0 0 12px #f0c92999;
 }
 
 body.celestial-theme .deck-button:hover,
@@ -639,4 +641,11 @@ body.celestial-theme #contacts-socials-boton:active {
   width: 140px;
   height: auto;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+body.celestial-theme #toggle-full-tarot.selected {
+  background: linear-gradient(135deg, #3aa8e0, #157dcc);
+  border: 1px solid #f0c929;
+  box-shadow: 0 0 16px rgba(240, 201, 41, 0.6);
+  color: #ffffff;
 }
