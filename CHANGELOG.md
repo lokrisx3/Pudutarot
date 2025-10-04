@@ -7,7 +7,12 @@ Formato: seguimos una convención tipo "Keep a Changelog" simplificada en españ
 ## [Unreleased]
 - Preparando nuevas correcciones y pequeñas mejoras (pendiente de pruebas y versionado).
 
-## [1.1.0] - 
+## [1.1.1] - 4 de Octubre de 2025
+
+### Cambios
+- Cambia color del texto de los nombres de las cartas
+
+## [1.1.0] - 4 de Octubre de 2025
 
 ### Cambios
 - Se corrige URL de contactos con error 404
@@ -18,8 +23,6 @@ Formato: seguimos una convención tipo "Keep a Changelog" simplificada en españ
 - Se agrega imagen de luna y sol con animación
 - Se agrega modo tarot completo
 - Se agrega función de cambio de fondo
-
-
 
 ## [1.0.2] - 16 de septiembre de 2025
 ### Añadido

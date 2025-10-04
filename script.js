@@ -1,32 +1,32 @@
 /**
  * PuduTarot popup script
  * ----------------------
- * Responsable de la lÃ³gica de la UI del popup:
+ * Responsable de la lógica de la UI del popup:
  * - carga de datos (majorArcana)
- * - selecciÃ³n aleatoria de cartas y renderizado
+ * - selección aleatoria de cartas y renderizado
  * - manejo de la lista de arcanos
- * - renderizado dinÃ¡mico de la secciÃ³n de contactos (desde data/contacts.json)
+ * - renderizado dinámico de la sección de contactos (desde data/contacts.json)
  *
- * DiseÃ±o:
+ * Diseño:
  * - usa fetch para cargar JSON local (data/majorArcanaMarseille.json, data/majorArcanaRaider.json y data/contacts.json)
  * - mantiene fallbacks locales cuando la carga remota / externa falla
  * - no incluye dependencias externas en runtime (three.js se sirve localmente)
  *
  * Nota: este archivo se ejecuta dentro del popup (document root del popup). Las rutas
- * relativas (p.ej. data/...) estÃ¡n relativas al paquete de la extensiÃ³n.
+ * relativas (p.ej. data/...) están relativas al paquete de la extensión.
  */
 
 /**
- * MÃ³dulo popup: script.js
+ * Módulo popup: script.js
  * ----------------------
- * API pÃºblica (documentada):
- * - getMajorArcana(deck): Array<Object>  â€” devuelve la lista de arcanos para el mazo solicitado.
- * - getRandomCard(): Object             â€” retorna una carta aleatoria del mazo actual.
- * - showCard(card): void                â€” muestra la carta en el UI (maneja imagen y reactivaciÃ³n del botÃ³n).
- * - loadAndRenderContacts(): Promise<void> â€” carga `data/contacts.json` y renderiza la tabla de contactos.
- * - renderContactsTable(contacts): void â€” renderiza tabla de contactos (2 por fila) con logos y enlaces.
- * - applyCellBackgroundWithFallback(cell, logoUrl): void â€” intenta precargar logo y aplica fallback local si falla.
- * - renderArcanaList(): void            â€” renderiza el listado lateral de arcanos.
+ * API pública (documentada):
+ * - getMajorArcana(deck): Array<Object>  — devuelve la lista de arcanos para el mazo solicitado.
+ * - getRandomCard(): Object             — retorna una carta aleatoria del mazo actual.
+ * - showCard(card): void                — muestra la carta en el UI (maneja imagen y reactivación del botón).
+ * - loadAndRenderContacts(): Promise<void> — carga `data/contacts.json` y renderiza la tabla de contactos.
+ * - renderContactsTable(contacts): void — renderiza tabla de contactos (2 por fila) con logos y enlaces.
+ * - applyCellBackgroundWithFallback(cell, logoUrl): void — intenta precargar logo y aplica fallback local si falla.
+ * - renderArcanaList(): void            — renderiza el listado lateral de arcanos.
  *
  * Contratos (forma resumida):
  * - Carta: { id:number, name:string, file:string, image:string, meaning?:object, description?:string, history?:string }
@@ -52,27 +52,27 @@ document.addEventListener('DOMContentLoaded', function () {
   // Prefer loading the cards from JSON; keep an in-file fallback if fetch fails
   const majorArcanaFallback = [
     { id: 0, name: 'El Loco', file: 'fool', description: 'Nuevos comienzos, espontaneidad, fe en la vida.' },
-    { id: 1, name: 'El Mago', file: 'magician', description: 'ManifestaciÃ³n, poder personal, habilidad.' },
-    { id: 2, name: 'La Sacerdotisa', file: 'high-priestess', description: 'IntuiciÃ³n, sabidurÃ­a inconsciente, misterio.' },
+    { id: 1, name: 'El Mago', file: 'magician', description: 'Manifestación, poder personal, habilidad.' },
+    { id: 2, name: 'La Sacerdotisa', file: 'high-priestess', description: 'Intuición, sabiduría inconsciente, misterio.' },
     { id: 3, name: 'La Emperatriz', file: 'empress', description: 'Fertilidad, creatividad, abundancia.' },
     { id: 4, name: 'El Emperador', file: 'emperor', description: 'Autoridad, estructura, control, liderazgo.' },
-    { id: 5, name: 'El Hierofante', file: 'hierophant', description: 'TradiciÃ³n, conformidad, moralidad, Ã©tica.' },
-    { id: 6, name: 'Los Enamorados', file: 'lovers', description: 'Amor, armonÃ­a, relaciones, valores, elecciones.' },
-    { id: 7, name: 'El Carro', file: 'chariot', description: 'Control, voluntad, Ã©xito, determinaciÃ³n.' },
-    { id: 8, name: 'La Fuerza', file: 'strength', description: 'Coraje, persuasiÃ³n, influencia, compasiÃ³n.' },
-    { id: 9, name: 'El ErmitaÃ±o', file: 'hermit', description: 'IntrospecciÃ³n, bÃºsqueda, orientaciÃ³n interna.' },
-    { id: 10, name: 'La Rueda de la Fortuna', file: 'wheel-of-fortune', description: 'Cambio, ciclos, destino, punto de inflexiÃ³n.' },
+    { id: 5, name: 'El Hierofante', file: 'hierophant', description: 'Tradición, conformidad, moralidad, ética.' },
+    { id: 6, name: 'Los Enamorados', file: 'lovers', description: 'Amor, armonía, relaciones, valores, elecciones.' },
+    { id: 7, name: 'El Carro', file: 'chariot', description: 'Control, voluntad, éxito, determinación.' },
+    { id: 8, name: 'La Fuerza', file: 'strength', description: 'Coraje, persuasión, influencia, compasión.' },
+    { id: 9, name: 'El Ermitaño', file: 'hermit', description: 'Introspección, búsqueda, orientación interna.' },
+    { id: 10, name: 'La Rueda de la Fortuna', file: 'wheel-of-fortune', description: 'Cambio, ciclos, destino, punto de inflexión.' },
     { id: 11, name: 'La Justicia', file: 'justice', description: 'Justicia, equidad, verdad, ley, equilibrio.' },
-    { id: 12, name: 'El Colgado', file: 'hanged-man', description: 'RendiciÃ³n, perspectiva, suspensiÃ³n, sacrificio.' },
-    { id: 13, name: 'La Muerte', file: 'death', description: 'Fin de un ciclo, cambio, transformaciÃ³n, transiciÃ³n.' },
-    { id: 14, name: 'La Templanza', file: 'temperance', description: 'Balance, moderaciÃ³n, paciencia, propÃ³sito.' },
-    { id: 15, name: 'El Diablo', file: 'devil', description: 'Sombra, apegos, adicciÃ³n, restricciÃ³n, sexualidad.' },
-    { id: 16, name: 'La Torre', file: 'tower', description: 'Cambio repentino, liberaciÃ³n, revelaciÃ³n, despertar.' },
-    { id: 17, name: 'La Estrella', file: 'star', description: 'Esperanza, fe, propÃ³sito, renovaciÃ³n, espiritualidad.' },
-    { id: 18, name: 'La Luna', file: 'moon', description: 'IlusiÃ³n, miedo, ansiedad, subconsciente, intuiciÃ³n.' },
-    { id: 19, name: 'El Sol', file: 'sun', description: 'Positividad, diversiÃ³n, calidez, Ã©xito, vitalidad.' },
-    { id: 20, name: 'El Juicio', file: 'judgement', description: 'ReflexiÃ³n, renacimiento, renovaciÃ³n interna, absoluciÃ³n.' },
-    { id: 21, name: 'El Mundo', file: 'world', description: 'RealizaciÃ³n, integraciÃ³n, logro, viaje, armonÃ­a.' }
+    { id: 12, name: 'El Colgado', file: 'hanged-man', description: 'Rendición, perspectiva, suspensión, sacrificio.' },
+    { id: 13, name: 'La Muerte', file: 'death', description: 'Fin de un ciclo, cambio, transformación, transición.' },
+    { id: 14, name: 'La Templanza', file: 'temperance', description: 'Balance, moderación, paciencia, propósito.' },
+    { id: 15, name: 'El Diablo', file: 'devil', description: 'Sombra, apegos, adicción, restricción, sexualidad.' },
+    { id: 16, name: 'La Torre', file: 'tower', description: 'Cambio repentino, liberación, revelación, despertar.' },
+    { id: 17, name: 'La Estrella', file: 'star', description: 'Esperanza, fe, propósito, renovación, espiritualidad.' },
+    { id: 18, name: 'La Luna', file: 'moon', description: 'Ilusión, miedo, ansiedad, subconsciente, intuición.' },
+    { id: 19, name: 'El Sol', file: 'sun', description: 'Positividad, diversión, calidez, éxito, vitalidad.' },
+    { id: 20, name: 'El Juicio', file: 'judgement', description: 'Reflexión, renacimiento, renovación interna, absolución.' },
+    { id: 21, name: 'El Mundo', file: 'world', description: 'Realización, integración, logro, viaje, armonía.' }
   ];
 
   // Fuentes de datos por mazo (Marseille y Raider)
@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   /**
    * Intenta cargar los listados de arcanos mayores para cada mazo desde sus
-   * respectivos archivos JSON. Si falla, se utilizarï¿½ el fallback embebido.
+   * respectivos archivos JSON. Si falla, se utilizar? el fallback embebido.
    */
   (async function preloadDecks() {
     try {
@@ -195,7 +195,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   let majorArcana = getMajorArcana(currentDeck);
 
-  // FunciÃ³n para seleccionar una carta aleatoria
+  // Función para seleccionar una carta aleatoria
   function getRandomCard() {
     // If full deck mode is enabled include minor arcana when available
     const useFull = fullDeckMode && minorArcanaLoaded;
@@ -270,12 +270,12 @@ document.addEventListener('DOMContentLoaded', function () {
   /**
    * showCard(card)
    * ----------------
-   * Muestra la carta seleccionada en el popup: actualiza la imagen, el tÃ­tulo
-   * y la descripciÃ³n. AdemÃ¡s gestiona la reactivaciÃ³n del botÃ³n de "Consultar"
-   * cuando la imagen haya terminado de cargarse para evitar mÃºltiples clics
-   * durante la animaciÃ³n de revelado.
+   * Muestra la carta seleccionada en el popup: actualiza la imagen, el título
+   * y la descripción. Además gestiona la reactivación del botón de "Consultar"
+   * cuando la imagen haya terminado de cargarse para evitar múltiples clics
+   * durante la animación de revelado.
    *
-   * ParÃ¡metros:
+   * Parámetros:
    * - card: objeto con al menos { image, name, meaning?, description? }
    */
 
@@ -289,16 +289,16 @@ document.addEventListener('DOMContentLoaded', function () {
     tarotCard.src = card.image;
     cardName.textContent = card.name;
 
-    // Reactivar el botÃ³n de consultar cuando la imagen haya terminado de cargarse y la carta estÃ© visible
+    // Reactivar el botón de consultar cuando la imagen haya terminado de cargarse y la carta esté visible
     function enableConsultButton() {
       consultButton.disabled = false;
       consultButton.classList.remove('disabled');
     }
 
-    // Si la imagen se carga correctamente, aseguramos reactivar el botÃ³n
+    // Si la imagen se carga correctamente, aseguramos reactivar el botón
     // usamos 'load' porque garantiza que la imagen se ha renderizado y las dimensiones son conocidas
     tarotCard.addEventListener('load', function () {
-      // pequeÃ±a espera para garantizar que las transiciones de visibilidad hayan terminado
+      // pequeña espera para garantizar que las transiciones de visibilidad hayan terminado
       setTimeout(function () {
         if (cardContainer.classList.contains('visible')) enableConsultButton();
       }, 90);
@@ -317,9 +317,9 @@ document.addEventListener('DOMContentLoaded', function () {
     if (arcanaDetail) arcanaDetail.classList.add('hidden');
   }
 
-  // Evento al hacer clic en el botÃ³n de consulta
+  // Evento al hacer clic en el botón de consulta
   consultButton.addEventListener('click', function () {
-    // deshabilitar el botÃ³n para evitar mÃºltiples consultas mientras se procesa
+    // deshabilitar el botón para evitar múltiples consultas mientras se procesa
     consultButton.disabled = true;
     consultButton.classList.add('disabled');
 
@@ -365,6 +365,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const arcanaListContainer = document.getElementById('arcana-list');
   const arcanaDetail = document.getElementById('arcana-detail');
   const arcanaDetailName = document.getElementById('arcana-detail-name');
+  arcanaDetailName.style.color = 'rgb(255, 230, 90)';
   const arcanaDetailDesc = document.getElementById('arcana-detail-desc');
   const arcanaDetailHistory = document.getElementById('arcana-detail-history');
 
@@ -384,17 +385,17 @@ document.addEventListener('DOMContentLoaded', function () {
     // Prefer an explicit history field from JSON when available
     if (card.history && card.history.trim().length > 0) return card.history;
     const desc = (card.description && typeof card.description === 'string') ? card.description : ((card.meaning && card.meaning.upright) ? card.meaning.upright : 'significados tradicionales');
-    return `Historia (prueba): La carta "${card.name}" tiene raÃ­ces simbÃ³licas que se remontan a tradiciones antiguas; representa ${desc.toLowerCase()} y su iconografÃ­a ha variado segÃºn las escuelas.`;
+    return `Historia (prueba): La carta "${card.name}" tiene raíces simbólicas que se remontan a tradiciones antiguas; representa ${desc.toLowerCase()} y su iconografía ha variado según las escuelas.`;
   }
 
   /**
    * Crea el HTML de una tabla de 2 celdas (horizontal) con Derecho / Invertido.
    * Devuelve una cadena con marcado seguro para su uso en innerHTML. Conserva
    * enlaces/formatos que vengan en los textos (el proyecto ya usa innerHTML en
-   * otros lugares) â€” si se requiere sanitizaciÃ³n mÃ¡s adelante, aplicar una
-   * librerÃ­a de sanitizaciÃ³n.
+   * otros lugares) — si se requiere sanitización más adelante, aplicar una
+   * librería de sanitización.
    *
-   * @param {string} upright - texto o HTML para la lectura en posiciÃ³n normal
+   * @param {string} upright - texto o HTML para la lectura en posición normal
    * @param {string} reversed - texto o HTML para la lectura invertida
    * @returns {string} HTML de una tabla responsiva con dos celdas
    */
@@ -405,11 +406,11 @@ document.addEventListener('DOMContentLoaded', function () {
       <table class="meaning-table" style="width:100%;border-collapse:collapse;">
         <tr>
           <td style="vertical-align:top;padding:8px;width:50%;border-right:1px solid rgba(255,255,255,0.04);">
-            <div style="font-weight:600;margin-bottom:6px;color:#f0c929;">Derecho</div>
+            <div style="font-weight:600;margin-bottom:6px;color:rgb(255, 230, 90)">Derecho</div>
             <div class="meaning-upright">${u}</div>
           </td>
           <td style="vertical-align:top;padding:8px;width:50%;">
-            <div style="font-weight:600;margin-bottom:6px;color:#f0c929;">Invertido</div>
+            <div style="font-weight:600;margin-bottom:6px;color:rgb(255, 230, 90)">Invertido</div>
             <div class="meaning-reversed">${r}</div>
           </td>
         </tr>
@@ -507,7 +508,7 @@ document.addEventListener('DOMContentLoaded', function () {
   function truncateText(s, max) {
     if (!s) return '';
     if (s.length <= max) return s;
-    return s.slice(0, max - 1) + 'â€¦';
+    return s.slice(0, max - 1) + '…';
   }
 
 
@@ -556,12 +557,12 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // ---------------------- Contactos dinÃ¡micos ----------------------
+  // ---------------------- Contactos dinámicos ----------------------
   const contactsButton = document.getElementById('contacts-socials-boton');
   const contactsSection = document.getElementById('contacts-section');
   const contactsContainer = document.getElementById('contacts-container');
 
-  // Ã­conos simples inline por red (se pueden ampliar)
+  // íconos simples inline por red (se pueden ampliar)
   const socialIcons = {
     whatsapp: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.52 3.48A11.93 11.93 0 0 0 12 0C5.373 0 .003 5.373 0 12c0 2.12.557 4.17 1.616 5.98L0 24l6.29-1.604A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12 0-3.2-1.25-6.2-3.48-8.52z" fill="#25D366"/><path d="M17.472 14.382c-.297-.149-1.76-.867-2.033-.966-.273-.099-.472-.148-.672.15-.198.297-.768.966-.942 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.884-.787-1.48-1.761-1.652-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.447-.52.149-.174.198-.298.297-.497.099-.198.05-.372-.025-.52-.074-.148-.672-1.62-.92-2.219-.243-.58-.49-.5-.672-.51l-.573-.01c-.198 0-.52.074-.793.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487 2.982 1.287 2.982.858 3.517.806.536-.05 1.76-.717 2.005-1.409.247-.692.247-1.285.173-1.409-.074-.124-.273-.198-.57-.347z" fill="#fff"/></svg>',
     instagram: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#f58529"/><stop offset="0.5" stop-color="#dd2a7b"/><stop offset="1" stop-color="#515bd4"/></linearGradient><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5z" stroke="url(#g1)" stroke-width="1.6" fill="none"/><circle cx="12" cy="12" r="3.2" stroke="url(#g1)" stroke-width="1.6" fill="none"/><circle cx="18.2" cy="5.8" r="0.6" fill="#dd2a7b"/></svg>',
@@ -616,7 +617,7 @@ document.addEventListener('DOMContentLoaded', function () {
       // detectar campo logo (puede venir dentro de links.logo o como c.logo)
       const logoUrl = (c.logo) ? c.logo : (c.links && c.links.logo) ? c.links.logo : null;
       if (logoUrl) {
-        // aplicar background con comprobaciÃ³n: si la imagen externa no carga, usar fallback local
+        // aplicar background con comprobación: si la imagen externa no carga, usar fallback local
         applyCellBackgroundWithFallback(cell, logoUrl);
       }
 
@@ -652,7 +653,7 @@ document.addEventListener('DOMContentLoaded', function () {
           return;
         }
 
-        // Normalizar enlaces de imgur: si detectamos una URL de galerÃ­a o imgur.com/ID,
+        // Normalizar enlaces de imgur: si detectamos una URL de galería o imgur.com/ID,
         // intentamos convertirla a i.imgur.com/ID.jpg (si ya es directa no la tocamos).
         if (url.includes('imgur.com') && !url.includes('i.imgur.com')) {
           try {
@@ -667,7 +668,7 @@ document.addEventListener('DOMContentLoaded', function () {
           }
         }
 
-        // ConstrucciÃ³n del enlace (<a>) con icono y texto
+        // Construcción del enlace (<a>) con icono y texto
         const a = document.createElement('a');
         a.href = url;
         a.target = '_blank';
@@ -691,7 +692,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       cell.appendChild(linksWrap);
       row.appendChild(cell);
-      // animaciÃ³n de entrada: staggered
+      // animación de entrada: staggered
       setTimeout(() => cell.classList.add('entered'), 80 * (idx % 2 === 0 ? Math.floor(idx / 2) : Math.floor(idx / 2) + 1));
     });
 
@@ -716,7 +717,7 @@ document.addEventListener('DOMContentLoaded', function () {
       cell.style.backgroundPosition = 'center';
     };
 
-    // onload / onerror gestionan Ã©xito o fallo de carga
+    // onload / onerror gestionan éxito o fallo de carga
     testImg.onload = function () {
       if (settled) return;
       settled = true;
@@ -760,19 +761,19 @@ document.addEventListener('DOMContentLoaded', function () {
         contactsSection.classList.remove('hidden');
         loadAndRenderContacts().then(scrollFirstContactIntoView);
         contactsButton.textContent = 'Ocultar Contactos';
-        // marcar visualmente el botÃ³n como seleccionado
+        // marcar visualmente el botón como seleccionado
         contactsButton.classList.add('selected');
       } else {
         contactsSection.classList.add('hidden');
-        contactsButton.textContent = 'Â¿Quieres conocer mas sobre el Tarot?';
+        contactsButton.textContent = '¿Quieres conocer mas sobre el Tarot?';
         contactsButton.classList.remove('selected');
       }
     });
   }
 
   // --- Fallback de logo: si la URL externa no carga, usar imagen local por defecto ---
-  // ComprobaciÃ³n por cada celda en renderContactsTable: intentamos precargar la imagen y
-  // si falla, reemplazamos el background con un fallback estÃ¡tico.
+  // Comprobación por cada celda en renderContactsTable: intentamos precargar la imagen y
+  // si falla, reemplazamos el background con un fallback estático.
 
   const sunLogo = document.querySelector(".sun-logo");
   const moonLogo = document.querySelector(".header-brand-icon");
