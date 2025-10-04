@@ -1,4 +1,4 @@
-body {
+﻿body {
   font-family: 'Arial', sans-serif;
   background-color: #1a1a2e;
   color: #e6e6e6;
@@ -9,7 +9,7 @@ body {
   overflow: hidden;
 }
 
-/* Fondo ocupa toda la pantalla detrás del contenido */
+/* Fondo ocupa toda la pantalla detrÃ¡s del contenido */
 .background {
   position: fixed;
   top: 0;
@@ -17,7 +17,7 @@ body {
   width: 100%;
   height: 100%;
   z-index: -1;
-  /* 🔹 queda detrás del contenido */
+  /* ðŸ”¹ queda detrÃ¡s del contenido */
   overflow: hidden;
 }
 
@@ -25,7 +25,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* 🔹 mantiene proporción y rellena */
+  /* ðŸ”¹ mantiene proporciÃ³n y rellena */
   transition: opacity 420ms ease-in-out;
   will-change: opacity;
 }
@@ -35,10 +35,10 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  /* 👈 mejor que space-between para que no "salte" */
+  /* ðŸ‘ˆ mejor que space-between para que no "salte" */
 
   min-height: 100vh;
-  /* 👈 ocupa toda la altura de la ventana */
+  /* ðŸ‘ˆ ocupa toda la altura de la ventana */
   width: 100%;
 
   padding: 20px;
@@ -46,7 +46,7 @@ body {
 
   position: relative;
   z-index: 1;
-  /* 👈 asegura que quede sobre el fondo estrellado */
+  /* ðŸ‘ˆ asegura que quede sobre el fondo estrellado */
 
   /* Fondo eliminado, ya lo maneja la capa .background */
   background: transparent;
@@ -190,18 +190,24 @@ h1 {
   max-height: 60%;
   box-shadow: 0 0 10px #f0c92966;
   border-radius: 10px;
-  /* transición para animar escalado horizontal sutil */
+  /* transiciÃ³n para animar escalado horizontal sutil */
   transform-origin: center center;
   transition: transform 320ms cubic-bezier(.2, .9, .2, 1), box-shadow 320ms ease;
   will-change: transform;
 }
 
 #card-name {
-  margin-top: 18px;
+  margin-top: 16px;
   margin-bottom: 2px;
   font-size: 15px;
-  color: #f0c929;
+  color: #f6b93b;
   text-align: center;
+  background: rgba(142, 176, 236, 0.89);
+  padding: 5px;
+  border-radius: 12px 12px 0 0;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.153);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 
 #card-description {
@@ -210,6 +216,25 @@ h1 {
   text-align: center;
   margin-top: 0;
   max-width: 90%;
+  background: rgba(142, 176, 236, 0.89);
+  padding: 2px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+body:not(.celestial-theme) #card-name,
+body:not(.celestial-theme) #card-description {
+  background: transparent;
+}
+
+body:not(.celestial-theme) #arcana-detail {
+  background: transparent;
+}
+
+body:not(.celestial-theme) .arcana-item {
+  background: transparent;
 }
 
 #card-description .meaning-table,
@@ -243,10 +268,10 @@ h1 {
 #deck-raider {
   background: linear-gradient(135deg, #0a3d4a, #0d5c5c);
   color: #ffffff;
-  /* Cambié el color de texto a blanco para mejor contraste */
+  /* CambiÃ© el color de texto a blanco para mejor contraste */
   border: none;
   padding: 6px 12px;
-  /* botones más pequeños */
+  /* botones mÃ¡s pequeÃ±os */
   font-size: 14px;
   border-radius: 5px;
   cursor: pointer;
@@ -278,7 +303,7 @@ h1 {
   transform: scale(0.95);
 }
 
-/* Botón Consultar */
+/* BotÃ³n Consultar */
 #consult-button {
   background: linear-gradient(135deg, #0a3d4a, #0d5c5c);
   color: #ffffff;
@@ -301,13 +326,52 @@ h1 {
   transform: scale(0.95);
 }
 
-/* Estado deshabilitado para el botón Consultar */
+/* Estado deshabilitado para el botÃ³n Consultar */
 #consult-button:disabled,
 #consult-button.disabled {
   opacity: 0.6;
   cursor: not-allowed;
   transform: none !important;
   filter: grayscale(0.08) saturate(0.9);
+}
+
+/* Paleta celeste cuando el fondo diurno (sol) está activo */
+body.celestial-theme .deck-button,
+body.celestial-theme #deck-marseille,
+body.celestial-theme #deck-raider,
+body.celestial-theme #consult-button,
+body.celestial-theme #contacts-socials-boton,
+body.celestial-theme #show-arcana-list {
+  background: linear-gradient(135deg, #3aa8e0, #157dcc);
+  color: #ffffff;
+  box-shadow: 0 3px 10px rgba(67, 182, 255, 0.35);
+}
+
+body.celestial-theme .deck-button.selected,
+body.celestial-theme #deck-marseille.selected,
+body.celestial-theme #deck-raider.selected,
+body.celestial-theme #contacts-socials-boton.selected {
+  background: linear-gradient(135deg, #4bb7ed, #1f8cd9);
+  box-shadow: 0 0 12px rgba(91, 205, 255, 0.7);
+  color: #ffffff;
+}
+
+body.celestial-theme .deck-button:hover,
+body.celestial-theme #deck-marseille:hover,
+body.celestial-theme #deck-raider:hover,
+body.celestial-theme #consult-button:hover,
+body.celestial-theme #contacts-socials-boton:hover,
+body.celestial-theme #show-arcana-list:hover {
+  background: linear-gradient(135deg, #56c3f3, #2a99e3);
+  transform: scale(1.05);
+}
+
+body.celestial-theme .deck-button:active,
+body.celestial-theme #deck-marseille:active,
+body.celestial-theme #deck-raider:active,
+body.celestial-theme #consult-button:active,
+body.celestial-theme #contacts-socials-boton:active {
+  transform: scale(0.95);
 }
 
 #contact-section {
@@ -425,7 +489,7 @@ h1 {
   transform: scaleX(1.06);
   /* ligero estiramiento horizontal */
   box-shadow: 0 0 26px #f0c92988;
-  /* realzar un poco mientras está expandida */
+  /* realzar un poco mientras estÃ¡ expandida */
 }
 
 #toggle-full-tarot {
@@ -458,10 +522,11 @@ h1 {
   height: auto;
   min-height: 88px;
   padding: 6px;
-  background: transparent;
+  background: rgba(126, 156, 206, 0.697);
   border: none;
   cursor: pointer;
   position: relative;
+  border-radius: 8px;
 }
 
 .arcana-item .arcana-thumb {
@@ -477,7 +542,7 @@ h1 {
 .arcana-label {
   margin-top: 6px;
   font-size: 11px;
-  color: #e6e6e6;
+  color: #ffffff;
   text-align: center;
   z-index: 2;
   position: relative;
@@ -491,7 +556,7 @@ h1 {
 .arcana-history {
   margin-top: 6px;
   font-size: 10px;
-  color: #cfcfcf;
+  color: #ffffff;
   text-align: center;
   max-width: 100%;
   line-height: 1.2;
@@ -519,9 +584,12 @@ h1 {
 #card-container.alt-style #card-description {
   font-size: 5px;
   color: #e6e6e6;
-  background: rgba(41, 201, 240, 0.08);
-  border-radius: 8px;
-  padding: 3px 10px;
+  background: rgba(142, 176, 236, 0.89);
+  padding: 2px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 
 /* Arcana detail: increase description and history size for readability */
@@ -532,16 +600,26 @@ h1 {
 }
 
 #arcana-detail {
-  padding: 5px;
+  padding: 10px 14px;
   max-width: 320px;
   margin: 0 auto;
+  background: rgba(142, 176, 236, 0.89);
+  padding: 2px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 
 #arcana-detail #arcana-detail-desc {
   font-size: 12px;
   line-height: 1.45;
   margin-bottom: 6px;
-  color: #e6e6e6;
+  color: #ffffff;
+}
+
+#arcana-detail-name {
+  text-align: center;
 }
 
 #arcana-detail #arcana-detail-desc .meaning-table,
@@ -554,7 +632,7 @@ h1 {
 #arcana-detail #arcana-detail-history {
   font-size: 13px;
   line-height: 1.4;
-  color: #cfcfcf;
+  color: #ffffff;
 }
 
 #arcana-detail #arcana-detail-image {

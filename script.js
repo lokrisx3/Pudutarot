@@ -810,6 +810,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
+  function applyCelestialButtonTheme() {
+    document.body.classList.toggle('celestial-theme', !isNight);
+  }
+
   // ensure initial background matches state
   if (bgImageEl) { bgImageEl.style.opacity = '1'; }
   // If there's no saved preference (first run), set sunny immediately without fade.
@@ -825,6 +829,7 @@ document.addEventListener('DOMContentLoaded', function () {
   } catch (e) {
     setBackgroundImage(isNight ? 'images/fondo-night.svg' : 'images/fondo-day.svg');
   }
+  applyCelestialButtonTheme();
 
   // sync icon classes with current state so UI matches background
   if (sunLogo && moonLogo) {
@@ -841,6 +846,7 @@ document.addEventListener('DOMContentLoaded', function () {
       // derive isNight directly from sunHidden
       isNight = !!sunHidden;
       setBackgroundImage(isNight ? 'images/fondo-night.svg' : 'images/fondo-day.svg');
+      applyCelestialButtonTheme();
       try { localStorage.setItem('pudutarot:isNight', isNight ? '1' : '0'); } catch (e) { /* ignore */ }
     };
 
@@ -865,6 +871,7 @@ document.addEventListener('DOMContentLoaded', function () {
         isNight = !isNight;
       }
       setBackgroundImage(isNight ? 'images/fondo-night.svg' : 'images/fondo-day.svg');
+      applyCelestialButtonTheme();
       try { localStorage.setItem('pudutarot:isNight', isNight ? '1' : '0'); } catch (e) { }
     });
   }
