@@ -1,624 +1,628 @@
 [
     {
-        "TypeCard":  [
-                         "Marseille",
-                         "Raider"
-                     ]
+        "TypeCard": [
+            "Marseille",
+            "Raider"
+        ],
+        "historyBastos": "El palo de Bastos en el tarot tiene sus raíces en la simbología medieval, donde representaba la energía, la creatividad y la acción. En la tradición del tarot de Marsella, los Bastos están asociados con el elemento fuego, simbolizando la pasión y el impulso. A lo largo del tiempo, este palo ha sido interpretado como un signo de nuevos comienzos y oportunidades, reflejando la naturaleza dinámica y emprendedora de quienes buscan avanzar en sus proyectos y aspiraciones.",
+        "historyCopas": "El palo de Copas en el tarot tiene una rica historia que se remonta a la Edad Media, donde las copas simbolizaban las emociones, el amor y las relaciones. En la tradición del tarot de Marsella, las Copas están asociadas con el elemento agua, representando la fluidez y la profundidad emocional. A lo largo del tiempo, este palo ha sido interpretado como un signo de conexiones afectivas y experiencias emocionales, reflejando la importancia de los sentimientos y la intuición en la vida de quienes buscan guía a través del tarot.",
+        "historyEspadas": "El palo de Espadas en el tarot tiene sus orígenes en la simbología medieval, donde las espadas representaban el intelecto, la verdad y el conflicto. En la tradición del tarot de Marsella, las Espadas están asociadas con el elemento aire, simbolizando la mente y la comunicación. A lo largo del tiempo, este palo ha sido interpretado como un signo de desafíos y decisiones, reflejando la naturaleza analítica y a veces confrontativa de quienes buscan claridad y resolución en sus vidas a través del tarot.",
+        "historyOros": "El palo de Oros en el tarot tiene una historia que se remonta a la Edad Media, donde los oros simbolizaban la riqueza, la prosperidad y el mundo material. En la tradición del tarot de Marsella, los Oros están asociados con el elemento tierra, representando la estabilidad y la seguridad financiera. A lo largo del tiempo, este palo ha sido interpretado como un signo de éxito y logros materiales, reflejando la importancia de los recursos y la gestión práctica en la vida de quienes buscan guía a través del tarot."
     },
     {
-        "id":  100,
-        "suit":  "Bastos",
-        "name":  "As de Bastos",
-        "file":  "arcanosmenores/bastosas",
-        "meaning":  {
-                        "upright":  "Comienzos creativos, inspiración.",
-                        "reversed":  "Bloqueo creativo, falta de iniciativa."
-                    },
-        "history":  "En los mazos marselleses del siglo XVIII el baston ardiente marcaba el impulso creativo de los gremios artesanos."
+        "id": 100,
+        "suit": "Bastos",
+        "name": "As de Bastos",
+        "file": "arcanosmenores/bastosas",
+        "meaning": {
+            "upright": "Comienzos creativos, inspiración.",
+            "reversed": "Bloqueo creativo, falta de iniciativa."
+        },
+        "history": "En los mazos marselleses del siglo XVIII el baston ardiente marcaba el impulso creativo de los gremios artesanos."
     },
     {
-        "id":  101,
-        "suit":  "Bastos",
-        "name":  "Dos de Bastos",
-        "file":  "arcanosmenores/bastos2",
-        "meaning":  {
-                        "upright":  "Planificación, visión a futuro.",
-                        "reversed":  "Indecisión, falta de planificación."
-                    },
-        "history":  "El segundo basto fue ligado por impresores venecianos a los planes mercantiles que cruzaban mares y provincias."
+        "id": 101,
+        "suit": "Bastos",
+        "name": "Dos de Bastos",
+        "file": "arcanosmenores/bastos2",
+        "meaning": {
+            "upright": "Planificación, visión a futuro.",
+            "reversed": "Indecisión, falta de planificación."
+        },
+        "history": "El segundo basto fue ligado por impresores venecianos a los planes mercantiles que cruzaban mares y provincias."
     },
     {
-        "id":  102,
-        "suit":  "Bastos",
-        "name":  "Tres de Bastos",
-        "file":  "arcanosmenores/bastos3",
-        "meaning":  {
-                        "upright":  "Expansión, comercio, espera de resultados.",
-                        "reversed":  "Retrasos, falta de crecimiento."
-                    },
-        "history":  "Los grabadores de Dijon mostraron tres bastos navegando juntos, recordando las expediciones que ampliaron el comercio europeo."
+        "id": 102,
+        "suit": "Bastos",
+        "name": "Tres de Bastos",
+        "file": "arcanosmenores/bastos3",
+        "meaning": {
+            "upright": "Expansión, comercio, espera de resultados.",
+            "reversed": "Retrasos, falta de crecimiento."
+        },
+        "history": "Los grabadores de Dijon mostraron tres bastos navegando juntos, recordando las expediciones que ampliaron el comercio europeo."
     },
     {
-        "id":  103,
-        "suit":  "Bastos",
-        "name":  "Cuatro de Bastos",
-        "file":  "arcanosmenores/bastos4",
-        "meaning":  {
-                        "upright":  "Celebración, hogar, estabilidad.",
-                        "reversed":  "Inestabilidad doméstica, celebración retrasada."
-                    },
-        "history":  "Las primeras ediciones de Besancon destacaban cuatro bastos elevados como arco festivo para honrar alianzas comunitarias."
+        "id": 103,
+        "suit": "Bastos",
+        "name": "Cuatro de Bastos",
+        "file": "arcanosmenores/bastos4",
+        "meaning": {
+            "upright": "Celebración, hogar, estabilidad.",
+            "reversed": "Inestabilidad doméstica, celebración retrasada."
+        },
+        "history": "Las primeras ediciones de Besancon destacaban cuatro bastos elevados como arco festivo para honrar alianzas comunitarias."
     },
     {
-        "id":  104,
-        "suit":  "Bastos",
-        "name":  "Cinco de Bastos",
-        "file":  "arcanosmenores/bastos5",
-        "meaning":  {
-                        "upright":  "Conflicto, competencia, pruebas.",
-                        "reversed":  "Evitar confrontaciones, conflictos internos."
-                    },
-        "history":  "En mazos victorianos cinco aprendices practicaban esgrima con bastos, reflejando rivalidades de gremio sin sangre."
+        "id": 104,
+        "suit": "Bastos",
+        "name": "Cinco de Bastos",
+        "file": "arcanosmenores/bastos5",
+        "meaning": {
+            "upright": "Conflicto, competencia, pruebas.",
+            "reversed": "Evitar confrontaciones, conflictos internos."
+        },
+        "history": "En mazos victorianos cinco aprendices practicaban esgrima con bastos, reflejando rivalidades de gremio sin sangre."
     },
     {
-        "id":  105,
-        "suit":  "Bastos",
-        "name":  "Seis de Bastos",
-        "file":  "arcanosmenores/bastos6",
-        "meaning":  {
-                        "upright":  "Victoria pública, reconocimiento.",
-                        "reversed":  "Falsas glorias, arrogancia."
-                    },
-        "history":  "El triunfo con laureles proviene de relatos romanos que inspiraron a Etteilla a dibujar un cortejo victorioso en este seis."
+        "id": 105,
+        "suit": "Bastos",
+        "name": "Seis de Bastos",
+        "file": "arcanosmenores/bastos6",
+        "meaning": {
+            "upright": "Victoria pública, reconocimiento.",
+            "reversed": "Falsas glorias, arrogancia."
+        },
+        "history": "El triunfo con laureles proviene de relatos romanos que inspiraron a Etteilla a dibujar un cortejo victorioso en este seis."
     },
     {
-        "id":  106,
-        "suit":  "Bastos",
-        "name":  "Siete de Bastos",
-        "file":  "arcanosmenores/bastos7",
-        "meaning":  {
-                        "upright":  "Defensa, posición sólida.",
-                        "reversed":  "Agotamiento por defenderse, perder terreno."
-                    },
-        "history":  "Los talleres catalanes representaron el bastion defensivo de montaneros, inspirando la escena del siete resistiendo."
+        "id": 106,
+        "suit": "Bastos",
+        "name": "Siete de Bastos",
+        "file": "arcanosmenores/bastos7",
+        "meaning": {
+            "upright": "Defensa, posición sólida.",
+            "reversed": "Agotamiento por defenderse, perder terreno."
+        },
+        "history": "Los talleres catalanes representaron el bastion defensivo de montaneros, inspirando la escena del siete resistiendo."
     },
     {
-        "id":  107,
-        "suit":  "Bastos",
-        "name":  "Ocho de Bastos",
-        "file":  "arcanosmenores/bastos8",
-        "meaning":  {
-                        "upright":  "Movimiento rápido, comunicación.",
-                        "reversed":  "Retrasos, noticias demoradas."
-                    },
-        "history":  "En grabados georgianos el vuelo de bastos alude a correos rapidos que unian capitales y aceleraban noticias."
+        "id": 107,
+        "suit": "Bastos",
+        "name": "Ocho de Bastos",
+        "file": "arcanosmenores/bastos8",
+        "meaning": {
+            "upright": "Movimiento rápido, comunicación.",
+            "reversed": "Retrasos, noticias demoradas."
+        },
+        "history": "En grabados georgianos el vuelo de bastos alude a correos rapidos que unian capitales y aceleraban noticias."
     },
     {
-        "id":  108,
-        "suit":  "Bastos",
-        "name":  "Nueve de Bastos",
-        "file":  "arcanosmenores/bastos9",
-        "meaning":  {
-                        "upright":  "Resistencia, defensa cercana al final.",
-                        "reversed":  "Fatiga, rendición ante la presión."
-                    },
-        "history":  "La guardia exhausta del nueve reproduce cronicones medievales sobre milicias fronterizas que luchaban sin descanso."
+        "id": 108,
+        "suit": "Bastos",
+        "name": "Nueve de Bastos",
+        "file": "arcanosmenores/bastos9",
+        "meaning": {
+            "upright": "Resistencia, defensa cercana al final.",
+            "reversed": "Fatiga, rendición ante la presión."
+        },
+        "history": "La guardia exhausta del nueve reproduce cronicones medievales sobre milicias fronterizas que luchaban sin descanso."
     },
     {
-        "id":  109,
-        "suit":  "Bastos",
-        "name":  "Diez de Bastos",
-        "file":  "arcanosmenores/bastos10",
-        "meaning":  {
-                        "upright":  "Carga excesiva, responsabilidad.",
-                        "reversed":  "Alivio de carga, delegar responsabilidades."
-                    },
-        "history":  "El diez hereda la imagen de campesinos galos cargando haces, simbolo de obligaciones acumuladas tras la cosecha."
+        "id": 109,
+        "suit": "Bastos",
+        "name": "Diez de Bastos",
+        "file": "arcanosmenores/bastos10",
+        "meaning": {
+            "upright": "Carga excesiva, responsabilidad.",
+            "reversed": "Alivio de carga, delegar responsabilidades."
+        },
+        "history": "El diez hereda la imagen de campesinos galos cargando haces, simbolo de obligaciones acumuladas tras la cosecha."
     },
     {
-        "id":  110,
-        "suit":  "Copas",
-        "name":  "As de Copas",
-        "file":  "arcanosmenores/copasas",
-        "meaning":  {
-                        "upright":  "Amor nuevo, apertura emocional.",
-                        "reversed":  "Bloqueo emocional, cierre."
-                    },
-        "history":  "El as de copas se remonta a ritos marianos donde la vasija rebosante prometia bendiciones renovadas."
+        "id": 110,
+        "suit": "Copas",
+        "name": "As de Copas",
+        "file": "arcanosmenores/copasas",
+        "meaning": {
+            "upright": "Amor nuevo, apertura emocional.",
+            "reversed": "Bloqueo emocional, cierre."
+        },
+        "history": "El as de copas se remonta a ritos marianos donde la vasija rebosante prometia bendiciones renovadas."
     },
     {
-        "id":  111,
-        "suit":  "Copas",
-        "name":  "Dos de Copas",
-        "file":  "arcanosmenores/copas2",
-        "meaning":  {
-                        "upright":  "Unión, asociación.",
-                        "reversed":  "Separación, desacuerdo."
-                    },
-        "history":  "Las dos copas celebran pactos nupciales descritos en manuales italianos de cartomancia del siglo XVIII."
+        "id": 111,
+        "suit": "Copas",
+        "name": "Dos de Copas",
+        "file": "arcanosmenores/copas2",
+        "meaning": {
+            "upright": "Unión, asociación.",
+            "reversed": "Separación, desacuerdo."
+        },
+        "history": "Las dos copas celebran pactos nupciales descritos en manuales italianos de cartomancia del siglo XVIII."
     },
     {
-        "id":  112,
-        "suit":  "Copas",
-        "name":  "Tres de Copas",
-        "file":  "arcanosmenores/copas3",
-        "meaning":  {
-                        "upright":  "Celebración, comunidad.",
-                        "reversed":  "Alejamientos, falta de apoyo."
-                    },
-        "history":  "Cronicas inglesas refieren banquetes de gremios, origen del trio de copas que brinda por la camaraderia."
+        "id": 112,
+        "suit": "Copas",
+        "name": "Tres de Copas",
+        "file": "arcanosmenores/copas3",
+        "meaning": {
+            "upright": "Celebración, comunidad.",
+            "reversed": "Alejamientos, falta de apoyo."
+        },
+        "history": "Cronicas inglesas refieren banquetes de gremios, origen del trio de copas que brinda por la camaraderia."
     },
     {
-        "id":  113,
-        "suit":  "Copas",
-        "name":  "Cuatro de Copas",
-        "file":  "arcanosmenores/copas4",
-        "meaning":  {
-                        "upright":  "Aburrimiento, introspección.",
-                        "reversed":  "Apertura, nuevas oportunidades emocionales."
-                    },
-        "history":  "Los medallones del cuatro evocan el retiro monastico, cuando se examinaban deseos antes de aceptar nuevas ofrendas."
+        "id": 113,
+        "suit": "Copas",
+        "name": "Cuatro de Copas",
+        "file": "arcanosmenores/copas4",
+        "meaning": {
+            "upright": "Aburrimiento, introspección.",
+            "reversed": "Apertura, nuevas oportunidades emocionales."
+        },
+        "history": "Los medallones del cuatro evocan el retiro monastico, cuando se examinaban deseos antes de aceptar nuevas ofrendas."
     },
     {
-        "id":  114,
-        "suit":  "Copas",
-        "name":  "Cinco de Copas",
-        "file":  "arcanosmenores/copas5",
-        "meaning":  {
-                        "upright":  "Pérdida, duelo.",
-                        "reversed":  "Aceptación, avanzar."
-                    },
-        "history":  "Versiones antiguas muestran una copa derramada en memoria de perdidas durante pestes urbanas."
+        "id": 114,
+        "suit": "Copas",
+        "name": "Cinco de Copas",
+        "file": "arcanosmenores/copas5",
+        "meaning": {
+            "upright": "Pérdida, duelo.",
+            "reversed": "Aceptación, avanzar."
+        },
+        "history": "Versiones antiguas muestran una copa derramada en memoria de perdidas durante pestes urbanas."
     },
     {
-        "id":  115,
-        "suit":  "Copas",
-        "name":  "Seis de Copas",
-        "file":  "arcanosmenores/copas6",
-        "meaning":  {
-                        "upright":  "Nostalgia, recuerdos.",
-                        "reversed":  "Anclaje al pasado, dificultad para avanzar."
-                    },
-        "history":  "Las ilustraciones de Rider Waite recuperan juegos infantiles victorianos para hablar de recuerdos dulces en el seis."
+        "id": 115,
+        "suit": "Copas",
+        "name": "Seis de Copas",
+        "file": "arcanosmenores/copas6",
+        "meaning": {
+            "upright": "Nostalgia, recuerdos.",
+            "reversed": "Anclaje al pasado, dificultad para avanzar."
+        },
+        "history": "Las ilustraciones de Rider Waite recuperan juegos infantiles victorianos para hablar de recuerdos dulces en el seis."
     },
     {
-        "id":  116,
-        "suit":  "Copas",
-        "name":  "Siete de Copas",
-        "file":  "arcanosmenores/copas7",
-        "meaning":  {
-                        "upright":  "Opciones, fantasía.",
-                        "reversed":  "Ilusiones disipadas, elección clara."
-                    },
-        "history":  "Los siete vasos flotantes provienen de catalogos esotericos que advertian sobre fantasias sin fundamento."
+        "id": 116,
+        "suit": "Copas",
+        "name": "Siete de Copas",
+        "file": "arcanosmenores/copas7",
+        "meaning": {
+            "upright": "Opciones, fantasía.",
+            "reversed": "Ilusiones disipadas, elección clara."
+        },
+        "history": "Los siete vasos flotantes provienen de catalogos esotericos que advertian sobre fantasias sin fundamento."
     },
     {
-        "id":  117,
-        "suit":  "Copas",
-        "name":  "Ocho de Copas",
-        "file":  "arcanosmenores/copas8",
-        "meaning":  {
-                        "upright":  "Partir, buscar algo más.",
-                        "reversed":  "Resistencia a dejar atrás, estancamiento."
-                    },
-        "history":  "El ocho representa al peregrino alquimico que abandona placeres faciles, segun manuscritos rosacruces."
+        "id": 117,
+        "suit": "Copas",
+        "name": "Ocho de Copas",
+        "file": "arcanosmenores/copas8",
+        "meaning": {
+            "upright": "Partir, buscar algo más.",
+            "reversed": "Resistencia a dejar atrás, estancamiento."
+        },
+        "history": "El ocho representa al peregrino alquimico que abandona placeres faciles, segun manuscritos rosacruces."
     },
     {
-        "id":  118,
-        "suit":  "Copas",
-        "name":  "Nueve de Copas",
-        "file":  "arcanosmenores/copas9",
-        "meaning":  {
-                        "upright":  "Satisfacción, deseos cumplidos.",
-                        "reversed":  "Falsas satisfacciones, superficialidad."
-                    },
-        "history":  "Los artesanos napolitanos llamaron a este nueve la carta del hostalero satisfecho, guardian de deseos cumplidos."
+        "id": 118,
+        "suit": "Copas",
+        "name": "Nueve de Copas",
+        "file": "arcanosmenores/copas9",
+        "meaning": {
+            "upright": "Satisfacción, deseos cumplidos.",
+            "reversed": "Falsas satisfacciones, superficialidad."
+        },
+        "history": "Los artesanos napolitanos llamaron a este nueve la carta del hostalero satisfecho, guardian de deseos cumplidos."
     },
     {
-        "id":  119,
-        "suit":  "Copas",
-        "name":  "Diez de Copas",
-        "file":  "arcanosmenores/copas10",
-        "meaning":  {
-                        "upright":  "Hogar feliz, plenitud familiar.",
-                        "reversed":  "Problemas domésticos, ilusiones rotas."
-                    },
-        "history":  "El diez de copas mezcla tradiciones irlandesas de arco iris familiar con la idea cabalistica de plenitud emocional."
+        "id": 119,
+        "suit": "Copas",
+        "name": "Diez de Copas",
+        "file": "arcanosmenores/copas10",
+        "meaning": {
+            "upright": "Hogar feliz, plenitud familiar.",
+            "reversed": "Problemas domésticos, ilusiones rotas."
+        },
+        "history": "El diez de copas mezcla tradiciones irlandesas de arco iris familiar con la idea cabalistica de plenitud emocional."
     },
     {
-        "id":  120,
-        "suit":  "Espadas",
-        "name":  "As de Espadas",
-        "file":  "arcanosmenores/espadasas",
-        "meaning":  {
-                        "upright":  "Claridad, verdad, decisión.",
-                        "reversed":  "Confusión, bloqueo mental."
-                    },
-        "history":  "Los grabados de Marsella muestran la espada alzada como juramento de verdad, legado de la justicia francesa."
+        "id": 120,
+        "suit": "Espadas",
+        "name": "As de Espadas",
+        "file": "arcanosmenores/espadasas",
+        "meaning": {
+            "upright": "Claridad, verdad, decisión.",
+            "reversed": "Confusión, bloqueo mental."
+        },
+        "history": "Los grabados de Marsella muestran la espada alzada como juramento de verdad, legado de la justicia francesa."
     },
     {
-        "id":  121,
-        "suit":  "Espadas",
-        "name":  "Dos de Espadas",
-        "file":  "arcanosmenores/espadas2",
-        "meaning":  {
-                        "upright":  "Indecisión, bloqueo emocional.",
-                        "reversed":  "Decisión, apertura."
-                    },
-        "history":  "El dos de espadas imita duelos rituales del Renacimiento, donde la tregua dependia de mantener el equilibrio."
+        "id": 121,
+        "suit": "Espadas",
+        "name": "Dos de Espadas",
+        "file": "arcanosmenores/espadas2",
+        "meaning": {
+            "upright": "Indecisión, bloqueo emocional.",
+            "reversed": "Decisión, apertura."
+        },
+        "history": "El dos de espadas imita duelos rituales del Renacimiento, donde la tregua dependia de mantener el equilibrio."
     },
     {
-        "id":  122,
-        "suit":  "Espadas",
-        "name":  "Tres de Espadas",
-        "file":  "arcanosmenores/espadas3",
-        "meaning":  {
-                        "upright":  "Dolor, traición, separación.",
-                        "reversed":  "Sanación, liberación del dolor."
-                    },
-        "history":  "El corazon traspasado tiene raices en emblemas religiosos que hablaban del dolor redentor."
+        "id": 122,
+        "suit": "Espadas",
+        "name": "Tres de Espadas",
+        "file": "arcanosmenores/espadas3",
+        "meaning": {
+            "upright": "Dolor, traición, separación.",
+            "reversed": "Sanación, liberación del dolor."
+        },
+        "history": "El corazon traspasado tiene raices en emblemas religiosos que hablaban del dolor redentor."
     },
     {
-        "id":  123,
-        "suit":  "Espadas",
-        "name":  "Cuatro de Espadas",
-        "file":  "arcanosmenores/espadas4",
-        "meaning":  {
-                        "upright":  "Descanso, recuperación.",
-                        "reversed":  "Agitación, incapacidad para descansar."
-                    },
-        "history":  "Las cronicas de San Benito inspiran el reposo vigilado del cuatro, recordando rezos sobre armaduras."
+        "id": 123,
+        "suit": "Espadas",
+        "name": "Cuatro de Espadas",
+        "file": "arcanosmenores/espadas4",
+        "meaning": {
+            "upright": "Descanso, recuperación.",
+            "reversed": "Agitación, incapacidad para descansar."
+        },
+        "history": "Las cronicas de San Benito inspiran el reposo vigilado del cuatro, recordando rezos sobre armaduras."
     },
     {
-        "id":  124,
-        "suit":  "Espadas",
-        "name":  "Cinco de Espadas",
-        "file":  "arcanosmenores/espadas5",
-        "meaning":  {
-                        "upright":  "Derrota, conflicto, ego herido.",
-                        "reversed":  "Resolución, compromiso."
-                    },
-        "history":  "El cinco refleja escaramuzas campales descritas por Thoth, destacando la victoria amarga de los oportunistas."
+        "id": 124,
+        "suit": "Espadas",
+        "name": "Cinco de Espadas",
+        "file": "arcanosmenores/espadas5",
+        "meaning": {
+            "upright": "Derrota, conflicto, ego herido.",
+            "reversed": "Resolución, compromiso."
+        },
+        "history": "El cinco refleja escaramuzas campales descritas por Thoth, destacando la victoria amarga de los oportunistas."
     },
     {
-        "id":  125,
-        "suit":  "Espadas",
-        "name":  "Seis de Espadas",
-        "file":  "arcanosmenores/espadas6",
-        "meaning":  {
-                        "upright":  "Transición, viaje, recuperación.",
-                        "reversed":  "Resistencia al cambio, estancamiento."
-                    },
-        "history":  "Navegantes tudor dieron fama al seis al contarlo como carta de travesias seguras hacia nuevas costas."
+        "id": 125,
+        "suit": "Espadas",
+        "name": "Seis de Espadas",
+        "file": "arcanosmenores/espadas6",
+        "meaning": {
+            "upright": "Transición, viaje, recuperación.",
+            "reversed": "Resistencia al cambio, estancamiento."
+        },
+        "history": "Navegantes tudor dieron fama al seis al contarlo como carta de travesias seguras hacia nuevas costas."
     },
     {
-        "id":  126,
-        "suit":  "Espadas",
-        "name":  "Siete de Espadas",
-        "file":  "arcanosmenores/espadas7",
-        "meaning":  {
-                        "upright":  "Estrategia, astucia, discreción.",
-                        "reversed":  "Engaño descubierto, culpa."
-                    },
-        "history":  "Los sietes piratas simbolizan estrategias y enganos relatados por folletos ingleses del siglo XVII."
+        "id": 126,
+        "suit": "Espadas",
+        "name": "Siete de Espadas",
+        "file": "arcanosmenores/espadas7",
+        "meaning": {
+            "upright": "Estrategia, astucia, discreción.",
+            "reversed": "Engaño descubierto, culpa."
+        },
+        "history": "Los sietes piratas simbolizan estrategias y enganos relatados por folletos ingleses del siglo XVII."
     },
     {
-        "id":  127,
-        "suit":  "Espadas",
-        "name":  "Ocho de Espadas",
-        "file":  "arcanosmenores/espadas8",
-        "meaning":  {
-                        "upright":  "Limitación, bloqueo mental.",
-                        "reversed":  "Liberación, nueva perspectiva."
-                    },
-        "history":  "El ocho describe cepos judiciales empleados por el Parlamento, que limitaban movimientos aunque dejaban la mente alerta."
+        "id": 127,
+        "suit": "Espadas",
+        "name": "Ocho de Espadas",
+        "file": "arcanosmenores/espadas8",
+        "meaning": {
+            "upright": "Limitación, bloqueo mental.",
+            "reversed": "Liberación, nueva perspectiva."
+        },
+        "history": "El ocho describe cepos judiciales empleados por el Parlamento, que limitaban movimientos aunque dejaban la mente alerta."
     },
     {
-        "id":  128,
-        "suit":  "Espadas",
-        "name":  "Nueve de Espadas",
-        "file":  "arcanosmenores/espadas9",
-        "meaning":  {
-                        "upright":  "Ansiedad, pesadillas, preocupación.",
-                        "reversed":  "Alivio, superar miedos."
-                    },
-        "history":  "Grabados alemanes mostraron pesadillas que se disipan al alba, origen del nueve de espadas."
+        "id": 128,
+        "suit": "Espadas",
+        "name": "Nueve de Espadas",
+        "file": "arcanosmenores/espadas9",
+        "meaning": {
+            "upright": "Ansiedad, pesadillas, preocupación.",
+            "reversed": "Alivio, superar miedos."
+        },
+        "history": "Grabados alemanes mostraron pesadillas que se disipan al alba, origen del nueve de espadas."
     },
     {
-        "id":  129,
-        "suit":  "Espadas",
-        "name":  "Diez de Espadas",
-        "file":  "arcanosmenores/espadas10",
-        "meaning":  {
-                        "upright":  "Final doloroso, traición.",
-                        "reversed":  "Recuperación después del colapso."
-                    },
-        "history":  "El diez recoge baladas sobre traiciones cortesanas, dramatizando la caida final antes del renacer."
+        "id": 129,
+        "suit": "Espadas",
+        "name": "Diez de Espadas",
+        "file": "arcanosmenores/espadas10",
+        "meaning": {
+            "upright": "Final doloroso, traición.",
+            "reversed": "Recuperación después del colapso."
+        },
+        "history": "El diez recoge baladas sobre traiciones cortesanas, dramatizando la caida final antes del renacer."
     },
     {
-        "id":  130,
-        "suit":  "Oros",
-        "name":  "As de Oros",
-        "file":  "arcanosmenores/orosas",
-        "meaning":  {
-                        "upright":  "Prosperidad, oportunidad material.",
-                        "reversed":  "Oportunidad perdida, inseguridad financiera."
-                    },
-        "history":  "La moneda central del as procede de sellos mercantiles florentinos que prometian prosperidad material."
+        "id": 130,
+        "suit": "Oros",
+        "name": "As de Oros",
+        "file": "arcanosmenores/orosas",
+        "meaning": {
+            "upright": "Prosperidad, oportunidad material.",
+            "reversed": "Oportunidad perdida, inseguridad financiera."
+        },
+        "history": "La moneda central del as procede de sellos mercantiles florentinos que prometian prosperidad material."
     },
     {
-        "id":  131,
-        "suit":  "Oros",
-        "name":  "Dos de Oros",
-        "file":  "arcanosmenores/oros2",
-        "meaning":  {
-                        "upright":  "Equilibrio, manejo de recursos.",
-                        "reversed":  "Desequilibrio, mala administración."
-                    },
-        "history":  "El malabarista del dos deriva de artistas ambulantes que equilibraban ingresos en ferias medievales."
+        "id": 131,
+        "suit": "Oros",
+        "name": "Dos de Oros",
+        "file": "arcanosmenores/oros2",
+        "meaning": {
+            "upright": "Equilibrio, manejo de recursos.",
+            "reversed": "Desequilibrio, mala administración."
+        },
+        "history": "El malabarista del dos deriva de artistas ambulantes que equilibraban ingresos en ferias medievales."
     },
     {
-        "id":  132,
-        "suit":  "Oros",
-        "name":  "Tres de Oros",
-        "file":  "arcanosmenores/oros3",
-        "meaning":  {
-                        "upright":  "Trabajo en equipo, maestría.",
-                        "reversed":  "Falla en colaboración, ego en proyectos."
-                    },
-        "history":  "Los tres de oros celebran fraternidades de constructores, siguiendo planos goticos compartidos."
+        "id": 132,
+        "suit": "Oros",
+        "name": "Tres de Oros",
+        "file": "arcanosmenores/oros3",
+        "meaning": {
+            "upright": "Trabajo en equipo, maestría.",
+            "reversed": "Falla en colaboración, ego en proyectos."
+        },
+        "history": "Los tres de oros celebran fraternidades de constructores, siguiendo planos goticos compartidos."
     },
     {
-        "id":  133,
-        "suit":  "Oros",
-        "name":  "Cuatro de Oros",
-        "file":  "arcanosmenores/oros4",
-        "meaning":  {
-                        "upright":  "Apego, retención, seguridad material.",
-                        "reversed":  "Estancamiento financiero, avaricia."
-                    },
-        "history":  "En el cuatro, banqueros genoveses preservaban cofres cerrados para resguardar capital en tiempos de guerra."
+        "id": 133,
+        "suit": "Oros",
+        "name": "Cuatro de Oros",
+        "file": "arcanosmenores/oros4",
+        "meaning": {
+            "upright": "Apego, retención, seguridad material.",
+            "reversed": "Estancamiento financiero, avaricia."
+        },
+        "history": "En el cuatro, banqueros genoveses preservaban cofres cerrados para resguardar capital en tiempos de guerra."
     },
     {
-        "id":  134,
-        "suit":  "Oros",
-        "name":  "Cinco de Oros",
-        "file":  "arcanosmenores/oros5",
-        "meaning":  {
-                        "upright":  "Privación, necesidad.",
-                        "reversed":  "Recuperación, ayuda recibida."
-                    },
-        "history":  "El cinco recuerda hospitales templarios que socorria a los pobres durante inviernos crueles."
+        "id": 134,
+        "suit": "Oros",
+        "name": "Cinco de Oros",
+        "file": "arcanosmenores/oros5",
+        "meaning": {
+            "upright": "Privación, necesidad.",
+            "reversed": "Recuperación, ayuda recibida."
+        },
+        "history": "El cinco recuerda hospitales templarios que socorria a los pobres durante inviernos crueles."
     },
     {
-        "id":  135,
-        "suit":  "Oros",
-        "name":  "Seis de Oros",
-        "file":  "arcanosmenores/oros6",
-        "meaning":  {
-                        "upright":  "Generosidad, intercambio.",
-                        "reversed":  "Desigualdad, egoísmo."
-                    },
-        "history":  "El seis cita relatos de benefactores burgueses que distribuian limosnas ante los gremios."
+        "id": 135,
+        "suit": "Oros",
+        "name": "Seis de Oros",
+        "file": "arcanosmenores/oros6",
+        "meaning": {
+            "upright": "Generosidad, intercambio.",
+            "reversed": "Desigualdad, egoísmo."
+        },
+        "history": "El seis cita relatos de benefactores burgueses que distribuian limosnas ante los gremios."
     },
     {
-        "id":  136,
-        "suit":  "Oros",
-        "name":  "Siete de Oros",
-        "file":  "arcanosmenores/oros7",
-        "meaning":  {
-                        "upright":  "Paciencia, cosecha futura.",
-                        "reversed":  "Impaciencia, falta de fruto."
-                    },
-        "history":  "Los aprendices del siete estudian calendarios agricolas renacentistas antes de cosechar recompensas."
+        "id": 136,
+        "suit": "Oros",
+        "name": "Siete de Oros",
+        "file": "arcanosmenores/oros7",
+        "meaning": {
+            "upright": "Paciencia, cosecha futura.",
+            "reversed": "Impaciencia, falta de fruto."
+        },
+        "history": "Los aprendices del siete estudian calendarios agricolas renacentistas antes de cosechar recompensas."
     },
     {
-        "id":  137,
-        "suit":  "Oros",
-        "name":  "Ocho de Oros",
-        "file":  "arcanosmenores/oros8",
-        "meaning":  {
-                        "upright":  "Práctica, trabajo detallado.",
-                        "reversed":  "Perfeccionismo, trabajo sin recompensa."
-                    },
-        "history":  "El ocho retrata talleres de orfebreria en Amberes donde la practica constante forjaba maestria."
+        "id": 137,
+        "suit": "Oros",
+        "name": "Ocho de Oros",
+        "file": "arcanosmenores/oros8",
+        "meaning": {
+            "upright": "Práctica, trabajo detallado.",
+            "reversed": "Perfeccionismo, trabajo sin recompensa."
+        },
+        "history": "El ocho retrata talleres de orfebreria en Amberes donde la practica constante forjaba maestria."
     },
     {
-        "id":  138,
-        "suit":  "Oros",
-        "name":  "Nueve de Oros",
-        "file":  "arcanosmenores/oros9",
-        "meaning":  {
-                        "upright":  "Autosuficiencia, logro material.",
-                        "reversed":  "Aislamiento, falsa independencia."
-                    },
-        "history":  "Los huertos del nueve se inspiran en fincas toscanas administradas por mujeres autonomas."
+        "id": 138,
+        "suit": "Oros",
+        "name": "Nueve de Oros",
+        "file": "arcanosmenores/oros9",
+        "meaning": {
+            "upright": "Autosuficiencia, logro material.",
+            "reversed": "Aislamiento, falsa independencia."
+        },
+        "history": "Los huertos del nueve se inspiran en fincas toscanas administradas por mujeres autonomas."
     },
     {
-        "id":  139,
-        "suit":  "Oros",
-        "name":  "Diez de Oros",
-        "file":  "arcanosmenores/oros10",
-        "meaning":  {
-                        "upright":  "Legado, estabilidad familiar.",
-                        "reversed":  "Problemas familiares, pérdida."
-                    },
-        "history":  "El diez muestra los blasones familiares que aseguraban herencias y redes comerciales entre generaciones."
+        "id": 139,
+        "suit": "Oros",
+        "name": "Diez de Oros",
+        "file": "arcanosmenores/oros10",
+        "meaning": {
+            "upright": "Legado, estabilidad familiar.",
+            "reversed": "Problemas familiares, pérdida."
+        },
+        "history": "El diez muestra los blasones familiares que aseguraban herencias y redes comerciales entre generaciones."
     },
     {
-        "id":  140,
-        "suit":  "Bastos",
-        "name":  "Sota de Bastos",
-        "file":  "arcanosmenores/bastossota",
-        "meaning":  {
-                        "upright":  "Mensajero, entusiasmo juvenil.",
-                        "reversed":  "Inmadurez, noticias retrasadas."
-                    },
-        "history":  "La sota de bastos evoca a los pajes mensajeros que anunciaban decretos en las cortes provenzales."
+        "id": 140,
+        "suit": "Bastos",
+        "name": "Sota de Bastos",
+        "file": "arcanosmenores/bastossota",
+        "meaning": {
+            "upright": "Mensajero, entusiasmo juvenil.",
+            "reversed": "Inmadurez, noticias retrasadas."
+        },
+        "history": "La sota de bastos evoca a los pajes mensajeros que anunciaban decretos en las cortes provenzales."
     },
     {
-        "id":  141,
-        "suit":  "Bastos",
-        "name":  "Caballo de Bastos",
-        "file":  "arcanosmenores/bastoscaballo",
-        "meaning":  {
-                        "upright":  "Acción impulsiva, viaje corto.",
-                        "reversed":  "Impulsividad sin dirección."
-                    },
-        "history":  "El caballo de bastos se basa en cronistas que narraron campanas rapidas de jinetes aragoneses."
+        "id": 141,
+        "suit": "Bastos",
+        "name": "Caballo de Bastos",
+        "file": "arcanosmenores/bastoscaballo",
+        "meaning": {
+            "upright": "Acción impulsiva, viaje corto.",
+            "reversed": "Impulsividad sin dirección."
+        },
+        "history": "El caballo de bastos se basa en cronistas que narraron campanas rapidas de jinetes aragoneses."
     },
     {
-        "id":  142,
-        "suit":  "Bastos",
-        "name":  "Reina de Bastos",
-        "file":  "arcanosmenores/bastosreina",
-        "meaning":  {
-                        "upright":  "Carisma, creatividad y liderazgo.",
-                        "reversed":  "Dominancia, celos."
-                    },
-        "history":  "La reina de bastos retoma arquetipos de sacerdotisas solares veneradas en mitos mediterraneos."
+        "id": 142,
+        "suit": "Bastos",
+        "name": "Reina de Bastos",
+        "file": "arcanosmenores/bastosreina",
+        "meaning": {
+            "upright": "Carisma, creatividad y liderazgo.",
+            "reversed": "Dominancia, celos."
+        },
+        "history": "La reina de bastos retoma arquetipos de sacerdotisas solares veneradas en mitos mediterraneos."
     },
     {
-        "id":  143,
-        "suit":  "Bastos",
-        "name":  "Rey de Bastos",
-        "file":  "arcanosmenores/bastosrey",
-        "meaning":  {
-                        "upright":  "Visión, autoridad creativa.",
-                        "reversed":  "Tiranía, impaciencia."
-                    },
-        "history":  "El rey de bastos fusiona la figura del monarca constructor con lideres visionarios del comercio colonial."
+        "id": 143,
+        "suit": "Bastos",
+        "name": "Rey de Bastos",
+        "file": "arcanosmenores/bastosrey",
+        "meaning": {
+            "upright": "Visión, autoridad creativa.",
+            "reversed": "Tiranía, impaciencia."
+        },
+        "history": "El rey de bastos fusiona la figura del monarca constructor con lideres visionarios del comercio colonial."
     },
     {
-        "id":  144,
-        "suit":  "Copas",
-        "name":  "Sota de Copas",
-        "file":  "arcanosmenores/copassota",
-        "meaning":  {
-                        "upright":  "Sensibilidad, propuesta emocional.",
-                        "reversed":  "Idealismo ingenuo."
-                    },
-        "history":  "La sota de copas recuerda a los pajes de torneos que ofrecian copas ceremoniales a los campeones."
+        "id": 144,
+        "suit": "Copas",
+        "name": "Sota de Copas",
+        "file": "arcanosmenores/copassota",
+        "meaning": {
+            "upright": "Sensibilidad, propuesta emocional.",
+            "reversed": "Idealismo ingenuo."
+        },
+        "history": "La sota de copas recuerda a los pajes de torneos que ofrecian copas ceremoniales a los campeones."
     },
     {
-        "id":  145,
-        "suit":  "Copas",
-        "name":  "Caballo de Copas",
-        "file":  "arcanosmenores/copascaballo",
-        "meaning":  {
-                        "upright":  "Mensajero afectivo, romanticismo activo.",
-                        "reversed":  "Drama emocional, promesas vacías."
-                    },
-        "history":  "El caballo de copas nace de romances medievales donde el mensajero llevaba cartas de amor cortes."
+        "id": 145,
+        "suit": "Copas",
+        "name": "Caballo de Copas",
+        "file": "arcanosmenores/copascaballo",
+        "meaning": {
+            "upright": "Mensajero afectivo, romanticismo activo.",
+            "reversed": "Drama emocional, promesas vacías."
+        },
+        "history": "El caballo de copas nace de romances medievales donde el mensajero llevaba cartas de amor cortes."
     },
     {
-        "id":  146,
-        "suit":  "Copas",
-        "name":  "Reina de Copas",
-        "file":  "arcanosmenores/copasreina",
-        "meaning":  {
-                        "upright":  "Intuición, empatía y apoyo emocional.",
-                        "reversed":  "Dependencia emocional, fronteras débiles."
-                    },
-        "history":  "La reina de copas recoge la tradicion de consejeras curativas que servian en cortes renacentistas."
+        "id": 146,
+        "suit": "Copas",
+        "name": "Reina de Copas",
+        "file": "arcanosmenores/copasreina",
+        "meaning": {
+            "upright": "Intuición, empatía y apoyo emocional.",
+            "reversed": "Dependencia emocional, fronteras débiles."
+        },
+        "history": "La reina de copas recoge la tradicion de consejeras curativas que servian en cortes renacentistas."
     },
     {
-        "id":  147,
-        "suit":  "Copas",
-        "name":  "Rey de Copas",
-        "file":  "arcanosmenores/copasrey",
-        "meaning":  {
-                        "upright":  "Equilibrio emocional, control empático.",
-                        "reversed":  "Manipulación afectiva."
-                    },
-        "history":  "El rey de copas sintetiza a los reyes navegantes que regian con diplomacia y dominio de mareas."
+        "id": 147,
+        "suit": "Copas",
+        "name": "Rey de Copas",
+        "file": "arcanosmenores/copasrey",
+        "meaning": {
+            "upright": "Equilibrio emocional, control empático.",
+            "reversed": "Manipulación afectiva."
+        },
+        "history": "El rey de copas sintetiza a los reyes navegantes que regian con diplomacia y dominio de mareas."
     },
     {
-        "id":  148,
-        "suit":  "Espadas",
-        "name":  "Sota de Espadas",
-        "file":  "arcanosmenores/espadassota",
-        "meaning":  {
-                        "upright":  "Curiosidad mental, aprendiz crítico.",
-                        "reversed":  "Desinformación, inmadurez intelectual."
-                    },
-        "history":  "La sota de espadas representa a los aprendices que custodiaban archivos militares y noticias estrategicas."
+        "id": 148,
+        "suit": "Espadas",
+        "name": "Sota de Espadas",
+        "file": "arcanosmenores/espadassota",
+        "meaning": {
+            "upright": "Curiosidad mental, aprendiz crítico.",
+            "reversed": "Desinformación, inmadurez intelectual."
+        },
+        "history": "La sota de espadas representa a los aprendices que custodiaban archivos militares y noticias estrategicas."
     },
     {
-        "id":  149,
-        "suit":  "Espadas",
-        "name":  "Caballo de Espadas",
-        "file":  "arcanosmenores/espadascaballo",
-        "meaning":  {
-                        "upright":  "Pensamiento rápido, confrontación.",
-                        "reversed":  "Impulsividad verbal, conflicto innecesario."
-                    },
-        "history":  "El caballo de espadas se inspira en cronicas sajonas sobre incursiones rapidas de caballeria ligera."
+        "id": 149,
+        "suit": "Espadas",
+        "name": "Caballo de Espadas",
+        "file": "arcanosmenores/espadascaballo",
+        "meaning": {
+            "upright": "Pensamiento rápido, confrontación.",
+            "reversed": "Impulsividad verbal, conflicto innecesario."
+        },
+        "history": "El caballo de espadas se inspira en cronicas sajonas sobre incursiones rapidas de caballeria ligera."
     },
     {
-        "id":  150,
-        "suit":  "Espadas",
-        "name":  "Reina de Espadas",
-        "file":  "arcanosmenores/espadasreina",
-        "meaning":  {
-                        "upright":  "Claridad, juicio justo.",
-                        "reversed":  "Frialdad, dureza excesiva."
-                    },
-        "history":  "La reina de espadas honra a viudas gobernadoras que dictaban justicia con mente aguda en ausencia de reyes."
+        "id": 150,
+        "suit": "Espadas",
+        "name": "Reina de Espadas",
+        "file": "arcanosmenores/espadasreina",
+        "meaning": {
+            "upright": "Claridad, juicio justo.",
+            "reversed": "Frialdad, dureza excesiva."
+        },
+        "history": "La reina de espadas honra a viudas gobernadoras que dictaban justicia con mente aguda en ausencia de reyes."
     },
     {
-        "id":  151,
-        "suit":  "Espadas",
-        "name":  "Rey de Espadas",
-        "file":  "arcanosmenores/espadasrey",
-        "meaning":  {
-                        "upright":  "Autoridad intelectual, ley.",
-                        "reversed":  "Abuso de poder, dogmatismo."
-                    },
-        "history":  "El rey de espadas rememora magistrados ilustrados que codificaron leyes durante la Ilustracion."
+        "id": 151,
+        "suit": "Espadas",
+        "name": "Rey de Espadas",
+        "file": "arcanosmenores/espadasrey",
+        "meaning": {
+            "upright": "Autoridad intelectual, ley.",
+            "reversed": "Abuso de poder, dogmatismo."
+        },
+        "history": "El rey de espadas rememora magistrados ilustrados que codificaron leyes durante la Ilustracion."
     },
     {
-        "id":  152,
-        "suit":  "Oros",
-        "name":  "Sota de Oros",
-        "file":  "arcanosmenores/orossota",
-        "meaning":  {
-                        "upright":  "Practicidad joven, aprendizaje de oficio.",
-                        "reversed":  "Falta de enfoque, distracción material."
-                    },
-        "history":  "La sota de oros simboliza estudiantes de contabilidad que registraban inventarios en casas de comercio."
+        "id": 152,
+        "suit": "Oros",
+        "name": "Sota de Oros",
+        "file": "arcanosmenores/orossota",
+        "meaning": {
+            "upright": "Practicidad joven, aprendizaje de oficio.",
+            "reversed": "Falta de enfoque, distracción material."
+        },
+        "history": "La sota de oros simboliza estudiantes de contabilidad que registraban inventarios en casas de comercio."
     },
     {
-        "id":  153,
-        "suit":  "Oros",
-        "name":  "Caballo de Oros",
-        "file":  "arcanosmenores/oroscaballo",
-        "meaning":  {
-                        "upright":  "Trabajo persistente, progreso estable.",
-                        "reversed":  "Rutina estancada, Terquedad."
-                    },
-        "history":  "El caballo de oros reproduce a correos mercantiles que llevaban contratos a traves de rutas seguras."
+        "id": 153,
+        "suit": "Oros",
+        "name": "Caballo de Oros",
+        "file": "arcanosmenores/oroscaballo",
+        "meaning": {
+            "upright": "Trabajo persistente, progreso estable.",
+            "reversed": "Rutina estancada, Terquedad."
+        },
+        "history": "El caballo de oros reproduce a correos mercantiles que llevaban contratos a traves de rutas seguras."
     },
     {
-        "id":  154,
-        "suit":  "Oros",
-        "name":  "Reina de Oros",
-        "file":  "arcanosmenores/orosreina",
-        "meaning":  {
-                        "upright":  "Abundancia práctica, cuidado y seguridad.",
-                        "reversed":  "Materialismo, sobreprotección."
-                    },
-        "history":  "La reina de oros describe matriarcas que administraban fincas, asegurando bienestar para su clan."
+        "id": 154,
+        "suit": "Oros",
+        "name": "Reina de Oros",
+        "file": "arcanosmenores/orosreina",
+        "meaning": {
+            "upright": "Abundancia práctica, cuidado y seguridad.",
+            "reversed": "Materialismo, sobreprotección."
+        },
+        "history": "La reina de oros describe matriarcas que administraban fincas, asegurando bienestar para su clan."
     },
     {
-        "id":  155,
-        "suit":  "Oros",
-        "name":  "Rey de Oros",
-        "file":  "arcanosmenores/orosrey",
-        "meaning":  {
-                        "upright":  "Éxito material, autoridad financiera.",
-                        "reversed":  "Avaricia, prioridades distorsionadas."
-                    },
-        "history":  "El rey de oros refleja a los patricios que financiaron obras publicas y bancos en las republicas italianas."
+        "id": 155,
+        "suit": "Oros",
+        "name": "Rey de Oros",
+        "file": "arcanosmenores/orosrey",
+        "meaning": {
+            "upright": "Éxito material, autoridad financiera.",
+            "reversed": "Avaricia, prioridades distorsionadas."
+        },
+        "history": "El rey de oros refleja a los patricios que financiaron obras publicas y bancos en las republicas italianas."
     }
 ]
