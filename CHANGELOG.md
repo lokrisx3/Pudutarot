@@ -4,6 +4,9 @@ Este archivo registra los cambios, versiones y notas de lanzamiento del proyecto
 
 Formato: seguimos una convención tipo "Keep a Changelog" simplificada en español.
 
+## [1.2.2] - 07 de Noviembre de 2025
+- Mejoras visuales
+
 ## [1.2.1] - 07 de Noviembre de 2025
 - Corrección de color en el nombre de las cartas
  
