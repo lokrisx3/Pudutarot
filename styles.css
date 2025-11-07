@@ -198,29 +198,29 @@ h1 {
 }
 
 #card-container.visible #tarot-card {
-  box-shadow: 0 0 26px #f0c92988;
+  box-shadow: 0 0 20px #f0c92988;
   /* realzar un poco mientras estÃ¡ expandida */
 }
 
 #card-name {
-  margin: 0 0 6px 0;
+  margin: 2px 0 6px 0;
   font-size: 14px;
   margin-bottom: 2px;
   color: #083047;
   text-align: center;
   padding: 5px;
-  border-radius: 12px 12px 0 0;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.153);
+  border-radius: 12px 12px rgba(0, 0, 0, 0.153);
   box-sizing: border-box;
 }
 
-#card-description {
-  font-size: 12px;
+#card-description,
+#arcana-detail #arcana-detail-desc {
+  font-size: 11px;
   background: none;
   text-align: center;
   margin-top: 0;
-  max-width: 90%;
-  padding: 8px 10px;
+  max-width: 100%;
+  padding: 3px 5px;
   border-radius: 12px;
   box-sizing: border-box;
 }
@@ -239,7 +239,10 @@ body:not(.celestial-theme) .arcana-item {
 
 #card-description .meaning-table,
 #card-description .meaning-table td,
-#card-description .meaning-table div {
+#card-description .meaning-table div,
+#arcana-detail #arcana-detail-desc .meaning-table,
+#arcana-detail #arcana-detail-desc .meaning-table td,
+#arcana-detail #arcana-detail-desc .meaning-table div {
   font-size: inherit;
   line-height: 1.6;
 }
@@ -275,6 +278,17 @@ body.celestial-theme .meaning-text {
 
 body:not(.celestial-theme) .meaning-text {
   color: #ffffff;
+}
+
+/* Línea divisoria sutil entre Derecho / Invertido dentro de la descripción */
+body.celestial-theme #card-description .meaning-cell-left,
+body.celestial-theme #arcana-detail #arcana-detail-desc .meaning-cell-left {
+  border-right: 1px solid rgba(8, 48, 71, 0.18);
+}
+
+body:not(.celestial-theme) #card-description .meaning-cell-left,
+body:not(.celestial-theme) #arcana-detail #arcana-detail-desc .meaning-cell-left {
+  border-right: 1px solid rgba(240, 201, 41, 0.18);
 }
 
 /* Empty contacts fallback paragraph should follow theme colors */
@@ -701,10 +715,9 @@ body:not(.celestial-theme) .arcana-label {
 }
 
 #card-container.alt-style #card-description {
-  font-size: 5px;
+  font-size: 3px;
   color: #e6e6e6;
   background: rgba(142, 176, 236, 0.89);
-  padding: 2px;
   border-radius: 12px;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(4px);
@@ -755,7 +768,6 @@ body:not(.celestial-theme) .arcana-label {
 
 #arcana-detail #arcana-detail-history {
   font-size: 13px;
-  line-height: 1.4;
   /* color is controlled by day/night rules below so we avoid inline/forced whiteness */
 }
 
@@ -790,6 +802,11 @@ body.celestial-theme #toggle-full-tarot.selected {
   line-height: 1.5;
   text-align: justify;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
+}
+
+/* Reduce the drop shadow when history content aparece dentro del panel arcana-detail */
+#arcana-detail #arcana-detail-desc.history-deck-paragraph {
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* Day mode (celestial-theme): brighter, bluish card with warm accent */
@@ -827,29 +844,23 @@ body:not(.celestial-theme) .arcana-group .history-deck-paragraph {
   }
 }
 
-/* For arcana detail history we want the text color to follow the history-deck
-   day/night palette but we do NOT want the boxed background/border/padding from
-   .history-deck-paragraph. Override those visual properties when rendered
-   inside the arcana detail panel. */
-body.celestial-theme #arcana-detail #arcana-detail-history.history-deck-paragraph,
+/* Arcana detail history reutiliza la misma tarjeta visual que history-deck */
 body.celestial-theme #arcana-detail #arcana-detail-history {
+  background: linear-gradient(135deg, rgba(75, 183, 237, 0.12), rgba(31, 140, 217, 0.08));
   color: #083047;
-  /* same as history-deck in day mode */
-  background: none !important;
-  border: none !important;
-  box-shadow: none !important;
-  padding: 0 !important;
+  border: 1px solid rgba(75, 183, 237, 0.12);
+  box-shadow: 0 6px 11px rgba(0, 0, 0, 0.28);
+  padding: 10px 12px;
+  border-radius: 10px;
 }
 
-/* Night mode overrides for the arcana detail history text (no boxed background). */
-body:not(.celestial-theme) #arcana-detail #arcana-detail-history.history-deck-paragraph,
 body:not(.celestial-theme) #arcana-detail #arcana-detail-history {
+  background: linear-gradient(135deg, rgba(10, 18, 30, 0.6), rgba(6, 10, 20, 0.55));
   color: #e6e6e6;
-  /* same as history-deck in night mode */
-  background: none !important;
-  border: none !important;
-  box-shadow: none !important;
-  padding: 0 !important;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  box-shadow: 0 6px 11px rgba(0, 0, 0, 0.28);
+  padding: 10px 12px;
+  border-radius: 10px;
 }
 
 :root {
@@ -857,14 +868,16 @@ body:not(.celestial-theme) #arcana-detail #arcana-detail-history {
 }
 
 /* Make #card-description use the same history-deck panel visuals in day mode */
-body.celestial-theme #card-description {
+body.celestial-theme #card-description,
+body.celestial-theme #arcana-detail #arcana-detail-desc {
   background: linear-gradient(135deg, rgba(75, 183, 237, 0.12), rgba(31, 140, 217, 0.08));
   color: #083047;
-  border: var(--card-panel-border-width) solid rgba(75, 183, 237, 0.12);
+  border: var(--card-panel-border-width) solid rgba(82, 182, 232, 0.12);
 }
 
 /* Make #card-description use the same history-deck panel visuals in night mode */
-body:not(.celestial-theme) #card-description {
+body:not(.celestial-theme) #card-description,
+body:not(.celestial-theme) #arcana-detail #arcana-detail-desc {
   background: linear-gradient(135deg, rgba(10, 18, 30, 0.6), rgba(6, 10, 20, 0.55));
   color: #FFF;
   border: var(--card-panel-border-width) solid rgba(255, 255, 255, 0.04);
@@ -895,7 +908,7 @@ body.celestial-theme #arcana-detail {
   background: linear-gradient(135deg, rgba(75, 183, 237, 0.12), rgba(31, 140, 217, 0.08));
   color: #083047;
   border: 1px solid rgba(75, 183, 237, 0.12);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 body:not(.celestial-theme) #arcana-detail {
