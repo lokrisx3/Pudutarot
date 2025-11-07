@@ -342,6 +342,8 @@ document.addEventListener('DOMContentLoaded', function () {
     puduShufflingContainer.classList.add('hidden');
     cardContainer.classList.remove('hidden');
     cardContainer.classList.add('visible');
+    // Nota visual: al hacer visible #card-container se activa el selector CSS
+    // "#card-container.visible #tarot-card", que es el que estira/agranda la imagen.
     // ensure arcana detail is hidden when showing a random card
     const arcanaDetail = document.getElementById('arcana-detail');
     if (arcanaDetail) arcanaDetail.classList.add('hidden');
