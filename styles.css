@@ -200,7 +200,7 @@ h1 {
   margin: 0 0 6px 0;
   font-size: 14px;
   margin-bottom: 2px;
-  color: #000;
+  color: #083047;
   text-align: center;
   padding: 5px;
   border-radius: 12px 12px 0 0;
@@ -926,7 +926,7 @@ body:not(.celestial-theme) #arcana-detail #arcana-detail-history {
   margin: 0 0 6px 0;
   font-size: 14px;
   text-align: center;
-  color: inherit;
+  color: #083047;
   /* inherit gold via container? we set explicit below */
 }
 
