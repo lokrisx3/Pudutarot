@@ -10,7 +10,10 @@
       "upright": "Nuevos comienzos, espontaneidad, confianza, potencial",
       "reversed": "Inmadurez, falta de dirección, imprudencia o temeridad."
     },
-    "history": "Historia: El Loco es el llamado a la aventura: el héroe parte sin mapa, movido por la inocencia y la fe. Representa el primer paso fuera del mundo ordinario, dispuesto a lo desconocido."
+    "history": "Historia: El Loco es el llamado a la aventura: el héroe parte sin mapa, movido por la inocencia y la fe. Representa el primer paso fuera del mundo ordinario, dispuesto a lo desconocido.",
+    "elemento": "Aire",
+    "astrologia": "Urano",
+    "respuesta": "Depende"
   },
   {
     "id": 1,
@@ -20,7 +23,10 @@
       "upright": "Habilidad, concentración, iniciativa y el poder de transformar ideas en acción.",
       "reversed": "Manipulación, engaño, falta de recursos o intención errada."
     },
-    "history": "Historia: El Mago es el despertar del poder personal: el héroe descubre que posee los recursos internos para emprender el viaje. Es el momento del 'como arriba, así abajo' — la magia de la voluntad consciente."
+    "history": "Historia: El Mago es el despertar del poder personal: el héroe descubre que posee los recursos internos para emprender el viaje. Es el momento del 'como arriba, así abajo' — la magia de la voluntad consciente.",
+    "elemento": "Aire",
+    "astrologia": "Mercurio",
+    "respuesta": "Sí"
   },
   {
     "id": 2,
@@ -30,7 +36,10 @@
       "upright": "Intuición, conocimiento interior y misterio; receptividad a lo inconsciente.",
       "reversed": "Falta de conexión interna, secretos revelados o bloqueo de la intuición."
     },
-    "history": "Historia: La Sacerdotisa es el umbral del conocimiento oculto: el héroe escucha la voz interior antes de cruzar al mundo extraordinario. Guardiana de los misterios que preparan para la iniciación."
+    "history": "Historia: La Sacerdotisa es el umbral del conocimiento oculto: el héroe escucha la voz interior antes de cruzar al mundo extraordinario. Guardiana de los misterios que preparan para la iniciación.",
+    "elemento": "Agua",
+    "astrologia": "Luna",
+    "respuesta": "No"
   },
   {
     "id": 3,
@@ -40,7 +49,10 @@
       "upright": "Fertilidad, abundancia, creatividad y fertilidad material o emocional.",
       "reversed": "Estancamiento creativo, dependencia o sobreprotección."
     },
-    "history": "Historia: La Emperatriz es la nutrición del viaje: el héroe se prepara, se alimenta de la tierra, de la creatividad y del amor antes de enfrentar las pruebas. Es la diosa que sostiene antes de la batalla."
+    "history": "Historia: La Emperatriz es la nutrición del viaje: el héroe se prepara, se alimenta de la tierra, de la creatividad y del amor antes de enfrentar las pruebas. Es la diosa que sostiene antes de la batalla.",
+    "elemento": "Tierra",
+    "astrologia": "Venus",
+    "respuesta": "Sí"
   },
   {
     "id": 4,
@@ -50,7 +62,10 @@
       "upright": "Orden, autoridad, disciplina y liderazgo responsable.",
       "reversed": "Tiranía, rigidez, abuso de poder o pérdida de control."
     },
-    "history": "Historia: El Emperador representa la estructura del mundo antiguo: el héroe internaliza las leyes antes de desafiarlas. Es el padre arquetípico cuya autoridad debe integrarse o trascenderse."
+    "history": "Historia: El Emperador representa la estructura del mundo antiguo: el héroe internaliza las leyes antes de desafiarlas. Es el padre arquetípico cuya autoridad debe integrarse o trascenderse.",
+    "elemento": "Fuego",
+    "astrologia": "Aries",
+    "respuesta": "Sí"
   },
   {
     "id": 5,
@@ -60,7 +75,10 @@
       "upright": "Tradición, enseñanza, guía espiritual y conformidad con valores establecidos.",
       "reversed": "Dogmatismo, cuestionamiento de reglas o búsqueda de un camino propio."
     },
-    "history": "Historia: El Hierofante es el mentor de la tradición: el héroe recibe enseñanzas, rituales y sistemas de creencias que lo preparan — pero también lo limitan — antes de su transformación radical."
+    "history": "Historia: El Hierofante es el mentor de la tradición: el héroe recibe enseñanzas, rituales y sistemas de creencias que lo preparan — pero también lo limitan — antes de su transformación radical.",
+    "elemento": "Tierra",
+    "astrologia": "Tauro",
+    "respuesta": "Sí"
   },
   {
     "id": 6,
@@ -70,7 +88,10 @@
       "upright": "Amor, unión, decisiones importantes y armonía de valores.",
       "reversed": "Indecisión, conflicto en las relaciones o malas elecciones."
     },
-    "history": "Historia: Los Enamorados son la elección crucial: el héroe debe decidir entre caminos, valores o amores. Es el cruce del primer umbral, donde el corazón define el destino."
+    "history": "Historia: Los Enamorados son la elección crucial: el héroe debe decidir entre caminos, valores o amores. Es el cruce del primer umbral, donde el corazón define el destino.",
+    "elemento": "Aire",
+    "astrologia": "Géminis",
+    "respuesta": "Depende"
   },
   {
     "id": 7,
@@ -80,7 +101,10 @@
       "upright": "Determinación, victoria mediante disciplina y control de fuerzas opuestas.",
       "reversed": "Pérdida de control, conflictos internos o fracaso por impulsividad."
     },
-    "history": "Historia: El Carro es la voluntad en acción: el héroe toma las riendas de su destino, domina fuerzas opuestas y avanza con determinación. Triunfo del ego consciente sobre el caos interno."
+    "history": "Historia: El Carro es la voluntad en acción: el héroe toma las riendas de su destino, domina fuerzas opuestas y avanza con determinación. Triunfo del ego consciente sobre el caos interno.",
+    "elemento": "Agua",
+    "astrologia": "Cáncer",
+    "respuesta": "Sí"
   },
   {
     "id": 8,
@@ -90,7 +114,10 @@
       "upright": "Valentía, compasión, dominio de las pasiones y fortaleza interna.",
       "reversed": "Duda, inseguridad, abuso de fuerza o falta de compasión."
     },
-    "history": "Historia: La Fuerza es el dominio de la sombra: el héroe enfrenta sus instintos más salvajes con compasión, no con violencia. Es la victoria del alma sobre el ego, la verdadera fortaleza interior."
+    "history": "Historia: La Fuerza es el dominio de la sombra: el héroe enfrenta sus instintos más salvajes con compasión, no con violencia. Es la victoria del alma sobre el ego, la verdadera fortaleza interior.",
+    "elemento": "Fuego",
+    "astrologia": "Leo",
+    "respuesta": "Sí"
   },
   {
     "id": 9,
@@ -100,7 +127,10 @@
       "upright": "Soledad buscada para la reflexión, guía interior y sabiduría.",
       "reversed": "Aislamiento excesivo, soledad no deseada o pérdida de rumbo."
     },
-    "history": "Historia: El Ermitaño es el descenso al abismo: el héroe se retira del mundo para buscar la luz interior. Es la etapa de introspección profunda antes de la muerte simbólica."
+    "history": "Historia: El Ermitaño es el descenso al abismo: el héroe se retira del mundo para buscar la luz interior. Es la etapa de introspección profunda antes de la muerte simbólica.",
+    "elemento": "Tierra",
+    "astrologia": "Virgo",
+    "respuesta": "No"
   },
   {
     "id": 10,
@@ -110,7 +140,10 @@
       "upright": "Cambio, giros del destino y oportunidades que llegan con el ciclo.",
       "reversed": "Resistencia al cambio, retrocesos temporales o mala racha."
     },
-    "history": "Historia: La Rueda de la Fortuna es el giro del destino: el héroe comprende que no controla todo, y se entrega al flujo del universo. Es el momento en que el azar se convierte en gracia."
+    "history": "Historia: La Rueda de la Fortuna es el giro del destino: el héroe comprende que no controla todo, y se entrega al flujo del universo. Es el momento en que el azar se convierte en gracia.",
+    "elemento": "Fuego",
+    "astrologia": "Júpiter",
+    "respuesta": "Sí"
   },
   {
     "id": 11,
@@ -120,7 +153,10 @@
       "upright": "Equidad, responsabilidad, decisiones justas y consecuencias claras.",
       "reversed": "Injusticia, parcialidad, evasión de responsabilidad o decisiones sesgadas."
     },
-    "history": "Historia: La Justicia es la ley del karma: el héroe enfrenta las consecuencias de sus actos. Es el equilibrio cósmico que prepara para la transformación final — nada escapa a la balanza."
+    "history": "Historia: La Justicia es la ley del karma: el héroe enfrenta las consecuencias de sus actos. Es el equilibrio cósmico que prepara para la transformación final — nada escapa a la balanza.",
+    "elemento": "Aire",
+    "astrologia": "Libra",
+    "respuesta": "Depende"
   },
   {
     "id": 12,
@@ -130,7 +166,10 @@
       "upright": "Nueva perspectiva, sacrificio voluntario y pausa consciente para ver distinto.",
       "reversed": "Estancamiento, sacrificio inútil, resistencia a soltar o retrasos."
     },
-    "history": "Historia: El Colgado es la entrega voluntaria: el héroe se detiene, se invierte, se sacrifica. Es la muerte simbólica del ego — colgado para ver el mundo desde otra perspectiva."
+    "history": "Historia: El Colgado es la entrega voluntaria: el héroe se detiene, se invierte, se sacrifica. Es la muerte simbólica del ego — colgado para ver el mundo desde otra perspectiva.",
+    "elemento": "Agua",
+    "astrologia": "Neptuno",
+    "respuesta": "No"
   },
   {
     "id": 13,
@@ -140,7 +179,10 @@
       "upright": "Transformación profunda, fin necesario y comienzo de algo nuevo.",
       "reversed": "Resistencia al cambio, estancamiento o miedo a soltar lo viejo."
     },
-    "history": "Historia: La Muerte es la transformación radical: el héroe muere a su antiguo ser. No es destrucción, sino metamorfosis — el cascarón que se rompe para que nazca el nuevo ser."
+    "history": "Historia: La Muerte es la transformación radical: el héroe muere a su antiguo ser. No es destrucción, sino metamorfosis — el cascarón que se rompe para que nazca el nuevo ser.",
+    "elemento": "Agua",
+    "astrologia": "Escorpio",
+    "respuesta": "No"
   },
   {
     "id": 14,
@@ -150,7 +192,10 @@
       "upright": "Equilibrio, moderación, mezcla armoniosa y curación gradual.",
       "reversed": "Desequilibrio, impaciencia, excesos o falta de armonía."
     },
-    "history": "Historia: La Templanza es la integración de opuestos: el héroe mezcla lo humano y lo divino, lo masculino y lo femenino. Es la alquimia del alma después de la muerte."
+    "history": "Historia: La Templanza es la integración de opuestos: el héroe mezcla lo humano y lo divino, lo masculino y lo femenino. Es la alquimia del alma después de la muerte.",
+    "elemento": "Fuego",
+    "astrologia": "Sagitario",
+    "respuesta": "Sí"
   },
   {
     "id": 15,
@@ -160,7 +205,10 @@
       "upright": "Apego, tentación, materialismo y ataduras que limitan el crecimiento.",
       "reversed": "Liberación de cadenas, confrontación de sombras y recuperación de poder."
     },
-    "history": "Historia: El Diablo es el encuentro con la sombra: el héroe enfrenta sus cadenas, deseos y miedos. Las ataduras son ilusorias — la verdadera prisión está en la mente."
+    "history": "Historia: El Diablo es el encuentro con la sombra: el héroe enfrenta sus cadenas, deseos y miedos. Las ataduras son ilusorias — la verdadera prisión está en la mente.",
+    "elemento": "Tierra",
+    "astrologia": "Capricornio",
+    "respuesta": "No"
   },
   {
     "id": 16,
@@ -170,7 +218,10 @@
       "upright": "Ruptura súbita, revelación que conduce a la reconstrucción y libertad.",
       "reversed": "Evitar la caída, miedo al cambio o bloques que retrasan la liberación."
     },
-    "history": "Historia: La Torre es la purificación por el fuego: el héroe ve cómo su mundo falso se derrumba. Es la revelación forzada que libera — solo cuando todo cae, puede construirse lo verdadero."
+    "history": "Historia: La Torre es la purificación por el fuego: el héroe ve cómo su mundo falso se derrumba. Es la revelación forzada que libera — solo cuando todo cae, puede construirse lo verdadero.",
+    "elemento": "Fuego",
+    "astrologia": "Marte",
+    "respuesta": "No"
   },
   {
     "id": 17,
@@ -180,7 +231,10 @@
       "upright": "Esperanza renovada, inspiración espiritual y guía amable.",
       "reversed": "Desilusión, falta de fe o bloqueo creativo temporal."
     },
-    "history": "Historia: La Estrella es la sanación después de la tormenta: el héroe encuentra esperanza, se reconecta con lo divino. Es la guía que brilla en la oscuridad, recordándole su propósito."
+    "history": "Historia: La Estrella es la sanación después de la tormenta: el héroe encuentra esperanza, se reconecta con lo divino. Es la guía que brilla en la oscuridad, recordándole su propósito.",
+    "elemento": "Aire",
+    "astrologia": "Acuario",
+    "respuesta": "Sí"
   },
   {
     "id": 18,
@@ -190,7 +244,10 @@
       "upright": "Intuición, sueños, símbolos y exploración del mundo interior.",
       "reversed": "Confusión aclarada, miedos conscientes o engaños descubiertos."
     },
-    "history": "Historia: La Luna es el valle de las sombras: el héroe enfrenta sus miedos inconscientes, ilusiones y engaños. Es la prueba final antes de la iluminación — lo que el Sol no muestra, la Luna lo revela."
+    "history": "Historia: La Luna es el valle de las sombras: el héroe enfrenta sus miedos inconscientes, ilusiones y engaños. Es la prueba final antes de la iluminación — lo que el Sol no muestra, la Luna lo revela.",
+    "elemento": "Agua",
+    "astrologia": "Piscis",
+    "respuesta": "No"
   },
   {
     "id": 19,
@@ -200,7 +257,10 @@
       "upright": "Éxito, claridad, alegría y energía vital plena.",
       "reversed": "Optimismo forzado, retrasos menores o falta temporal de brillo."
     },
-    "history": "Historia: El Sol es la iluminación: el héroe alcanza la claridad, la alegría pura y la plenitud. Es el niño interior recuperado — inocente, pero consciente. La meta del viaje."
+    "history": "Historia: El Sol es la iluminación: el héroe alcanza la claridad, la alegría pura y la plenitud. Es el niño interior recuperado — inocente, pero consciente. La meta del viaje.",
+    "elemento": "Fuego",
+    "astrologia": "Sol",
+    "respuesta": "Sí"
   },
   {
     "id": 20,
@@ -210,7 +270,10 @@
       "upright": "Llamado a la renovación, evaluación y renacimiento espiritual.",
       "reversed": "Autocrítica paralizante, duda o rechazo del llamado a cambiar."
     },
-    "history": "Historia: El Juicio es el llamado a despertar: el héroe es convocado a regresar, transformado. Es la resurrección del ser auténtico — listo para servir, compartir y sanar al mundo."
+    "history": "Historia: El Juicio es el llamado a despertar: el héroe es convocado a regresar, transformado. Es la resurrección del ser auténtico — listo para servir, compartir y sanar al mundo.",
+    "elemento": "Fuego",
+    "astrologia": "Plutón",
+    "respuesta": "Sí"
   },
   {
     "id": 21,
@@ -220,6 +283,9 @@
       "upright": "Culminación, logro, integración y sensación de plenitud.",
       "reversed": "Falta de cierre, proyectos inconclusos o retrasos en la culminación."
     },
-    "history": "Historia: El Mundo es el maestro de dos mundos: el héroe ha completado el ciclo. Vive en armonía consigo mismo, con los demás y con el cosmos. Es la integración total — y el comienzo de un nuevo viaje."
+    "history": "Historia: El Mundo es el maestro de dos mundos: el héroe ha completado el ciclo. Vive en armonía consigo mismo, con los demás y con el cosmos. Es la integración total — y el comienzo de un nuevo viaje.",
+    "elemento": "Tierra",
+    "astrologia": "Saturno",
+    "respuesta": "Sí"
   }
 ]
