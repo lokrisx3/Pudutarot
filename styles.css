@@ -570,6 +570,57 @@ body.celestial-theme #contacts-socials-boton:active {
   text-overflow: ellipsis;
 }
 
+/* Grouping for arcana lists: provide a title, optional suit history and a grid of items */
+.arcana-group {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.arcana-group-title {
+  width: 100%;
+  text-align: center;
+  color: #f0c929;
+  font-size: 14px;
+  margin: 10px 0 6px 0;
+  font-weight: 700;
+}
+
+.arcana-suit-history {
+  /* minimal overrides; visual styling comes from .history-deck-paragraph */
+  width: 92%;
+  margin: 0 0 8px 0;
+  box-sizing: border-box;
+}
+
+.arcana-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  width: 100%;
+  justify-items: center;
+  padding: 6px 6px 12px 6px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 340px) {
+  .arcana-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .arcana-item {
+    width: 58px;
+  }
+
+  .arcana-item .arcana-thumb {
+    width: 44px;
+    height: 58px;
+  }
+}
+
 /* Estilo de cartas */
 #card-container.alt-style #tarot-card {
   box-shadow: 0 0 30px #29c9f0cc, 0 0 10px #f0c92999;
@@ -680,7 +731,9 @@ body.celestial-theme #toggle-full-tarot.selected {
 
 /* Day mode (celestial-theme): brighter, bluish card with warm accent */
 body.celestial-theme #history-deck .history-deck-paragraph,
-body.celestial-theme #History-deck .history-deck-paragraph {
+body.celestial-theme #History-deck .history-deck-paragraph,
+body.celestial-theme .arcana-suit-history.history-deck-paragraph,
+body.celestial-theme .arcana-group .history-deck-paragraph {
   background: linear-gradient(135deg, rgba(75, 183, 237, 0.12), rgba(31, 140, 217, 0.08));
   color: #083047;
   border: 1px solid rgba(75, 183, 237, 0.12);
@@ -688,7 +741,9 @@ body.celestial-theme #History-deck .history-deck-paragraph {
 
 /* Night mode: darker, translucent panel to fit the night background */
 body:not(.celestial-theme) #history-deck .history-deck-paragraph,
-body:not(.celestial-theme) #History-deck .history-deck-paragraph {
+body:not(.celestial-theme) #History-deck .history-deck-paragraph,
+body:not(.celestial-theme) .arcana-suit-history.history-deck-paragraph,
+body:not(.celestial-theme) .arcana-group .history-deck-paragraph {
   background: linear-gradient(135deg, rgba(10, 18, 30, 0.6), rgba(6, 10, 20, 0.55));
   color: #e6e6e6;
   border: 1px solid rgba(255, 255, 255, 0.04);

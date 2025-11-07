@@ -225,6 +225,8 @@ document.addEventListener('DOMContentLoaded', function () {
   let minorArcanaRaw = [];
   let minorArcanaLoaded = false;
   let minorArcanaLoadPromise = null;
+  // suit histories (extracted from the first element of minorArcana.json)
+  let minorArcanaSuitHistory = { bastos: '', copas: '', espadas: '', oros: '' };
 
   function normalizeMinorCard(card) {
     return {
@@ -247,6 +249,13 @@ document.addEventListener('DOMContentLoaded', function () {
         const res = await fetch(minorArcanaSource);
         if (!res.ok) throw new Error('minorArcana.json not available');
         const data = await res.json();
+        // Extract suit-level histories from the descriptor object if present
+        if (Array.isArray(data) && data.length && typeof data[0] === 'object') {
+          minorArcanaSuitHistory.bastos = data[0].historyBastos || '';
+          minorArcanaSuitHistory.copas = data[0].historyCopas || '';
+          minorArcanaSuitHistory.espadas = data[0].historyEspadas || '';
+          minorArcanaSuitHistory.oros = data[0].historyOros || '';
+        }
         const cards = Array.isArray(data) ? data.filter(it => typeof it.id === 'number').map(normalizeMinorCard) : [];
         if (!cards.length) throw new Error('Empty minor arcana data');
         minorArcanaRaw = cards;
@@ -515,29 +524,42 @@ document.addEventListener('DOMContentLoaded', function () {
       minorsBySuit[s].push(m);
     });
 
-    // function to render a titled group
-    function renderGroup(title, cards) {
+    // function to render a titled group (optionally with a suitKey to attach suit history)
+    function renderGroup(title, cards, suitKey) {
       if (!cards || !cards.length) return;
+      const group = document.createElement('div');
+      group.className = 'arcana-group';
+
       const titleEl = document.createElement('div');
       titleEl.className = 'arcana-group-title';
       titleEl.textContent = title;
-      // full width header
-      titleEl.style.width = '100%';
-      titleEl.style.textAlign = 'center';
-      titleEl.style.color = '#f0c929';
-      titleEl.style.fontSize = '14px';
-      titleEl.style.margin = '10px 0 6px 0';
-      arcanaListContainer.appendChild(titleEl);
-      cards.forEach(c => arcanaListContainer.appendChild(createCardButton(c)));
+      group.appendChild(titleEl);
+
+      // If we have suit-level history for this group, render it as a paragraph
+      if (suitKey && minorArcanaSuitHistory && typeof minorArcanaSuitHistory[suitKey] === 'string' && minorArcanaSuitHistory[suitKey].trim()) {
+        const p = document.createElement('p');
+        // reuse the same visual style as the deck history paragraph
+        p.className = 'history-deck-paragraph arcana-suit-history';
+        p.textContent = minorArcanaSuitHistory[suitKey];
+        group.appendChild(p);
+      }
+
+      // grid wrapper to keep items in rows of 4
+      const grid = document.createElement('div');
+      grid.className = 'arcana-grid';
+      cards.forEach(c => grid.appendChild(createCardButton(c)));
+      group.appendChild(grid);
+
+      arcanaListContainer.appendChild(group);
     }
 
     // Render groups
     if (arcanaSectionTitle) arcanaSectionTitle.textContent = 'Listado de Arcanos';
-    renderGroup('Arcanos Mayores', majors);
-    renderGroup('Bastos', minorsBySuit.bastos);
-    renderGroup('Copas', minorsBySuit.copas);
-    renderGroup('Espadas', minorsBySuit.espadas);
-    renderGroup('Oros', minorsBySuit.oros);
+    renderGroup('Arcanos Mayores', majors, null);
+    renderGroup('Bastos', minorsBySuit.bastos, 'bastos');
+    renderGroup('Copas', minorsBySuit.copas, 'copas');
+    renderGroup('Espadas', minorsBySuit.espadas, 'espadas');
+    renderGroup('Oros', minorsBySuit.oros, 'oros');
     // any other suits last
     if (minorsBySuit.otros && minorsBySuit.otros.length) renderGroup('Otros', minorsBySuit.otros);
   }
