@@ -8,7 +8,7 @@
  * - renderizado din�mico de la secci�n de contactos (desde data/contacts.json)
  *
  * Dise�o:
- * - usa fetch para cargar JSON local (data/majorArcanaMarseille.json, data/majorArcanaRaider.json y data/contacts.json)
+ * - usa fetch para cargar JSON local (data/majorArcanaMarseille.json, data/majorArcanaRider.json y data/contacts.json)
  * - mantiene fallbacks locales cuando la carga remota / externa falla
  * - no incluye dependencias externas en runtime (three.js se sirve localmente)
  *
@@ -45,8 +45,8 @@ document.addEventListener('DOMContentLoaded', function () {
   const tarotCard = document.getElementById('tarot-card');
   const cardName = document.getElementById('card-name');
   const cardDescription = document.getElementById('card-description');
-  const deckIaButton = document.getElementById('deck-marseille');
-  const deckRaiderButton = document.getElementById('deck-raider');
+  const deckMarseilleButton = document.getElementById('deck-marseille');
+  const deckRiderButton = document.getElementById('deck-rider');
   let currentDeck = 'Marseille';
 
   // Prefer loading the cards from JSON; keep an in-file fallback if fetch fails
@@ -75,26 +75,26 @@ document.addEventListener('DOMContentLoaded', function () {
     { id: 21, name: 'El Mundo', file: 'world', description: 'Realizaci�n, integraci�n, logro, viaje, armon�a.' }
   ];
 
-  // Fuentes de datos por mazo (Marseille y Raider)
+  // Fuentes de datos por mazo (Marseille y Rider)
   const deckSources = {
     Marseille: 'data/majorArcanaMarseille.json',
-    raider: 'data/majorArcanaRaider.json'
+    Rider: 'data/majorArcanaRider.json'
   };
   const deckImageFolders = {
     Marseille: 'images/cards/Marseille',
-    raider: 'images/cards/raider'
+    Rider: 'images/cards/rider'
   };
   const majorArcanaDeckData = {
     Marseille: [],
-    raider: []
+    Rider: []
   };
   const majorArcanaDeckHistory = {
     Marseille: '',
-    raider: ''
+    Rider: ''
   };
   const deckLoadState = {
     Marseille: false,
-    raider: false
+    Rider: false
   };
   const deckLoadPromises = {};
 
@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function resolveDeckImage(deck, card) {
-    const folder = deckImageFolders[deck] || deckImageFolders.raider;
+    const folder = deckImageFolders[deck] || deckImageFolders.Rider;
     const fileField = (card && typeof card.file === 'string') ? card.file.trim() : '';
     if (fileField) {
       if (fileField.includes('/') && /\.[a-z0-9]+$/i.test(fileField)) {
@@ -357,11 +357,11 @@ document.addEventListener('DOMContentLoaded', function () {
     await loadDeckData(deck);
     majorArcana = getMajorArcana(deck);
     if (deck === 'Marseille') {
-      deckIaButton.classList.add('selected');
-      deckRaiderButton.classList.remove('selected');
+      deckMarseilleButton.classList.add('selected');
+      deckRiderButton.classList.remove('selected');
     } else {
-      deckRaiderButton.classList.add('selected');
-      deckIaButton.classList.remove('selected');
+      deckRiderButton.classList.add('selected');
+      deckMarseilleButton.classList.remove('selected');
     }
     if (typeof renderArcanaList === 'function' && arcanaSection && !arcanaSection.classList.contains('hidden')) {
       renderArcanaList();
@@ -372,11 +372,11 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // conectar botones físicos del UI al cambio de mazo
-  if (deckIaButton) {
-    deckIaButton.addEventListener('click', function () { switchDeck('Marseille'); });
+  if (deckMarseilleButton) {
+    deckMarseilleButton.addEventListener('click', function () { switchDeck('Marseille'); });
   }
-  if (deckRaiderButton) {
-    deckRaiderButton.addEventListener('click', function () { switchDeck('raider'); });
+  if (deckRiderButton) {
+    deckRiderButton.addEventListener('click', function () { switchDeck('Rider'); });
   }
 
   // --- Lista de Arcanos: renderizar y manejar clicks ---

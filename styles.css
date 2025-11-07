@@ -265,7 +265,7 @@ body:not(.celestial-theme) .arcana-item {
 
 .deck-button,
 #deck-marseille,
-#deck-raider {
+#deck-rider {
   background: linear-gradient(135deg, #0a3d4a, #0d5c5c);
   color: #ffffff;
   /* CambiÃ© el color de texto a blanco para mejor contraste */
@@ -285,21 +285,21 @@ body:not(.celestial-theme) .arcana-item {
 
 .deck-button.selected,
 #deck-marseille.selected,
-#deck-raider.selected {
+#deck-rider.selected {
   background-color: #e6b800;
   box-shadow: 0 0 12px #f0c92999;
 }
 
 .deck-button:hover,
 #deck-marseille:hover,
-#deck-raider:hover {
+#deck-rider:hover {
   background-color: #e6b800;
   transform: scale(1.05);
 }
 
 .deck-button:active,
 #deck-marseille:active,
-#deck-raider:active {
+#deck-rider:active {
   transform: scale(0.95);
 }
 
@@ -338,7 +338,7 @@ body:not(.celestial-theme) .arcana-item {
 /* Paleta celeste cuando el fondo diurno (sol) está activo */
 body.celestial-theme .deck-button,
 body.celestial-theme #deck-marseille,
-body.celestial-theme #deck-raider,
+body.celestial-theme #deck-rider,
 body.celestial-theme #consult-button,
 body.celestial-theme #contacts-socials-boton,
 body.celestial-theme #show-arcana-list {
@@ -349,7 +349,7 @@ body.celestial-theme #show-arcana-list {
 
 body.celestial-theme .deck-button.selected,
 body.celestial-theme #deck-marseille.selected,
-body.celestial-theme #deck-raider.selected,
+body.celestial-theme #deck-rider.selected,
 body.celestial-theme #contacts-socials-boton.selected {
   background: linear-gradient(135deg, #4bb7ed, #1f8cd9);
   box-shadow: 0 0 12px rgba(91, 205, 255, 0.7);
@@ -360,7 +360,7 @@ body.celestial-theme #contacts-socials-boton.selected {
 
 body.celestial-theme .deck-button:hover,
 body.celestial-theme #deck-marseille:hover,
-body.celestial-theme #deck-raider:hover,
+body.celestial-theme #deck-rider:hover,
 body.celestial-theme #consult-button:hover,
 body.celestial-theme #contacts-socials-boton:hover,
 body.celestial-theme #show-arcana-list:hover {
@@ -370,7 +370,7 @@ body.celestial-theme #show-arcana-list:hover {
 
 body.celestial-theme .deck-button:active,
 body.celestial-theme #deck-marseille:active,
-body.celestial-theme #deck-raider:active,
+body.celestial-theme #deck-rider:active,
 body.celestial-theme #consult-button:active,
 body.celestial-theme #contacts-socials-boton:active {
   transform: scale(0.95);
