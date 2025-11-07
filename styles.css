@@ -197,35 +197,29 @@ h1 {
 }
 
 #card-name {
-  margin-top: 16px;
+  margin: 0 0 6px 0;
+  font-size: 14px;
   margin-bottom: 2px;
-  font-size: 15px;
-  color: #ffe65a;
+  color: #000;
   text-align: center;
-  background: rgba(142, 176, 236, 0.89);
   padding: 5px;
   border-radius: 12px 12px 0 0;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.153);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  box-sizing: border-box;
 }
 
 #card-description {
   font-size: 12px;
-  line-height: 1.4;
+  background: none;
   text-align: center;
   margin-top: 0;
   max-width: 90%;
-  background: rgba(142, 176, 236, 0.89);
-  padding: 2px;
+  padding: 8px 10px;
   border-radius: 12px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  box-sizing: border-box;
 }
 
-body:not(.celestial-theme) #card-name,
-body:not(.celestial-theme) #card-description {
+body:not(.celestial-theme) #card-name {
   background: transparent;
 }
 
@@ -242,6 +236,52 @@ body:not(.celestial-theme) .arcana-item {
 #card-description .meaning-table div {
   font-size: inherit;
   line-height: 1.6;
+}
+
+/* Semántica para la tabla Derecho / Invertido (sin estilos inline) */
+.meaning-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.meaning-cell {
+  vertical-align: top;
+  padding: 8px;
+  width: 50%;
+  box-sizing: border-box;
+}
+
+.meaning-cell-left {
+  border-right: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.meaning-heading {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #083047;
+  /* Heading remains gold in both themes */
+}
+
+/* Text color for meaning blocks: day / night variations */
+body.celestial-theme .meaning-text {
+  color: #083047;
+}
+
+body:not(.celestial-theme) .meaning-text {
+  color: #ffffff;
+}
+
+/* Empty contacts fallback paragraph should follow theme colors */
+.contact-empty {
+  margin: 0;
+}
+
+body.celestial-theme .contact-empty {
+  color: #083047;
+}
+
+body:not(.celestial-theme) .contact-empty {
+  color: #cfcfcf;
 }
 
 /* Botones */
@@ -295,6 +335,8 @@ body:not(.celestial-theme) .arcana-item {
 #deck-rider:hover {
   background-color: #e6b800;
   transform: scale(1.05);
+
+
 }
 
 .deck-button:active,
@@ -524,11 +566,13 @@ body.celestial-theme #contacts-socials-boton:active {
   height: auto;
   min-height: 88px;
   padding: 6px;
-  background: rgba(126, 156, 206, 0.697);
+  /* default background (will be overridden by themed selectors below) */
+  background: rgba(96, 130, 188, 0.83);
   border: none;
   cursor: pointer;
   position: relative;
   border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
 }
 
 .arcana-item .arcana-thumb {
@@ -568,6 +612,26 @@ body.celestial-theme #contacts-socials-boton:active {
   max-height: 40px;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+/* Themed backgrounds for arcana items (match history-deck panel visuals) */
+body.celestial-theme .arcana-item {
+  background: linear-gradient(135deg, rgba(75, 183, 237, 0.12), rgba(31, 140, 217, 0.08));
+  border: 1px solid rgba(75, 183, 237, 0.08);
+}
+
+body:not(.celestial-theme) .arcana-item {
+  background: linear-gradient(135deg, rgba(10, 18, 30, 0.6), rgba(6, 10, 20, 0.55));
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* Arcana name color: dark in day, white in night */
+body.celestial-theme .arcana-label {
+  color: #083047;
+}
+
+body:not(.celestial-theme) .arcana-label {
+  color: #ffffff;
 }
 
 /* Grouping for arcana lists: provide a title, optional suit history and a grid of items */
@@ -656,19 +720,16 @@ body.celestial-theme #contacts-socials-boton:active {
   padding: 10px 14px;
   max-width: 320px;
   margin: 0 auto;
-  background: rgba(142, 176, 236, 0.89);
-  padding: 2px;
+  box-sizing: border-box;
   border-radius: 12px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  transition: background 300ms ease, color 300ms ease, box-shadow 300ms ease;
 }
 
 #arcana-detail #arcana-detail-desc {
   font-size: 12px;
   line-height: 1.45;
   margin-bottom: 6px;
-  color: #ffffff;
+  /* color controlled by day/night rules below */
 }
 
 #History-deck {
@@ -787,4 +848,100 @@ body:not(.celestial-theme) #arcana-detail #arcana-detail-history {
   border: none !important;
   box-shadow: none !important;
   padding: 0 !important;
+}
+
+:root {
+  --card-panel-border-width: 1px;
+}
+
+/* Make #card-description use the same history-deck panel visuals in day mode */
+body.celestial-theme #card-description {
+  background: linear-gradient(135deg, rgba(75, 183, 237, 0.12), rgba(31, 140, 217, 0.08));
+  color: #083047;
+  border: var(--card-panel-border-width) solid rgba(75, 183, 237, 0.12);
+}
+
+/* Make #card-description use the same history-deck panel visuals in night mode */
+body:not(.celestial-theme) #card-description {
+  background: linear-gradient(135deg, rgba(10, 18, 30, 0.6), rgba(6, 10, 20, 0.55));
+  color: #FFF;
+  border: var(--card-panel-border-width) solid rgba(255, 255, 255, 0.04);
+}
+
+/* Apply same panel background to card-name and arcana-detail-name (day/night) */
+body.celestial-theme #card-name,
+body.celestial-theme #arcana-detail #arcana-detail-name {
+  background: linear-gradient(135deg, rgba(75, 183, 237, 0.12), rgba(31, 140, 217, 0.08));
+  border: var(--card-panel-border-width) solid rgba(75, 183, 237, 0.12);
+  padding: 5px;
+  border-radius: 8px;
+}
+
+body:not(.celestial-theme) #card-name,
+body:not(.celestial-theme) #arcana-detail #arcana-detail-name {
+  background: linear-gradient(135deg, rgba(10, 18, 30, 0.6), rgba(6, 10, 20, 0.55));
+  border: var(--card-panel-border-width) solid rgba(255, 255, 255, 0.04);
+  padding: 5px;
+  border-radius: 8px;
+}
+
+/* Apply same panel visuals used by #card-description to #arcana-detail so
+   the arcana detail container follows day/night theming and uses consistent
+   backgrounds and text color. This keeps backgrounds defined within the
+   arcana detail content while ensuring the container matches the card panel. */
+body.celestial-theme #arcana-detail {
+  background: linear-gradient(135deg, rgba(75, 183, 237, 0.12), rgba(31, 140, 217, 0.08));
+  color: #083047;
+  border: 1px solid rgba(75, 183, 237, 0.12);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+body:not(.celestial-theme) #arcana-detail {
+  background: linear-gradient(135deg, rgba(10, 18, 30, 0.6), rgba(6, 10, 20, 0.55));
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Ensure inner desc and history texts inherit and follow theme colors */
+body.celestial-theme #arcana-detail #arcana-detail-desc,
+body.celestial-theme #arcana-detail #arcana-detail-history {
+  color: #083047;
+}
+
+body:not(.celestial-theme) #arcana-detail #arcana-detail-desc,
+body:not(.celestial-theme) #arcana-detail #arcana-detail-history {
+  color: #ffffff;
+}
+
+/* Arcana detail image and name layout */
+#arcana-detail-image {
+  display: block;
+  margin: 0 auto 8px auto;
+  max-width: 140px;
+  border-radius: 6px;
+}
+
+#arcana-detail-name {
+  margin: 0 0 6px 0;
+  font-size: 14px;
+  text-align: center;
+  color: inherit;
+  /* inherit gold via container? we set explicit below */
+}
+
+/* Make arcana title highlighted in gold in day mode */
+body.celestial-theme #arcana-detail #arcana-detail-name {
+  color: #083047;
+}
+
+/* Night mode: arcana title switches to white to match darker background */
+body:not(.celestial-theme) #arcana-detail #arcana-detail-name {
+  color: #ffffff;
+}
+
+/* Night mode overrides for card name and meaning headings */
+body:not(.celestial-theme) #card-name,
+body:not(.celestial-theme) .meaning-heading {
+  color: #ffffff;
 }

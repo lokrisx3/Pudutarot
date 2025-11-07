@@ -398,7 +398,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const arcanaListContainer = document.getElementById('arcana-list');
   const arcanaDetail = document.getElementById('arcana-detail');
   const arcanaDetailName = document.getElementById('arcana-detail-name');
-  arcanaDetailName.style.color = 'rgb(255, 230, 90)';
   const arcanaDetailDesc = document.getElementById('arcana-detail-desc');
   const arcanaDetailHistory = document.getElementById('arcana-detail-history');
   const historyDeckEl = document.getElementById('history-deck');
@@ -458,13 +457,13 @@ document.addEventListener('DOMContentLoaded', function () {
     return `
       <table class="meaning-table" style="width:100%;border-collapse:collapse;">
         <tr>
-          <td style="vertical-align:top;padding:8px;width:50%;border-right:1px solid rgba(255,255,255,0.04);">
-            <div style="font-weight:600;margin-bottom:6px;color:#ffe65a">Derecho</div>
-            <div class="meaning-upright" style="color:#083047">${u}</div>
+          <td class="meaning-cell meaning-cell-left">
+            <div class="meaning-heading">Derecho</div>
+            <div class="meaning-text meaning-upright">${u}</div>
           </td>
-          <td style="vertical-align:top;padding:8px;width:50%;">
-            <div style="font-weight:600;margin-bottom:6px;color:#ffe65a">Invertido</div>
-            <div class="meaning-reversed" style="color:#083047">${r}</div>
+          <td class="meaning-cell meaning-cell-right">
+            <div class="meaning-heading">Invertido</div>
+            <div class="meaning-text meaning-reversed">${r}</div>
           </td>
         </tr>
       </table>
@@ -676,13 +675,13 @@ document.addEventListener('DOMContentLoaded', function () {
       renderContactsTable(contacts);
     } catch (e) {
       console.warn('No se pudo cargar data/contacts.json', e);
-      contactsContainer.innerHTML = '<p style="color:#cfcfcf;">No hay contactos disponibles.</p>';
+      contactsContainer.innerHTML = '<p class="contact-empty">No hay contactos disponibles.</p>';
     }
   }
 
   function renderContactsTable(contacts) {
     if (!contacts || !contacts.length) {
-      contactsContainer.innerHTML = '<p style="color:#cfcfcf;">No hay contactos disponibles.</p>';
+      contactsContainer.innerHTML = '<p class="contact-empty">No hay contactos disponibles.</p>';
       return;
     }
 
