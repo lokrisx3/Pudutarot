@@ -4,6 +4,10 @@ Este archivo registra los cambios, versiones y notas de lanzamiento del proyecto
 
 Formato: seguimos una convención tipo "Keep a Changelog" simplificada en español.
 
+## [1.2.0] - 07 de Noviembre de 2025
+- Se agrega Historia a los mazos de tarot
+- Se modifica estilo de los textos en el modo dia y noche
+
 ## [Unreleased]
 - Preparando nuevas correcciones y pequeñas mejoras (pendiente de pruebas y versionado).
 
