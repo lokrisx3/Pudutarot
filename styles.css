@@ -693,7 +693,7 @@ body.celestial-theme #contacts-socials-boton:active {
 #arcana-detail #arcana-detail-history {
   font-size: 13px;
   line-height: 1.4;
-  color: #ffffff;
+  /* color is controlled by day/night rules below so we avoid inline/forced whiteness */
 }
 
 #arcana-detail #arcana-detail-image {
@@ -730,6 +730,10 @@ body.celestial-theme #toggle-full-tarot.selected {
 }
 
 /* Day mode (celestial-theme): brighter, bluish card with warm accent */
+/* Apply to any element using the canonical class so major-arcana histories
+   outside #history-deck receive the same day styling. Keep legacy ID
+   selectors for backward compatibility. */
+body.celestial-theme .history-deck-paragraph,
 body.celestial-theme #history-deck .history-deck-paragraph,
 body.celestial-theme #History-deck .history-deck-paragraph,
 body.celestial-theme .arcana-suit-history.history-deck-paragraph,
@@ -740,6 +744,9 @@ body.celestial-theme .arcana-group .history-deck-paragraph {
 }
 
 /* Night mode: darker, translucent panel to fit the night background */
+/* Same as above: match any .history-deck-paragraph so major-arcana histories
+   adopt the night theme when body.celestial-theme is absent. */
+body:not(.celestial-theme) .history-deck-paragraph,
 body:not(.celestial-theme) #history-deck .history-deck-paragraph,
 body:not(.celestial-theme) #History-deck .history-deck-paragraph,
 body:not(.celestial-theme) .arcana-suit-history.history-deck-paragraph,
@@ -755,4 +762,29 @@ body:not(.celestial-theme) .arcana-group .history-deck-paragraph {
     font-size: 12px;
     padding: 8px 10px;
   }
+}
+
+/* For arcana detail history we want the text color to follow the history-deck
+   day/night palette but we do NOT want the boxed background/border/padding from
+   .history-deck-paragraph. Override those visual properties when rendered
+   inside the arcana detail panel. */
+body.celestial-theme #arcana-detail #arcana-detail-history.history-deck-paragraph,
+body.celestial-theme #arcana-detail #arcana-detail-history {
+  color: #083047;
+  /* same as history-deck in day mode */
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+/* Night mode overrides for the arcana detail history text (no boxed background). */
+body:not(.celestial-theme) #arcana-detail #arcana-detail-history.history-deck-paragraph,
+body:not(.celestial-theme) #arcana-detail #arcana-detail-history {
+  color: #e6e6e6;
+  /* same as history-deck in night mode */
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
 }

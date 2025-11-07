@@ -332,6 +332,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const reversed = (card.meaning && card.meaning.reversed) ? card.meaning.reversed : '';
     // Mostrar la tabla horizontal de Derecho / Invertido
     cardDescription.innerHTML = createMeaningTableHTML(upright, reversed);
+    // aplicar estilo igual que history-deck para la descripción de la consulta
+    if (cardDescription && !cardDescription.classList.contains('history-deck-paragraph')) {
+      cardDescription.classList.add('history-deck-paragraph');
+    }
+    // Nota: la historia de cada carta NO se muestra en la sección de consulta.
+    // Se mantiene solo la tabla de Derecho/Invertido (cardDescription).
     puduShufflingContainer.classList.remove('visible');
     puduShufflingContainer.classList.add('hidden');
     cardContainer.classList.remove('hidden');
@@ -485,7 +491,28 @@ document.addEventListener('DOMContentLoaded', function () {
           const upright = (c.meaning && c.meaning.upright) ? c.meaning.upright : (c.description || '');
           const reversed = (c.meaning && c.meaning.reversed) ? c.meaning.reversed : '';
           arcanaDetailDesc.innerHTML = createMeaningTableHTML(upright, reversed);
-          arcanaDetailHistory.textContent = generateHistoryText(c);
+          // aplicar estilo igual que history-deck para la descripción
+          if (arcanaDetailDesc && !arcanaDetailDesc.classList.contains('history-deck-paragraph')) {
+            arcanaDetailDesc.classList.add('history-deck-paragraph');
+          }
+          // Mostrar la historia sólo para Arcanos Mayores (no mostrar para Arcanos Menores)
+          if (c && c.suit) {
+            // arcanos menores: ocultar/limpiar historia
+            if (arcanaDetailHistory) {
+              arcanaDetailHistory.textContent = '';
+              arcanaDetailHistory.classList.add('hidden');
+              arcanaDetailHistory.classList.remove('history-deck-paragraph');
+            }
+          } else {
+            if (arcanaDetailHistory) {
+              const h = (c.history && c.history.trim()) ? c.history : generateHistoryText(c);
+              arcanaDetailHistory.textContent = h;
+              arcanaDetailHistory.classList.remove('hidden');
+              if (!arcanaDetailHistory.classList.contains('history-deck-paragraph')) {
+                arcanaDetailHistory.classList.add('history-deck-paragraph');
+              }
+            }
+          }
           const imgEl = document.getElementById('arcana-detail-image');
           if (imgEl) {
             imgEl.src = c.image;
