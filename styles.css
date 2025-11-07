@@ -620,6 +620,14 @@ body.celestial-theme #contacts-socials-boton:active {
   color: #ffffff;
 }
 
+#History-deck {
+  font-size: 13px;
+  line-height: 1.4;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
 #arcana-detail-name {
   text-align: center;
 }
@@ -648,4 +656,48 @@ body.celestial-theme #toggle-full-tarot.selected {
   border: 1px solid #f0c929;
   box-shadow: 0 0 16px rgba(240, 201, 41, 0.6);
   color: #ffffff;
+}
+
+/* History deck container (compatible con mayúsculas antiguas) */
+#history-deck,
+#History-deck {
+  width: 100%;
+  max-width: 340px;
+  margin: 6px auto 10px auto;
+  box-sizing: border-box;
+  transition: background 300ms ease, color 300ms ease, opacity 300ms ease;
+}
+
+.history-deck-paragraph {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 1.5;
+  text-align: justify;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
+}
+
+/* Day mode (celestial-theme): brighter, bluish card with warm accent */
+body.celestial-theme #history-deck .history-deck-paragraph,
+body.celestial-theme #History-deck .history-deck-paragraph {
+  background: linear-gradient(135deg, rgba(75, 183, 237, 0.12), rgba(31, 140, 217, 0.08));
+  color: #083047;
+  border: 1px solid rgba(75, 183, 237, 0.12);
+}
+
+/* Night mode: darker, translucent panel to fit the night background */
+body:not(.celestial-theme) #history-deck .history-deck-paragraph,
+body:not(.celestial-theme) #History-deck .history-deck-paragraph {
+  background: linear-gradient(135deg, rgba(10, 18, 30, 0.6), rgba(6, 10, 20, 0.55));
+  color: #e6e6e6;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* Make sure small screens don't overflow */
+@media (max-width: 360px) {
+  .history-deck-paragraph {
+    font-size: 12px;
+    padding: 8px 10px;
+  }
 }
