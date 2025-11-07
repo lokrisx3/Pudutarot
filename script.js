@@ -459,12 +459,12 @@ document.addEventListener('DOMContentLoaded', function () {
       <table class="meaning-table" style="width:100%;border-collapse:collapse;">
         <tr>
           <td style="vertical-align:top;padding:8px;width:50%;border-right:1px solid rgba(255,255,255,0.04);">
-            <div style="font-weight:600;margin-bottom:6px;color:rgb(255, 230, 90)">Derecho</div>
-            <div class="meaning-upright">${u}</div>
+            <div style="font-weight:600;margin-bottom:6px;color:#ffe65a">Derecho</div>
+            <div class="meaning-upright" style="color:#083047">${u}</div>
           </td>
           <td style="vertical-align:top;padding:8px;width:50%;">
-            <div style="font-weight:600;margin-bottom:6px;color:rgb(255, 230, 90)">Invertido</div>
-            <div class="meaning-reversed">${r}</div>
+            <div style="font-weight:600;margin-bottom:6px;color:#ffe65a">Invertido</div>
+            <div class="meaning-reversed" style="color:#083047">${r}</div>
           </td>
         </tr>
       </table>
