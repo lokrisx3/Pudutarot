@@ -185,6 +185,11 @@ h1 {
   max-height: 80%;
 }
 
+/* Celda de imagen ocupa poco espacio y centra la carta */
+#tdImage {
+  text-align: center;
+}
+
 /* Dimensión base de la carta dentro del contenedor de consulta */
 #tarot-card {
   width: 30%;
@@ -200,6 +205,12 @@ h1 {
 #card-container.visible #tarot-card {
   box-shadow: 0 0 20px #f0c92988;
   /* realzar un poco mientras estÃ¡ expandida */
+}
+
+#elementImage {
+  width: 20%;
+  height: 20%;
+  text-align: center;
 }
 
 #card-name {

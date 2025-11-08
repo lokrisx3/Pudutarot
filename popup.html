@@ -30,7 +30,38 @@
         <img id="pudu-shuffling" src="images/pudu-shuffling.svg" alt="PudÃº Revolviendo">
       </div>
       <div id="card-container" class="hidden">
-        <img id="tarot-card" src="" alt="Carta de Tarot">
+
+        <table class="TableImageRandom" border="1">
+          <tbody>
+            <tr>
+              <td rowspan="3" id="tdImage"><img id="tarot-card" src="" alt="Carta de Tarot"></td>
+              <td id="element">
+                <p id="textElemento">Elemento:</p>
+                <p id="elementTextDef">Fuego</p>
+                <div id="divImageEle"><img id="elementImage" src="images/correspond/elementsImage/fire.svg"
+                    alt="Elemento fuego"></div>
+              </td>
+            </tr>
+            <tr>
+              <td id="astrology">
+                <p id="textAstrology">Astrologia:</p>
+                <p id="astrologyDef">Marte</p>
+                <div id="imageAstrology">
+                  <img id="elementImage" src="images/correspond/astrology/mars.svg" alt="Elemento fuego">
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td id="yesno">
+                <p id="textyesno">Respuesta Si/No:</p>
+                <p id="yesnoDef">Yes</p>
+                <div id="imageAstrology">
+                  <img id="elementImage" src="images/correspond/Yesno/yes.svg" alt="Elemento fuego">
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
         <h2 id="card-name"></h2>
         <p id="card-description"></p>
       </div>
