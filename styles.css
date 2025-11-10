@@ -188,8 +188,7 @@ h1 {
 /* Dimensión base de la carta dentro del contenedor de consulta */
 /* Tabla e imagen de la consulta aleatoria */
 .TableImageRandom {
-  width: 78%;
-  max-width: 100%;
+  width: 100%;
   border-collapse: collapse;
   font-size: 10px;
 }
@@ -205,7 +204,46 @@ h1 {
   line-height: 1.25;
   text-align: left;
   width: 50%;
-  height: 50%;
+  height: 60%;
+}
+
+#divImageEle,
+#divImageAstrology,
+#divImageYesno {
+  text-align: center;
+}
+
+#textElemento,
+#textAstrology,
+#textYesNo,
+#textyesno {
+  text-align: center;
+  margin-bottom: 3px;
+  margin: 0;
+  padding: 6px 4px;
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 1.4;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
+  transition: background 300ms ease, color 300ms ease, border 300ms ease, box-shadow 300ms ease;
+}
+
+body.celestial-theme #textElemento,
+body.celestial-theme #textAstrology,
+body.celestial-theme #textYesNo,
+body.celestial-theme #textyesno {
+  background: linear-gradient(135deg, rgba(75, 183, 237, 0.12), rgba(31, 140, 217, 0.08));
+  color: #083047;
+  border: 1px solid rgba(75, 183, 237, 0.12);
+}
+
+body:not(.celestial-theme) #textElemento,
+body:not(.celestial-theme) #textAstrology,
+body:not(.celestial-theme) #textYesNo,
+body:not(.celestial-theme) #textyesno {
+  background: linear-gradient(135deg, rgba(10, 18, 30, 0.6), rgba(6, 10, 20, 0.55));
+  color: #e6e6e6;
+  border: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 #tarot-card {
