@@ -245,7 +245,10 @@ document.addEventListener('DOMContentLoaded', function () {
       suit: card.suit || null,
       meaning: card.meaning || {},
       description: card.description || '',
-      history: card.history || ''
+      history: card.history || '',
+      elemento: card.elemento || card.element || '',
+      astrologia: card.astrologia || card.astrology || '',
+      respuesta: card.respuesta || card.respuestaSiNo || card.respuestaYesNo || card.respuestaSi || card.respuestaNo || card.siNo || card.yesno || card.yesNo || ''
     };
   }
 
