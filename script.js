@@ -98,6 +98,10 @@ document.addEventListener('DOMContentLoaded', function () {
     Marseille: '',
     Rider: ''
   };
+  const majorArcanaDeckLinks = {
+    Marseille: [],
+    Rider: []
+  };
   const deckLoadState = {
     Marseille: false,
     Rider: false
@@ -134,6 +138,25 @@ document.addEventListener('DOMContentLoaded', function () {
     };
   }
 
+  function normalizeDeckLinks(rawLinks) {
+    if (!rawLinks || typeof rawLinks !== 'object') return [];
+    return Object.entries(rawLinks).reduce((acc, [label, value]) => {
+      if (!label) return acc;
+      let url = '';
+      let displayLabel = label;
+      if (typeof value === 'string') {
+        url = value;
+      } else if (value && typeof value === 'object') {
+        url = typeof value.url === 'string' ? value.url : '';
+        displayLabel = value.label || label;
+      }
+      if (typeof url === 'string' && url.trim()) {
+        acc.push({ label: displayLabel, url: url.trim() });
+      }
+      return acc;
+    }, []);
+  }
+
   async function loadDeckData(deck) {
     if (deckLoadState[deck]) return majorArcanaDeckData[deck];
     if (deckLoadPromises[deck]) return deckLoadPromises[deck];
@@ -144,11 +167,13 @@ document.addEventListener('DOMContentLoaded', function () {
         const res = await fetch(source);
         if (!res.ok) throw new Error('JSON not available');
         const data = await res.json();
-        // Extract deck-level history if present (HistoryDeck or History)
+        // Extract deck-level history if present (HistoryDeck or History) along with deck links
         if (Array.isArray(data) && data.length && typeof data[0] === 'object') {
           majorArcanaDeckHistory[deck] = data[0].HistoryDeck || data[0].History || '';
+          majorArcanaDeckLinks[deck] = normalizeDeckLinks(data[0].links || data[0].Links);
         } else {
           majorArcanaDeckHistory[deck] = '';
+          majorArcanaDeckLinks[deck] = [];
         }
         // If no deck-level history is present, provide a small default for Marseille
         if ((!majorArcanaDeckHistory[deck] || !majorArcanaDeckHistory[deck].trim()) && deck === 'Marseille') {
@@ -161,6 +186,7 @@ document.addEventListener('DOMContentLoaded', function () {
         console.warn('Could not load ' + source + ', using fallback data.', error);
         majorArcanaDeckData[deck] = majorArcanaFallback.map(normalizeCard);
         majorArcanaDeckHistory[deck] = '';
+        majorArcanaDeckLinks[deck] = [];
       } finally {
         deckLoadState[deck] = true;
         deckLoadPromises[deck] = null;
@@ -448,6 +474,7 @@ document.addEventListener('DOMContentLoaded', function () {
   function updateHistoryDeck(deck) {
     if (!historyDeckEl) return;
     const text = majorArcanaDeckHistory[deck] || '';
+    const links = majorArcanaDeckLinks[deck] || [];
     // Limpiar contenido previo
     historyDeckEl.innerHTML = '';
     // Si no hay texto, ocultar usando la clase 'hidden' (estilo provisto en styles.css)
@@ -461,6 +488,48 @@ document.addEventListener('DOMContentLoaded', function () {
     p.className = 'history-deck-paragraph';
     p.textContent = text;
     historyDeckEl.appendChild(p);
+
+    if (Array.isArray(links) && links.length) {
+      const toggleButton = document.createElement('button');
+      toggleButton.type = 'button';
+      toggleButton.className = 'history-links-toggle';
+      toggleButton.setAttribute('aria-expanded', 'false');
+      toggleButton.setAttribute('aria-label', 'Mostrar enlaces del mazo');
+
+      const icon = document.createElement('img');
+      icon.src = 'images/link.svg';
+      icon.alt = 'Ver enlaces del mazo';
+      toggleButton.appendChild(icon);
+
+      const list = document.createElement('ul');
+      list.className = 'history-links-list history-deck-paragraph hidden';
+      list.setAttribute('aria-label', 'Enlaces relacionados al mazo');
+
+      links.forEach(({ label, url }) => {
+        const li = document.createElement('li');
+        const anchor = document.createElement('a');
+        anchor.href = url;
+        anchor.target = '_blank';
+        anchor.rel = 'noopener noreferrer';
+        anchor.textContent = label;
+        li.appendChild(anchor);
+        list.appendChild(li);
+      });
+
+      p.appendChild(document.createTextNode(' '));
+      p.appendChild(toggleButton);
+      toggleButton.addEventListener('click', () => {
+        const expanded = toggleButton.getAttribute('aria-expanded') === 'true';
+        toggleButton.setAttribute('aria-expanded', String(!expanded));
+        if (expanded) {
+          list.classList.add('hidden');
+        } else {
+          list.classList.remove('hidden');
+        }
+      });
+
+      historyDeckEl.appendChild(list);
+    }
   }
 
   const showArcanaListButton = document.getElementById('show-arcana-list');

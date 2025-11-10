@@ -1,6 +1,11 @@
 ﻿[
   {
-    "TypeCard": "Marseille"
+    "TypeCard": "Marseille",
+    "History": "El mazo de Marsella es uno de los tarots más antiguos y emblemáticos de Europa, con raíces que se remontan al siglo XV en el norte de Italia y su posterior consolidación en Francia durante los siglos XVII y XVIII. Aunque el nombre sugiere un origen exclusivamente marsellés, en realidad hace referencia a un estilo estandarizado de diseño que se popularizó en talleres de impresión de ciudades como Lyon y Marsella. Este mazo se caracteriza por su estética medieval, sus líneas gruesas, colores primarios intensos y figuras cargadas de simbolismo religioso y filosófico, reflejando la cosmovisión cristiana y esotérica de la época.A diferencia del Rider-Waite, el Tarot de Marsella mantiene los Arcanos Menores con representaciones más abstractas, donde los palos (bastos, copas, espadas y oros) aparecen sin escenas figurativas. Esta simplicidad visual le otorga un carácter más simbólico e interpretativo, centrado en la numerología y la estructura arquetípica. Con el tiempo, el Tarot de Marsella se convirtió en la base de referencia para muchos otros mazos europeos y sigue siendo venerado por estudiosos y practicantes tradicionales como una expresión pura del tarot clásico occidental.",
+    "links": {
+      "Wikipedia": "https://es.wikipedia.org/wiki/Tarot_de_Marsella",
+      "Tarot Heritage": "https://tarot-heritage.com/history-4/the-tarot-de-marseilles"
+    }
   },
   {
     "id": 0,
