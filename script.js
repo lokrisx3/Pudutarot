@@ -1032,7 +1032,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // show contacts section and ensure the title is visible
         contactsSection.classList.remove('hidden');
         // ensure contacts-section is scannable (some older CSS used #contact-section)
-        try { contactsSection.style.display = contactsSection.style.display || 'block'; } catch(e) {}
+        try { contactsSection.style.display = 'block'; } catch (e) { /* noop */ }
         if (document && document.body) {
           document.body.classList.add('contacts-open');
         }
@@ -1045,10 +1045,11 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         loadAndRenderContacts().then(scrollFirstContactIntoView);
         contactsButton.textContent = 'Ocultar Contactos';
-        // marcar visualmente el bot�n como seleccionado
+        // marcar visualmente el botón como seleccionado
         contactsButton.classList.add('selected');
       } else {
         contactsSection.classList.add('hidden');
+        try { contactsSection.style.display = 'none'; } catch (e) { /* noop */ }
         if (document && document.body) {
           document.body.classList.remove('contacts-open');
         }
