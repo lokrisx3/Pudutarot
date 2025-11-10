@@ -48,6 +48,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const textElementoNode = document.getElementById('textElemento');
   const textAstrologyNode = document.getElementById('textAstrology');
   const textYesNoNode = document.getElementById('textyesno') || document.getElementById('textYesNo');
+  const listElementNode = document.getElementById('textElementoListado');
+  const listAstrologyNode = document.getElementById('textAstrologyListado');
+  const listYesNoNode = document.getElementById('textYesNoListado');
   const deckMarseilleButton = document.getElementById('deck-marseille');
   const deckRiderButton = document.getElementById('deck-rider');
   let currentDeck = 'Marseille';
@@ -557,6 +560,9 @@ document.addEventListener('DOMContentLoaded', function () {
             imgEl.src = c.image;
             imgEl.alt = c.name;
           }
+          applyCardMetaValue(listElementNode, 'Elemento', c.elemento);
+          applyCardMetaValue(listAstrologyNode, 'Astrologia', c.astrologia);
+          applyCardMetaValue(listYesNoNode, 'Respuesta Si/No', c.respuesta);
           arcanaDetail.classList.remove('hidden');
           arcanaDetail.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }

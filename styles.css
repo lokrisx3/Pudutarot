@@ -216,7 +216,10 @@ h1 {
 #textElemento,
 #textAstrology,
 #textYesNo,
-#textyesno {
+#textyesno,
+#textElementoListado,
+#textAstrologyListado,
+#textYesNoListado {
   text-align: center;
   margin: 0 0 3px 0;
   padding: 6px 4px;
@@ -229,7 +232,10 @@ h1 {
 body.celestial-theme #textElemento,
 body.celestial-theme #textAstrology,
 body.celestial-theme #textYesNo,
-body.celestial-theme #textyesno {
+body.celestial-theme #textyesno,
+body.celestial-theme #textElementoListado,
+body.celestial-theme #textAstrologyListado,
+body.celestial-theme #textYesNoListado {
   background: linear-gradient(135deg, rgba(75, 183, 237, 0.12), rgba(31, 140, 217, 0.08));
   color: #083047;
   border: 1px solid rgba(75, 183, 237, 0.12);
@@ -238,7 +244,10 @@ body.celestial-theme #textyesno {
 body:not(.celestial-theme) #textElemento,
 body:not(.celestial-theme) #textAstrology,
 body:not(.celestial-theme) #textYesNo,
-body:not(.celestial-theme) #textyesno {
+body:not(.celestial-theme) #textyesno,
+body:not(.celestial-theme) #textElementoListado,
+body:not(.celestial-theme) #textAstrologyListado,
+body:not(.celestial-theme) #textYesNoListado {
   background: linear-gradient(135deg, rgba(10, 18, 30, 0.6), rgba(6, 10, 20, 0.55));
   color: #e6e6e6;
   border: 1px solid rgba(255, 255, 255, 0.04);
@@ -1019,4 +1028,23 @@ body:not(.celestial-theme) #arcana-detail #arcana-detail-name {
 body:not(.celestial-theme) #card-name,
 body:not(.celestial-theme) .meaning-heading {
   color: #ffffff;
+}
+
+#arcana-detail .CorrespondenciasListado {
+  width: 100%;
+  max-width: 220px;
+  margin: 10px auto;
+  border-collapse: collapse;
+  font-size: 11px;
+}
+
+#arcana-detail .CorrespondenciasListado th,
+#arcana-detail .CorrespondenciasListado td {
+  text-align: center;
+  padding: 4px 6px;
+}
+
+#arcana-detail .CorrespondenciasListado img {
+  width: 48px;
+  height: 48px;
 }
