@@ -330,6 +330,17 @@ document.addEventListener('DOMContentLoaded', function () {
     node.textContent = `${label}: ${sanitized}`;
   }
 
+  function resolveYesNoValue(baseValue, inverted) {
+    if (!baseValue && baseValue !== 0) return baseValue;
+    const raw = String(baseValue).trim();
+    if (!raw) return raw;
+    if (!inverted) return raw;
+    const normalized = raw.toLowerCase();
+    if (normalized === 'si' || normalized === 'sí') return 'No';
+    if (normalized === 'no') return 'Si';
+    return raw;
+  }
+
   function showCard(card) {
     tarotCard.src = card.image;
     cardName.textContent = card.name;
@@ -337,7 +348,8 @@ document.addEventListener('DOMContentLoaded', function () {
     tarotCard.classList.toggle('reversed', showReversedImage);
     applyCardMetaValue(textElementoNode, 'Elemento', card.elemento);
     applyCardMetaValue(textAstrologyNode, 'Astrologia', card.astrologia);
-    applyCardMetaValue(textYesNoNode, 'Respuesta Si/No', card.respuesta);
+    const yesNoValue = resolveYesNoValue(card.respuesta, showReversedImage);
+    applyCardMetaValue(textYesNoNode, 'Respuesta Si/No', yesNoValue);
 
     // Reactivar el bot�n de consultar cuando la imagen haya terminado de cargarse y la carta est� visible
     function enableConsultButton() {
