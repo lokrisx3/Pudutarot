@@ -51,6 +51,8 @@ document.addEventListener('DOMContentLoaded', function () {
   const listElementNode = document.getElementById('textElementoListado');
   const listAstrologyNode = document.getElementById('textAstrologyListado');
   const listYesNoNode = document.getElementById('textYesNoListado');
+  const yesnoImageNode = document.getElementById('yesnoImage');
+  const yesnoImageListadoNode = document.getElementById('yesnoImageListado');
   const deckMarseilleButton = document.getElementById('deck-marseille');
   const deckRiderButton = document.getElementById('deck-rider');
   let currentDeck = 'Marseille';
@@ -397,6 +399,31 @@ document.addEventListener('DOMContentLoaded', function () {
     return raw;
   }
 
+  function resolveYesNoIcon(value) {
+    if (!value && value !== 0) return '';
+    const normalized = String(value).trim().toLowerCase();
+    const plain = normalized.normalize ? normalized.normalize('NFD').replace(/[\u0300-\u036f]/g, '') : normalized;
+    const positiveValues = ['si', 'yes', 'affirmative', 'positivo', 'positiva'];
+    const negativeValues = ['no', 'negativo', 'negativa'];
+    if (positiveValues.includes(plain)) return 'images/correspond/Yesno/like.svg';
+    if (negativeValues.includes(plain)) return 'images/correspond/Yesno/dislike.svg';
+    return '';
+  }
+
+  function applyYesNoImage(img, value) {
+    if (!img) return;
+    const iconSrc = resolveYesNoIcon(value);
+    if (iconSrc) {
+      img.src = iconSrc;
+      img.alt = `Respuesta ${value}`.trim();
+      img.classList.remove('hidden');
+    } else {
+      img.removeAttribute('src');
+      img.alt = 'Respuesta no disponible';
+      img.classList.add('hidden');
+    }
+  }
+
   function showCard(card) {
     tarotCard.src = card.image;
     cardName.textContent = card.name;
@@ -406,6 +433,7 @@ document.addEventListener('DOMContentLoaded', function () {
     applyCardMetaValue(textAstrologyNode, 'Astrologia', card.astrologia);
     const yesNoValue = resolveYesNoValue(card.respuesta, showReversedImage);
     applyCardMetaValue(textYesNoNode, 'Respuesta Si/No', yesNoValue);
+    applyYesNoImage(yesnoImageNode, yesNoValue);
 
     // Reactivar el bot�n de consultar cuando la imagen haya terminado de cargarse y la carta est� visible
     function enableConsultButton() {
@@ -702,6 +730,7 @@ document.addEventListener('DOMContentLoaded', function () {
           applyCardMetaValue(listElementNode, 'Elemento', c.elemento);
           applyCardMetaValue(listAstrologyNode, 'Astrologia', c.astrologia);
           applyCardMetaValue(listYesNoNode, 'Respuesta Si/No', c.respuesta);
+          applyYesNoImage(yesnoImageListadoNode, c.respuesta);
           arcanaDetail.classList.remove('hidden');
           arcanaDetail.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }

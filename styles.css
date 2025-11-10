@@ -216,6 +216,15 @@ h1 {
 #divImageAstrology,
 #divImageYesno {
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#divImageYesno img {
+  width: 28px;
+  height: 28px;
+  display: block;
 }
 
 #textElemento,
