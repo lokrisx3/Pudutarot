@@ -1,7 +1,7 @@
-[
+﻿[
     {
         "TypeCard": "Rider",
-        "History": "El Tarot Rider-Waite, creado por Arthur Edward Waite y ilustrado por Pamela Colman Smith en 1909, es uno de los mazos de tarot más populares y ampliamente utilizados en el mundo. Este mazo se distingue por sus imágenes ricas en simbolismo y detalles, que ofrecen una interpretación visual clara de cada carta. El Tarot Rider-Waite fue diseñado para ser accesible tanto para principiantes como para lectores experimentados, con un enfoque en la intuición y la conexión espiritual. Cada carta está llena de símbolos esotéricos que invitan a la reflexión y al autoconocimiento, haciendo del Tarot Rider-Waite una herramienta poderosa para la adivinación, la meditación y el crecimiento personal."
+        "History": "El Tarot Rider-Waite, creado por Arthur Edward Waite y ilustrado por Pamela Colman Smith en 1909, es uno de los mazos de tarot mÃ¡s populares y ampliamente utilizados en el mundo. Este mazo se distingue por sus imÃ¡genes ricas en simbolismo y detalles, que ofrecen una interpretaciÃ³n visual clara de cada carta. El Tarot Rider-Waite fue diseÃ±ado para ser accesible tanto para principiantes como para lectores experimentados, con un enfoque en la intuiciÃ³n y la conexiÃ³n espiritual. Cada carta estÃ¡ llena de sÃ­mbolos esotÃ©ricos que invitan a la reflexiÃ³n y al autoconocimiento, haciendo del Tarot Rider-Waite una herramienta poderosa para la adivinaciÃ³n, la meditaciÃ³n y el crecimiento personal."
     },
     {
         "id": 0,
@@ -9,35 +9,35 @@
         "file": "arcanosmayores/0loco.jpg",
         "meaning": {
             "upright": "Nuevos comienzos, espontaneidad, confianza, potencial",
-            "reversed": "Inmadurez, falta de dirección, imprudencia o temeridad."
+            "reversed": "Inmadurez, falta de direcciÃ³n, imprudencia o temeridad."
         },
-        "history": "En el viaje del héroe según Joseph Campbell: El Loco es el inicio del viaje del héroe: el alma se aventura hacia lo desconocido, con fe y sin miedo. Representa el potencial puro, la libertad y la confianza en el camino que se despliega.",
+        "history": "En el viaje del hÃ©roe segÃºn Joseph Campbell: El Loco es el inicio del viaje del hÃ©roe: el alma se aventura hacia lo desconocido, con fe y sin miedo. Representa el potencial puro, la libertad y la confianza en el camino que se despliega.",
         "elemento": "Aire",
         "astrologia": "Urano",
-        "respuesta": "Depende"
+        "respuesta": "Si"
     },
     {
         "id": 1,
         "name": "El Mago",
         "file": "arcanosmayores/1mago.jpg",
         "meaning": {
-            "upright": "Habilidad, concentración, iniciativa y el poder de transformar ideas en acción.",
-            "reversed": "Manipulación, engaño, falta de recursos o intención errada."
+            "upright": "Habilidad, concentraciÃ³n, iniciativa y el poder de transformar ideas en acciÃ³n.",
+            "reversed": "ManipulaciÃ³n, engaÃ±o, falta de recursos o intenciÃ³n errada."
         },
-        "history": "En el viaje del héroe según Joseph Campbell: El Mago es el despertar del poder personal: el héroe descubre que posee los recursos internos para emprender el viaje. Es el momento del 'como arriba, así abajo' — la magia de la voluntad consciente.",
+        "history": "En el viaje del hÃ©roe segÃºn Joseph Campbell: El Mago es el despertar del poder personal: el hÃ©roe descubre que posee los recursos internos para emprender el viaje. Es el momento del 'como arriba, asÃ­ abajo' â€” la magia de la voluntad consciente.",
         "elemento": "Aire",
         "astrologia": "Mercurio",
-        "respuesta": "Sí"
+        "respuesta": "SÃ­"
     },
     {
         "id": 2,
         "name": "La Sacerdotisa",
         "file": "arcanosmayores/2sacerdotisa.jpg",
         "meaning": {
-            "upright": "Intuición, conocimiento interior y misterio; receptividad a lo inconsciente.",
-            "reversed": "Falta de conexión interna, secretos revelados o bloqueo de la intuición."
+            "upright": "IntuiciÃ³n, conocimiento interior y misterio; receptividad a lo inconsciente.",
+            "reversed": "Falta de conexiÃ³n interna, secretos revelados o bloqueo de la intuiciÃ³n."
         },
-        "history": "En el viaje del héroe según Joseph Campbell: La Sacerdotisa es el umbral del conocimiento oculto: el héroe escucha la voz interior antes de cruzar al mundo extraordinario. Guardiana de los misterios que preparan para la iniciación.",
+        "history": "En el viaje del hÃ©roe segÃºn Joseph Campbell: La Sacerdotisa es el umbral del conocimiento oculto: el hÃ©roe escucha la voz interior antes de cruzar al mundo extraordinario. Guardiana de los misterios que preparan para la iniciaciÃ³n.",
         "elemento": "Agua",
         "astrologia": "Luna",
         "respuesta": "No"
@@ -48,12 +48,12 @@
         "file": "arcanosmayores/3emperatriz.jpg",
         "meaning": {
             "upright": "Fertilidad, abundancia, creatividad y fertilidad material o emocional.",
-            "reversed": "Estancamiento creativo, dependencia o sobreprotección."
+            "reversed": "Estancamiento creativo, dependencia o sobreprotecciÃ³n."
         },
-        "history": "En el viaje del héroe según Joseph Campbell: La Emperatriz es la nutrición del viaje: el héroe se prepara, se alimenta de la tierra, de la creatividad y del amor antes de enfrentar las pruebas. Es la diosa que sostiene antes de la batalla.",
+        "history": "En el viaje del hÃ©roe segÃºn Joseph Campbell: La Emperatriz es la nutriciÃ³n del viaje: el hÃ©roe se prepara, se alimenta de la tierra, de la creatividad y del amor antes de enfrentar las pruebas. Es la diosa que sostiene antes de la batalla.",
         "elemento": "Tierra",
         "astrologia": "Venus",
-        "respuesta": "Sí"
+        "respuesta": "SÃ­"
     },
     {
         "id": 4,
@@ -61,74 +61,74 @@
         "file": "arcanosmayores/4emperador.jpg",
         "meaning": {
             "upright": "Orden, autoridad, disciplina y liderazgo responsable.",
-            "reversed": "Tiranía, rigidez, abuso de poder o pérdida de control."
+            "reversed": "TiranÃ­a, rigidez, abuso de poder o pÃ©rdida de control."
         },
-        "history": "En el viaje del héroe según Joseph Campbell: El Emperador representa la estructura del mundo antiguo: el héroe internaliza las leyes antes de desafiarlas. Es el padre arquetípico cuya autoridad debe integrarse o trascenderse.",
+        "history": "En el viaje del hÃ©roe segÃºn Joseph Campbell: El Emperador representa la estructura del mundo antiguo: el hÃ©roe internaliza las leyes antes de desafiarlas. Es el padre arquetÃ­pico cuya autoridad debe integrarse o trascenderse.",
         "elemento": "Fuego",
         "astrologia": "Aries",
-        "respuesta": "Sí"
+        "respuesta": "SÃ­"
     },
     {
         "id": 5,
         "name": "El Hierofante",
         "file": "arcanosmayores/5sacerdote.jpg",
         "meaning": {
-            "upright": "Tradición, enseñanza, guía espiritual y conformidad con valores establecidos.",
-            "reversed": "Dogmatismo, cuestionamiento de reglas o búsqueda de un camino propio."
+            "upright": "TradiciÃ³n, enseÃ±anza, guÃ­a espiritual y conformidad con valores establecidos.",
+            "reversed": "Dogmatismo, cuestionamiento de reglas o bÃºsqueda de un camino propio."
         },
-        "history": "En el viaje del héroe según Joseph Campbell: El Hierofante es el mentor de la tradición: el héroe recibe enseñanzas, rituales y sistemas de creencias que lo preparan — pero también lo limitan — antes de su transformación radical.",
+        "history": "En el viaje del hÃ©roe segÃºn Joseph Campbell: El Hierofante es el mentor de la tradiciÃ³n: el hÃ©roe recibe enseÃ±anzas, rituales y sistemas de creencias que lo preparan â€” pero tambiÃ©n lo limitan â€” antes de su transformaciÃ³n radical.",
         "elemento": "Tierra",
         "astrologia": "Tauro",
-        "respuesta": "Sí"
+        "respuesta": "SÃ­"
     },
     {
         "id": 6,
         "name": "Los Enamorados",
         "file": "arcanosmayores/6enamorados.jpg",
         "meaning": {
-            "upright": "Amor, unión, decisiones importantes y armonía de valores.",
-            "reversed": "Indecisión, conflicto en las relaciones o malas elecciones."
+            "upright": "Amor, uniÃ³n, decisiones importantes y armonÃ­a de valores.",
+            "reversed": "IndecisiÃ³n, conflicto en las relaciones o malas elecciones."
         },
-        "history": "En el viaje del héroe según Joseph Campbell: Los Enamorados son la elección crucial: el héroe debe decidir entre caminos, valores o amores. Es el cruce del primer umbral, donde el corazón define el destino.",
+        "history": "En el viaje del hÃ©roe segÃºn Joseph Campbell: Los Enamorados son la elecciÃ³n crucial: el hÃ©roe debe decidir entre caminos, valores o amores. Es el cruce del primer umbral, donde el corazÃ³n define el destino.",
         "elemento": "Aire",
-        "astrologia": "Géminis",
-        "respuesta": "Depende"
+        "astrologia": "GÃ©minis",
+        "respuesta": "Si"
     },
     {
         "id": 7,
         "name": "El Carro",
         "file": "arcanosmayores/7carro.jpg",
         "meaning": {
-            "upright": "Determinación, victoria mediante disciplina y control de fuerzas opuestas.",
-            "reversed": "Pérdida de control, conflictos internos o fracaso por impulsividad."
+            "upright": "DeterminaciÃ³n, victoria mediante disciplina y control de fuerzas opuestas.",
+            "reversed": "PÃ©rdida de control, conflictos internos o fracaso por impulsividad."
         },
-        "history": "En el viaje del héroe según Joseph Campbell: El Carro es la voluntad en acción: el héroe toma las riendas de su destino, domina fuerzas opuestas y avanza con determinación. Triunfo del ego consciente sobre el caos interno.",
+        "history": "En el viaje del hÃ©roe segÃºn Joseph Campbell: El Carro es la voluntad en acciÃ³n: el hÃ©roe toma las riendas de su destino, domina fuerzas opuestas y avanza con determinaciÃ³n. Triunfo del ego consciente sobre el caos interno.",
         "elemento": "Agua",
-        "astrologia": "Cáncer",
-        "respuesta": "Sí"
+        "astrologia": "CÃ¡ncer",
+        "respuesta": "SÃ­"
     },
     {
         "id": 8,
         "name": "La Fuerza",
         "file": "arcanosmayores/8fuerza.jpg",
         "meaning": {
-            "upright": "Valentía, compasión, dominio de las pasiones y fortaleza interna.",
-            "reversed": "Duda, inseguridad, abuso de fuerza o falta de compasión."
+            "upright": "ValentÃ­a, compasiÃ³n, dominio de las pasiones y fortaleza interna.",
+            "reversed": "Duda, inseguridad, abuso de fuerza o falta de compasiÃ³n."
         },
-        "history": "En el viaje del héroe según Joseph Campbell: La Fuerza es el dominio de la sombra: el héroe enfrenta sus instintos más salvajes con compasión, no con violencia. Es la victoria del alma sobre el ego, la verdadera fortaleza interior.",
+        "history": "En el viaje del hÃ©roe segÃºn Joseph Campbell: La Fuerza es el dominio de la sombra: el hÃ©roe enfrenta sus instintos mÃ¡s salvajes con compasiÃ³n, no con violencia. Es la victoria del alma sobre el ego, la verdadera fortaleza interior.",
         "elemento": "Fuego",
         "astrologia": "Leo",
-        "respuesta": "Sí"
+        "respuesta": "SÃ­"
     },
     {
         "id": 9,
-        "name": "El Ermitaño",
+        "name": "El ErmitaÃ±o",
         "file": "arcanosmayores/9ermitano.jpg",
         "meaning": {
-            "upright": "Soledad buscada para la reflexión, guía interior y sabiduría.",
-            "reversed": "Aislamiento excesivo, soledad no deseada o pérdida de rumbo."
+            "upright": "Soledad buscada para la reflexiÃ³n, guÃ­a interior y sabidurÃ­a.",
+            "reversed": "Aislamiento excesivo, soledad no deseada o pÃ©rdida de rumbo."
         },
-        "history": "En el viaje del héroe según Joseph Campbell: El Ermitaño es el descenso al abismo: el héroe se retira del mundo para buscar la luz interior. Es la etapa de introspección profunda antes de la muerte simbólica.",
+        "history": "En el viaje del hÃ©roe segÃºn Joseph Campbell: El ErmitaÃ±o es el descenso al abismo: el hÃ©roe se retira del mundo para buscar la luz interior. Es la etapa de introspecciÃ³n profunda antes de la muerte simbÃ³lica.",
         "elemento": "Tierra",
         "astrologia": "Virgo",
         "respuesta": "No"
@@ -141,10 +141,10 @@
             "upright": "Cambio, giros del destino y oportunidades que llegan con el ciclo.",
             "reversed": "Resistencia al cambio, retrocesos temporales o mala racha."
         },
-        "history": "En el viaje del héroe según Joseph Campbell: La Rueda de la Fortuna es el giro del destino: el héroe comprende que no controla todo, y se entrega al flujo del universo. Es el momento en que el azar se convierte en gracia.",
+        "history": "En el viaje del hÃ©roe segÃºn Joseph Campbell: La Rueda de la Fortuna es el giro del destino: el hÃ©roe comprende que no controla todo, y se entrega al flujo del universo. Es el momento en que el azar se convierte en gracia.",
         "elemento": "Fuego",
-        "astrologia": "Júpiter",
-        "respuesta": "Sí"
+        "astrologia": "JÃºpiter",
+        "respuesta": "Si"
     },
     {
         "id": 11,
@@ -152,12 +152,12 @@
         "file": "arcanosmayores/11justicia.jpg",
         "meaning": {
             "upright": "Equidad, responsabilidad, decisiones justas y consecuencias claras.",
-            "reversed": "Injusticia, parcialidad, evasión de responsabilidad o decisiones sesgadas."
+            "reversed": "Injusticia, parcialidad, evasiÃ³n de responsabilidad o decisiones sesgadas."
         },
-        "history": "En el viaje del héroe según Joseph Campbell: La Justicia es la ley del karma: el héroe enfrenta las consecuencias de sus actos. Es el equilibrio cósmico que prepara para la transformación final — nada escapa a la balanza.",
+        "history": "En el viaje del hÃ©roe segÃºn Joseph Campbell: La Justicia es la ley del karma: el hÃ©roe enfrenta las consecuencias de sus actos. Es el equilibrio cÃ³smico que prepara para la transformaciÃ³n final â€” nada escapa a la balanza.",
         "elemento": "Aire",
         "astrologia": "Libra",
-        "respuesta": "Depende"
+        "respuesta": "Si"
     },
     {
         "id": 12,
@@ -165,9 +165,9 @@
         "file": "arcanosmayores/12colgado.jpg",
         "meaning": {
             "upright": "Nueva perspectiva, sacrificio voluntario y pausa consciente para ver distinto.",
-            "reversed": "Estancamiento, sacrificio inútil, resistencia a soltar o retrasos."
+            "reversed": "Estancamiento, sacrificio inÃºtil, resistencia a soltar o retrasos."
         },
-        "history": "En el viaje del héroe según Joseph Campbell: El Colgado es la entrega voluntaria: el héroe se detiene, se invierte, se sacrifica. Es la muerte simbólica del ego — colgado para ver el mundo desde otra perspectiva.",
+        "history": "En el viaje del hÃ©roe segÃºn Joseph Campbell: El Colgado es la entrega voluntaria: el hÃ©roe se detiene, se invierte, se sacrifica. Es la muerte simbÃ³lica del ego â€” colgado para ver el mundo desde otra perspectiva.",
         "elemento": "Agua",
         "astrologia": "Neptuno",
         "respuesta": "No"
@@ -177,10 +177,10 @@
         "name": "La Muerte",
         "file": "arcanosmayores/13muerte.jpg",
         "meaning": {
-            "upright": "Transformación profunda, fin necesario y comienzo de algo nuevo.",
+            "upright": "TransformaciÃ³n profunda, fin necesario y comienzo de algo nuevo.",
             "reversed": "Resistencia al cambio, estancamiento o miedo a soltar lo viejo."
         },
-        "history": "En el viaje del héroe según Joseph Campbell: La Muerte es la transformación radical: el héroe muere a su antiguo ser. No es destrucción, sino metamorfosis — el cascarón que se rompe para que nazca el nuevo ser.",
+        "history": "En el viaje del hÃ©roe segÃºn Joseph Campbell: La Muerte es la transformaciÃ³n radical: el hÃ©roe muere a su antiguo ser. No es destrucciÃ³n, sino metamorfosis â€” el cascarÃ³n que se rompe para que nazca el nuevo ser.",
         "elemento": "Agua",
         "astrologia": "Escorpio",
         "respuesta": "No"
@@ -190,23 +190,23 @@
         "name": "La Templanza",
         "file": "arcanosmayores/14templanza.jpg",
         "meaning": {
-            "upright": "Equilibrio, moderación, mezcla armoniosa y curación gradual.",
-            "reversed": "Desequilibrio, impaciencia, excesos o falta de armonía."
+            "upright": "Equilibrio, moderaciÃ³n, mezcla armoniosa y curaciÃ³n gradual.",
+            "reversed": "Desequilibrio, impaciencia, excesos o falta de armonÃ­a."
         },
-        "history": "En el viaje del héroe según Joseph Campbell: La Templanza es la integración de opuestos: el héroe mezcla lo humano y lo divino, lo masculino y lo femenino. Es la alquimia del alma después de la muerte.",
+        "history": "En el viaje del hÃ©roe segÃºn Joseph Campbell: La Templanza es la integraciÃ³n de opuestos: el hÃ©roe mezcla lo humano y lo divino, lo masculino y lo femenino. Es la alquimia del alma despuÃ©s de la muerte.",
         "elemento": "Fuego",
         "astrologia": "Sagitario",
-        "respuesta": "Sí"
+        "respuesta": "SÃ­"
     },
     {
         "id": 15,
         "name": "El Diablo",
         "file": "arcanosmayores/15diablo.jpg",
         "meaning": {
-            "upright": "Apego, tentación, materialismo y ataduras que limitan el crecimiento.",
-            "reversed": "Liberación de cadenas, confrontación de sombras y recuperación de poder."
+            "upright": "Apego, tentaciÃ³n, materialismo y ataduras que limitan el crecimiento.",
+            "reversed": "LiberaciÃ³n de cadenas, confrontaciÃ³n de sombras y recuperaciÃ³n de poder."
         },
-        "history": "En el viaje del héroe según Joseph Campbell: El Diablo es el encuentro con la sombra: el héroe enfrenta sus cadenas, deseos y miedos. Las ataduras son ilusorias — la verdadera prisión está en la mente.",
+        "history": "En el viaje del hÃ©roe segÃºn Joseph Campbell: El Diablo es el encuentro con la sombra: el hÃ©roe enfrenta sus cadenas, deseos y miedos. Las ataduras son ilusorias â€” la verdadera prisiÃ³n estÃ¡ en la mente.",
         "elemento": "Tierra",
         "astrologia": "Capricornio",
         "respuesta": "No"
@@ -216,10 +216,10 @@
         "name": "La Torre",
         "file": "arcanosmayores/16torre.jpg",
         "meaning": {
-            "upright": "Ruptura súbita, revelación que conduce a la reconstrucción y libertad.",
-            "reversed": "Evitar la caída, miedo al cambio o bloques que retrasan la liberación."
+            "upright": "Ruptura sÃºbita, revelaciÃ³n que conduce a la reconstrucciÃ³n y libertad.",
+            "reversed": "Evitar la caÃ­da, miedo al cambio o bloques que retrasan la liberaciÃ³n."
         },
-        "history": "En el viaje del héroe según Joseph Campbell: La Torre es la purificación por el fuego: el héroe ve cómo su mundo falso se derrumba. Es la revelación forzada que libera — solo cuando todo cae, puede construirse lo verdadero.",
+        "history": "En el viaje del hÃ©roe segÃºn Joseph Campbell: La Torre es la purificaciÃ³n por el fuego: el hÃ©roe ve cÃ³mo su mundo falso se derrumba. Es la revelaciÃ³n forzada que libera â€” solo cuando todo cae, puede construirse lo verdadero.",
         "elemento": "Fuego",
         "astrologia": "Marte",
         "respuesta": "No"
@@ -229,23 +229,23 @@
         "name": "La Estrella",
         "file": "arcanosmayores/17estrella.jpg",
         "meaning": {
-            "upright": "Esperanza renovada, inspiración espiritual y guía amable.",
-            "reversed": "Desilusión, falta de fe o bloqueo creativo temporal."
+            "upright": "Esperanza renovada, inspiraciÃ³n espiritual y guÃ­a amable.",
+            "reversed": "DesilusiÃ³n, falta de fe o bloqueo creativo temporal."
         },
-        "history": "En el viaje del héroe según Joseph Campbell: La Estrella es la sanación después de la tormenta: el héroe encuentra esperanza, se reconecta con lo divino. Es la guía que brilla en la oscuridad, recordándole su propósito.",
+        "history": "En el viaje del hÃ©roe segÃºn Joseph Campbell: La Estrella es la sanaciÃ³n despuÃ©s de la tormenta: el hÃ©roe encuentra esperanza, se reconecta con lo divino. Es la guÃ­a que brilla en la oscuridad, recordÃ¡ndole su propÃ³sito.",
         "elemento": "Aire",
         "astrologia": "Acuario",
-        "respuesta": "Sí"
+        "respuesta": "SÃ­"
     },
     {
         "id": 18,
         "name": "La Luna",
         "file": "arcanosmayores/18luna.jpg",
         "meaning": {
-            "upright": "Intuición, sueños, símbolos y exploración del mundo interior.",
-            "reversed": "Confusión aclarada, miedos conscientes o engaños descubiertos."
+            "upright": "IntuiciÃ³n, sueÃ±os, sÃ­mbolos y exploraciÃ³n del mundo interior.",
+            "reversed": "ConfusiÃ³n aclarada, miedos conscientes o engaÃ±os descubiertos."
         },
-        "history": "En el viaje del héroe según Joseph Campbell: La Luna es el valle de las sombras: el héroe enfrenta sus miedos inconscientes, ilusiones y engaños. Es la prueba final antes de la iluminación — lo que el Sol no muestra, la Luna lo revela.",
+        "history": "En el viaje del hÃ©roe segÃºn Joseph Campbell: La Luna es el valle de las sombras: el hÃ©roe enfrenta sus miedos inconscientes, ilusiones y engaÃ±os. Es la prueba final antes de la iluminaciÃ³n â€” lo que el Sol no muestra, la Luna lo revela.",
         "elemento": "Agua",
         "astrologia": "Piscis",
         "respuesta": "No"
@@ -255,38 +255,38 @@
         "name": "El Sol",
         "file": "arcanosmayores/19sol.jpg",
         "meaning": {
-            "upright": "Éxito, claridad, alegría y energía vital plena.",
+            "upright": "Ã‰xito, claridad, alegrÃ­a y energÃ­a vital plena.",
             "reversed": "Optimismo forzado, retrasos menores o falta temporal de brillo."
         },
-        "history": "En el viaje del héroe según Joseph Campbell: El Sol es la iluminación: el héroe alcanza la claridad, la alegría pura y la plenitud. Es el niño interior recuperado — inocente, pero consciente. La meta del viaje.",
+        "history": "En el viaje del hÃ©roe segÃºn Joseph Campbell: El Sol es la iluminaciÃ³n: el hÃ©roe alcanza la claridad, la alegrÃ­a pura y la plenitud. Es el niÃ±o interior recuperado â€” inocente, pero consciente. La meta del viaje.",
         "elemento": "Fuego",
         "astrologia": "Sol",
-        "respuesta": "Sí"
+        "respuesta": "SÃ­"
     },
     {
         "id": 20,
         "name": "El Juicio",
         "file": "arcanosmayores/20juicio.jpg",
         "meaning": {
-            "upright": "Llamado a la renovación, evaluación y renacimiento espiritual.",
-            "reversed": "Autocrítica paralizante, duda o rechazo del llamado a cambiar."
+            "upright": "Llamado a la renovaciÃ³n, evaluaciÃ³n y renacimiento espiritual.",
+            "reversed": "AutocrÃ­tica paralizante, duda o rechazo del llamado a cambiar."
         },
-        "history": "En el viaje del héroe según Joseph Campbell: El Juicio es el llamado a despertar: el héroe es convocado a regresar, transformado. Es la resurrección del ser auténtico — listo para servir, compartir y sanar al mundo.",
+        "history": "En el viaje del hÃ©roe segÃºn Joseph Campbell: El Juicio es el llamado a despertar: el hÃ©roe es convocado a regresar, transformado. Es la resurrecciÃ³n del ser autÃ©ntico â€” listo para servir, compartir y sanar al mundo.",
         "elemento": "Fuego",
-        "astrologia": "Plutón",
-        "respuesta": "Sí"
+        "astrologia": "PlutÃ³n",
+        "respuesta": "SÃ­"
     },
     {
         "id": 21,
         "name": "El Mundo",
         "file": "arcanosmayores/21mundo.jpg",
         "meaning": {
-            "upright": "Culminación, logro, integración y sensación de plenitud.",
-            "reversed": "Falta de cierre, proyectos inconclusos o retrasos en la culminación."
+            "upright": "CulminaciÃ³n, logro, integraciÃ³n y sensaciÃ³n de plenitud.",
+            "reversed": "Falta de cierre, proyectos inconclusos o retrasos en la culminaciÃ³n."
         },
-        "history": "En el viaje del héroe según Joseph Campbell: El Mundo es el maestro de dos mundos: el héroe ha completado el ciclo. Vive en armonía consigo mismo, con los demás y con el cosmos. Es la integración total — y el comienzo de un nuevo viaje.",
+        "history": "En el viaje del hÃ©roe segÃºn Joseph Campbell: El Mundo es el maestro de dos mundos: el hÃ©roe ha completado el ciclo. Vive en armonÃ­a consigo mismo, con los demÃ¡s y con el cosmos. Es la integraciÃ³n total â€” y el comienzo de un nuevo viaje.",
         "elemento": "Tierra",
         "astrologia": "Saturno",
-        "respuesta": "Sí"
+        "respuesta": "SÃ­"
     }
 ]

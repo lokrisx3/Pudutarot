@@ -45,6 +45,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const tarotCard = document.getElementById('tarot-card');
   const cardName = document.getElementById('card-name');
   const cardDescription = document.getElementById('card-description');
+  const textElementoNode = document.getElementById('textElemento');
+  const textAstrologyNode = document.getElementById('textAstrology');
+  const textYesNoNode = document.getElementById('textyesno') || document.getElementById('textYesNo');
   const deckMarseilleButton = document.getElementById('deck-marseille');
   const deckRiderButton = document.getElementById('deck-rider');
   let currentDeck = 'Marseille';
@@ -121,7 +124,10 @@ document.addEventListener('DOMContentLoaded', function () {
       file: card.file,
       meaning: card.meaning || {},
       description: card.description,
-      history: card.history || ''
+      history: card.history || '',
+      elemento: card.elemento || card.element || '',
+      astrologia: card.astrologia || card.astrology || '',
+      respuesta: card.respuesta || card.respuestaSiNo || card.respuestaYesNo || card.respuestaSi || card.respuestaNo || card.siNo || card.yesno || card.yesNo || ''
     };
   }
 
@@ -205,7 +211,10 @@ document.addEventListener('DOMContentLoaded', function () {
         image: resolveDeckImage(deck, card),
         meaning: card.meaning || {},
         description: card.description,
-        history: card.history || ''
+        history: card.history || '',
+        elemento: card.elemento || '',
+        astrologia: card.astrologia || '',
+        respuesta: card.respuesta || ''
       }));
   }
   let majorArcana = getMajorArcana(currentDeck);
@@ -283,7 +292,10 @@ document.addEventListener('DOMContentLoaded', function () {
       image: resolveDeckImage(deck, card),
       meaning: card.meaning || {},
       description: card.description || '',
-      history: card.history || ''
+      history: card.history || '',
+      elemento: card.elemento || '',
+      astrologia: card.astrologia || '',
+      respuesta: card.respuesta || ''
     }));
   }
 
@@ -309,9 +321,20 @@ document.addEventListener('DOMContentLoaded', function () {
    * @param {Object} card - Carta con al menos { image, name, meaning?, description? }
    * @returns {void}
    */
+  function applyCardMetaValue(node, label, value) {
+    if (!node) return;
+    const sanitized = (value && String(value).trim()) ? String(value).trim() : 'No definido';
+    node.textContent = `${label}: ${sanitized}`;
+  }
+
   function showCard(card) {
     tarotCard.src = card.image;
     cardName.textContent = card.name;
+    const showReversedImage = Math.random() < 0.5;
+    tarotCard.classList.toggle('reversed', showReversedImage);
+    applyCardMetaValue(textElementoNode, 'Elemento', card.elemento);
+    applyCardMetaValue(textAstrologyNode, 'Astrologia', card.astrologia);
+    applyCardMetaValue(textYesNoNode, 'Respuesta Si/No', card.respuesta);
 
     // Reactivar el bot�n de consultar cuando la imagen haya terminado de cargarse y la carta est� visible
     function enableConsultButton() {

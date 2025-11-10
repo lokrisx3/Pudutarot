@@ -218,14 +218,12 @@ h1 {
 #textYesNo,
 #textyesno {
   text-align: center;
-  margin-bottom: 3px;
-  margin: 0;
+  margin: 0 0 3px 0;
   padding: 6px 4px;
   border-radius: 10px;
   font-size: 13px;
   line-height: 1.4;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
-  transition: background 300ms ease, color 300ms ease, border 300ms ease, box-shadow 300ms ease;
+  transition: background 300ms ease, color 300ms ease, border 300ms ease;
 }
 
 body.celestial-theme #textElemento,
@@ -255,6 +253,10 @@ body:not(.celestial-theme) #textyesno {
   transform-origin: center center;
   transition: transform 320ms cubic-bezier(.2, .9, .2, 1), box-shadow 320ms ease;
   will-change: transform;
+}
+
+#tarot-card.reversed {
+  transform: rotate(180deg);
 }
 
 #card-container.visible #tarot-card {

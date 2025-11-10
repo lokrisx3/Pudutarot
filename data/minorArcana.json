@@ -1,13 +1,13 @@
-[
+﻿[
     {
         "TypeCard": [
             "Marseille",
             "Rider"
         ],
-        "historyBastos": "El palo de Bastos en el tarot tiene sus raíces en la simbología medieval, donde representaba la energía, la creatividad y la acción. En la tradición del tarot de Marsella, los Bastos están asociados con el elemento fuego, simbolizando la pasión y el impulso. A lo largo del tiempo, este palo ha sido interpretado como un signo de nuevos comienzos y oportunidades, reflejando la naturaleza dinámica y emprendedora de quienes buscan avanzar en sus proyectos y aspiraciones.",
-        "historyCopas": "El palo de Copas en el tarot tiene una rica historia que se remonta a la Edad Media, donde las copas simbolizaban las emociones, el amor y las relaciones. En la tradición del tarot de Marsella, las Copas están asociadas con el elemento agua, representando la fluidez y la profundidad emocional. A lo largo del tiempo, este palo ha sido interpretado como un signo de conexiones afectivas y experiencias emocionales, reflejando la importancia de los sentimientos y la intuición en la vida de quienes buscan guía a través del tarot.",
-        "historyEspadas": "El palo de Espadas en el tarot tiene sus orígenes en la simbología medieval, donde las espadas representaban el intelecto, la verdad y el conflicto. En la tradición del tarot de Marsella, las Espadas están asociadas con el elemento aire, simbolizando la mente y la comunicación. A lo largo del tiempo, este palo ha sido interpretado como un signo de desafíos y decisiones, reflejando la naturaleza analítica y a veces confrontativa de quienes buscan claridad y resolución en sus vidas a través del tarot.",
-        "historyOros": "El palo de Oros en el tarot tiene una historia que se remonta a la Edad Media, donde los oros simbolizaban la riqueza, la prosperidad y el mundo material. En la tradición del tarot de Marsella, los Oros están asociados con el elemento tierra, representando la estabilidad y la seguridad financiera. A lo largo del tiempo, este palo ha sido interpretado como un signo de éxito y logros materiales, reflejando la importancia de los recursos y la gestión práctica en la vida de quienes buscan guía a través del tarot."
+        "historyBastos": "El palo de Bastos en el tarot tiene sus raÃ­ces en la simbologÃ­a medieval, donde representaba la energÃ­a, la creatividad y la acciÃ³n. En la tradiciÃ³n del tarot de Marsella, los Bastos estÃ¡n asociados con el elemento fuego, simbolizando la pasiÃ³n y el impulso. A lo largo del tiempo, este palo ha sido interpretado como un signo de nuevos comienzos y oportunidades, reflejando la naturaleza dinÃ¡mica y emprendedora de quienes buscan avanzar en sus proyectos y aspiraciones.",
+        "historyCopas": "El palo de Copas en el tarot tiene una rica historia que se remonta a la Edad Media, donde las copas simbolizaban las emociones, el amor y las relaciones. En la tradiciÃ³n del tarot de Marsella, las Copas estÃ¡n asociadas con el elemento agua, representando la fluidez y la profundidad emocional. A lo largo del tiempo, este palo ha sido interpretado como un signo de conexiones afectivas y experiencias emocionales, reflejando la importancia de los sentimientos y la intuiciÃ³n en la vida de quienes buscan guÃ­a a travÃ©s del tarot.",
+        "historyEspadas": "El palo de Espadas en el tarot tiene sus orÃ­genes en la simbologÃ­a medieval, donde las espadas representaban el intelecto, la verdad y el conflicto. En la tradiciÃ³n del tarot de Marsella, las Espadas estÃ¡n asociadas con el elemento aire, simbolizando la mente y la comunicaciÃ³n. A lo largo del tiempo, este palo ha sido interpretado como un signo de desafÃ­os y decisiones, reflejando la naturaleza analÃ­tica y a veces confrontativa de quienes buscan claridad y resoluciÃ³n en sus vidas a travÃ©s del tarot.",
+        "historyOros": "El palo de Oros en el tarot tiene una historia que se remonta a la Edad Media, donde los oros simbolizaban la riqueza, la prosperidad y el mundo material. En la tradiciÃ³n del tarot de Marsella, los Oros estÃ¡n asociados con el elemento tierra, representando la estabilidad y la seguridad financiera. A lo largo del tiempo, este palo ha sido interpretado como un signo de Ã©xito y logros materiales, reflejando la importancia de los recursos y la gestiÃ³n prÃ¡ctica en la vida de quienes buscan guÃ­a a travÃ©s del tarot."
     },
     {
         "id": 100,
@@ -15,13 +15,13 @@
         "name": "As de Bastos",
         "file": "arcanosmenores/bastosas",
         "meaning": {
-            "upright": "Comienzos creativos, inspiración.",
+            "upright": "Comienzos creativos, inspiraciÃ³n.",
             "reversed": "Bloqueo creativo, falta de iniciativa."
         },
         "history": "En los mazos marselleses del siglo XVIII el baston ardiente marcaba el impulso creativo de los gremios artesanos.",
         "elemento": "Fuego",
         "astrologia": "Sol / Fuego puro",
-        "respuesta": "Sí"
+        "respuesta": "SÃ­"
     },
     {
         "id": 101,
@@ -29,13 +29,13 @@
         "name": "Dos de Bastos",
         "file": "arcanosmenores/bastos2",
         "meaning": {
-            "upright": "Planificación, visión a futuro.",
-            "reversed": "Indecisión, falta de planificación."
+            "upright": "PlanificaciÃ³n, visiÃ³n a futuro.",
+            "reversed": "IndecisiÃ³n, falta de planificaciÃ³n."
         },
         "history": "El segundo basto fue ligado por impresores venecianos a los planes mercantiles que cruzaban mares y provincias.",
         "elemento": "Fuego",
         "astrologia": "Marte en Aries",
-        "respuesta": "Sí"
+        "respuesta": "SÃ­"
     },
     {
         "id": 102,
@@ -43,13 +43,13 @@
         "name": "Tres de Bastos",
         "file": "arcanosmenores/bastos3",
         "meaning": {
-            "upright": "Expansión, comercio, espera de resultados.",
+            "upright": "ExpansiÃ³n, comercio, espera de resultados.",
             "reversed": "Retrasos, falta de crecimiento."
         },
         "history": "Los grabadores de Dijon mostraron tres bastos navegando juntos, recordando las expediciones que ampliaron el comercio europeo.",
         "elemento": "Fuego",
         "astrologia": "Sol en Aries",
-        "respuesta": "Sí"
+        "respuesta": "SÃ­"
     },
     {
         "id": 103,
@@ -57,13 +57,13 @@
         "name": "Cuatro de Bastos",
         "file": "arcanosmenores/bastos4",
         "meaning": {
-            "upright": "Celebración, hogar, estabilidad.",
-            "reversed": "Inestabilidad doméstica, celebración retrasada."
+            "upright": "CelebraciÃ³n, hogar, estabilidad.",
+            "reversed": "Inestabilidad domÃ©stica, celebraciÃ³n retrasada."
         },
         "history": "Las primeras ediciones de Besancon destacaban cuatro bastos elevados como arco festivo para honrar alianzas comunitarias.",
         "elemento": "Fuego",
         "astrologia": "Venus en Aries",
-        "respuesta": "Sí"
+        "respuesta": "SÃ­"
     },
     {
         "id": 104,
@@ -85,13 +85,13 @@
         "name": "Seis de Bastos",
         "file": "arcanosmenores/bastos6",
         "meaning": {
-            "upright": "Victoria pública, reconocimiento.",
+            "upright": "Victoria pÃºblica, reconocimiento.",
             "reversed": "Falsas glorias, arrogancia."
         },
         "history": "El triunfo con laureles proviene de relatos romanos que inspiraron a Etteilla a dibujar un cortejo victorioso en este seis.",
         "elemento": "Fuego",
-        "astrologia": "Júpiter en Leo",
-        "respuesta": "Sí"
+        "astrologia": "JÃºpiter en Leo",
+        "respuesta": "SÃ­"
     },
     {
         "id": 106,
@@ -99,13 +99,13 @@
         "name": "Siete de Bastos",
         "file": "arcanosmenores/bastos7",
         "meaning": {
-            "upright": "Defensa, posición sólida.",
+            "upright": "Defensa, posiciÃ³n sÃ³lida.",
             "reversed": "Agotamiento por defenderse, perder terreno."
         },
         "history": "Los talleres catalanes representaron el bastion defensivo de montaneros, inspirando la escena del siete resistiendo.",
         "elemento": "Fuego",
         "astrologia": "Marte en Leo",
-        "respuesta": "Sí"
+        "respuesta": "SÃ­"
     },
     {
         "id": 107,
@@ -113,13 +113,13 @@
         "name": "Ocho de Bastos",
         "file": "arcanosmenores/bastos8",
         "meaning": {
-            "upright": "Movimiento rápido, comunicación.",
+            "upright": "Movimiento rÃ¡pido, comunicaciÃ³n.",
             "reversed": "Retrasos, noticias demoradas."
         },
         "history": "En grabados georgianos el vuelo de bastos alude a correos rapidos que unian capitales y aceleraban noticias.",
         "elemento": "Fuego",
         "astrologia": "Mercurio en Sagitario",
-        "respuesta": "Sí"
+        "respuesta": "SÃ­"
     },
     {
         "id": 108,
@@ -128,12 +128,12 @@
         "file": "arcanosmenores/bastos9",
         "meaning": {
             "upright": "Resistencia, defensa cercana al final.",
-            "reversed": "Fatiga, rendición ante la presión."
+            "reversed": "Fatiga, rendiciÃ³n ante la presiÃ³n."
         },
         "history": "La guardia exhausta del nueve reproduce cronicones medievales sobre milicias fronterizas que luchaban sin descanso.",
         "elemento": "Fuego",
         "astrologia": "Luna en Sagitario",
-        "respuesta": "Depende"
+        "respuesta": "Si"
     },
     {
         "id": 109,
@@ -161,7 +161,7 @@
         "history": "El as de copas se remonta a ritos marianos donde la vasija rebosante prometia bendiciones renovadas.",
         "elemento": "Agua",
         "astrologia": "Agua pura",
-        "respuesta": "Sí"
+        "respuesta": "SÃ­"
     },
     {
         "id": 111,
@@ -169,13 +169,13 @@
         "name": "Dos de Copas",
         "file": "arcanosmenores/copas2",
         "meaning": {
-            "upright": "Unión, asociación.",
-            "reversed": "Separación, desacuerdo."
+            "upright": "UniÃ³n, asociaciÃ³n.",
+            "reversed": "SeparaciÃ³n, desacuerdo."
         },
         "history": "Las dos copas celebran pactos nupciales descritos en manuales italianos de cartomancia del siglo XVIII.",
         "elemento": "Agua",
-        "astrologia": "Venus en Cáncer",
-        "respuesta": "Sí"
+        "astrologia": "Venus en CÃ¡ncer",
+        "respuesta": "SÃ­"
     },
     {
         "id": 112,
@@ -183,13 +183,13 @@
         "name": "Tres de Copas",
         "file": "arcanosmenores/copas3",
         "meaning": {
-            "upright": "Celebración, comunidad.",
+            "upright": "CelebraciÃ³n, comunidad.",
             "reversed": "Alejamientos, falta de apoyo."
         },
         "history": "Cronicas inglesas refieren banquetes de gremios, origen del trio de copas que brinda por la camaraderia.",
         "elemento": "Agua",
-        "astrologia": "Mercurio en Cáncer",
-        "respuesta": "Sí"
+        "astrologia": "Mercurio en CÃ¡ncer",
+        "respuesta": "SÃ­"
     },
     {
         "id": 113,
@@ -197,12 +197,12 @@
         "name": "Cuatro de Copas",
         "file": "arcanosmenores/copas4",
         "meaning": {
-            "upright": "Aburrimiento, introspección.",
+            "upright": "Aburrimiento, introspecciÃ³n.",
             "reversed": "Apertura, nuevas oportunidades emocionales."
         },
         "history": "Los medallones del cuatro evocan el retiro monastico, cuando se examinaban deseos antes de aceptar nuevas ofrendas.",
         "elemento": "Agua",
-        "astrologia": "Luna en Cáncer",
+        "astrologia": "Luna en CÃ¡ncer",
         "respuesta": "No"
     },
     {
@@ -211,8 +211,8 @@
         "name": "Cinco de Copas",
         "file": "arcanosmenores/copas5",
         "meaning": {
-            "upright": "Pérdida, duelo.",
-            "reversed": "Aceptación, avanzar."
+            "upright": "PÃ©rdida, duelo.",
+            "reversed": "AceptaciÃ³n, avanzar."
         },
         "history": "Versiones antiguas muestran una copa derramada en memoria de perdidas durante pestes urbanas.",
         "elemento": "Agua",
@@ -231,7 +231,7 @@
         "history": "Las ilustraciones de Rider Waite recuperan juegos infantiles victorianos para hablar de recuerdos dulces en el seis.",
         "elemento": "Agua",
         "astrologia": "Sol en Escorpio",
-        "respuesta": "Sí"
+        "respuesta": "SÃ­"
     },
     {
         "id": 116,
@@ -239,8 +239,8 @@
         "name": "Siete de Copas",
         "file": "arcanosmenores/copas7",
         "meaning": {
-            "upright": "Opciones, fantasía.",
-            "reversed": "Ilusiones disipadas, elección clara."
+            "upright": "Opciones, fantasÃ­a.",
+            "reversed": "Ilusiones disipadas, elecciÃ³n clara."
         },
         "history": "Los siete vasos flotantes provienen de catalogos esotericos que advertian sobre fantasias sin fundamento.",
         "elemento": "Agua",
@@ -253,8 +253,8 @@
         "name": "Ocho de Copas",
         "file": "arcanosmenores/copas8",
         "meaning": {
-            "upright": "Partir, buscar algo más.",
-            "reversed": "Resistencia a dejar atrás, estancamiento."
+            "upright": "Partir, buscar algo mÃ¡s.",
+            "reversed": "Resistencia a dejar atrÃ¡s, estancamiento."
         },
         "history": "El ocho representa al peregrino alquimico que abandona placeres faciles, segun manuscritos rosacruces.",
         "elemento": "Agua",
@@ -267,13 +267,13 @@
         "name": "Nueve de Copas",
         "file": "arcanosmenores/copas9",
         "meaning": {
-            "upright": "Satisfacción, deseos cumplidos.",
+            "upright": "SatisfacciÃ³n, deseos cumplidos.",
             "reversed": "Falsas satisfacciones, superficialidad."
         },
         "history": "Los artesanos napolitanos llamaron a este nueve la carta del hostalero satisfecho, guardian de deseos cumplidos.",
         "elemento": "Agua",
-        "astrologia": "Júpiter en Piscis",
-        "respuesta": "Sí"
+        "astrologia": "JÃºpiter en Piscis",
+        "respuesta": "SÃ­"
     },
     {
         "id": 119,
@@ -282,12 +282,12 @@
         "file": "arcanosmenores/copas10",
         "meaning": {
             "upright": "Hogar feliz, plenitud familiar.",
-            "reversed": "Problemas domésticos, ilusiones rotas."
+            "reversed": "Problemas domÃ©sticos, ilusiones rotas."
         },
         "history": "El diez de copas mezcla tradiciones irlandesas de arco iris familiar con la idea cabalistica de plenitud emocional.",
         "elemento": "Agua",
         "astrologia": "Marte en Piscis",
-        "respuesta": "Sí"
+        "respuesta": "SÃ­"
     },
     {
         "id": 120,
@@ -295,13 +295,13 @@
         "name": "As de Espadas",
         "file": "arcanosmenores/espadasas",
         "meaning": {
-            "upright": "Claridad, verdad, decisión.",
-            "reversed": "Confusión, bloqueo mental."
+            "upright": "Claridad, verdad, decisiÃ³n.",
+            "reversed": "ConfusiÃ³n, bloqueo mental."
         },
         "history": "Los grabados de Marsella muestran la espada alzada como juramento de verdad, legado de la justicia francesa.",
         "elemento": "Aire",
         "astrologia": "Aire puro",
-        "respuesta": "Sí"
+        "respuesta": "SÃ­"
     },
     {
         "id": 121,
@@ -309,13 +309,13 @@
         "name": "Dos de Espadas",
         "file": "arcanosmenores/espadas2",
         "meaning": {
-            "upright": "Indecisión, bloqueo emocional.",
-            "reversed": "Decisión, apertura."
+            "upright": "IndecisiÃ³n, bloqueo emocional.",
+            "reversed": "DecisiÃ³n, apertura."
         },
         "history": "El dos de espadas imita duelos rituales del Renacimiento, donde la tregua dependia de mantener el equilibrio.",
         "elemento": "Aire",
         "astrologia": "Luna en Libra",
-        "respuesta": "Depende"
+        "respuesta": "Si"
     },
     {
         "id": 122,
@@ -323,8 +323,8 @@
         "name": "Tres de Espadas",
         "file": "arcanosmenores/espadas3",
         "meaning": {
-            "upright": "Dolor, traición, separación.",
-            "reversed": "Sanación, liberación del dolor."
+            "upright": "Dolor, traiciÃ³n, separaciÃ³n.",
+            "reversed": "SanaciÃ³n, liberaciÃ³n del dolor."
         },
         "history": "El corazon traspasado tiene raices en emblemas religiosos que hablaban del dolor redentor.",
         "elemento": "Aire",
@@ -337,12 +337,12 @@
         "name": "Cuatro de Espadas",
         "file": "arcanosmenores/espadas4",
         "meaning": {
-            "upright": "Descanso, recuperación.",
-            "reversed": "Agitación, incapacidad para descansar."
+            "upright": "Descanso, recuperaciÃ³n.",
+            "reversed": "AgitaciÃ³n, incapacidad para descansar."
         },
         "history": "Las cronicas de San Benito inspiran el reposo vigilado del cuatro, recordando rezos sobre armaduras.",
         "elemento": "Aire",
-        "astrologia": "Júpiter en Libra",
+        "astrologia": "JÃºpiter en Libra",
         "respuesta": "No"
     },
     {
@@ -352,7 +352,7 @@
         "file": "arcanosmenores/espadas5",
         "meaning": {
             "upright": "Derrota, conflicto, ego herido.",
-            "reversed": "Resolución, compromiso."
+            "reversed": "ResoluciÃ³n, compromiso."
         },
         "history": "El cinco refleja escaramuzas campales descritas por Thoth, destacando la victoria amarga de los oportunistas.",
         "elemento": "Aire",
@@ -365,13 +365,13 @@
         "name": "Seis de Espadas",
         "file": "arcanosmenores/espadas6",
         "meaning": {
-            "upright": "Transición, viaje, recuperación.",
+            "upright": "TransiciÃ³n, viaje, recuperaciÃ³n.",
             "reversed": "Resistencia al cambio, estancamiento."
         },
         "history": "Navegantes tudor dieron fama al seis al contarlo como carta de travesias seguras hacia nuevas costas.",
         "elemento": "Aire",
         "astrologia": "Mercurio en Acuario",
-        "respuesta": "Sí"
+        "respuesta": "SÃ­"
     },
     {
         "id": 126,
@@ -379,8 +379,8 @@
         "name": "Siete de Espadas",
         "file": "arcanosmenores/espadas7",
         "meaning": {
-            "upright": "Estrategia, astucia, discreción.",
-            "reversed": "Engaño descubierto, culpa."
+            "upright": "Estrategia, astucia, discreciÃ³n.",
+            "reversed": "EngaÃ±o descubierto, culpa."
         },
         "history": "Los sietes piratas simbolizan estrategias y enganos relatados por folletos ingleses del siglo XVII.",
         "elemento": "Aire",
@@ -393,12 +393,12 @@
         "name": "Ocho de Espadas",
         "file": "arcanosmenores/espadas8",
         "meaning": {
-            "upright": "Limitación, bloqueo mental.",
-            "reversed": "Liberación, nueva perspectiva."
+            "upright": "LimitaciÃ³n, bloqueo mental.",
+            "reversed": "LiberaciÃ³n, nueva perspectiva."
         },
         "history": "El ocho describe cepos judiciales empleados por el Parlamento, que limitaban movimientos aunque dejaban la mente alerta.",
         "elemento": "Aire",
-        "astrologia": "Júpiter en Géminis",
+        "astrologia": "JÃºpiter en GÃ©minis",
         "respuesta": "No"
     },
     {
@@ -407,12 +407,12 @@
         "name": "Nueve de Espadas",
         "file": "arcanosmenores/espadas9",
         "meaning": {
-            "upright": "Ansiedad, pesadillas, preocupación.",
+            "upright": "Ansiedad, pesadillas, preocupaciÃ³n.",
             "reversed": "Alivio, superar miedos."
         },
         "history": "Grabados alemanes mostraron pesadillas que se disipan al alba, origen del nueve de espadas.",
         "elemento": "Aire",
-        "astrologia": "Marte en Géminis",
+        "astrologia": "Marte en GÃ©minis",
         "respuesta": "No"
     },
     {
@@ -421,12 +421,12 @@
         "name": "Diez de Espadas",
         "file": "arcanosmenores/espadas10",
         "meaning": {
-            "upright": "Final doloroso, traición.",
-            "reversed": "Recuperación después del colapso."
+            "upright": "Final doloroso, traiciÃ³n.",
+            "reversed": "RecuperaciÃ³n despuÃ©s del colapso."
         },
         "history": "El diez recoge baladas sobre traiciones cortesanas, dramatizando la caida final antes del renacer.",
         "elemento": "Aire",
-        "astrologia": "Sol en Géminis",
+        "astrologia": "Sol en GÃ©minis",
         "respuesta": "No"
     },
     {
@@ -441,7 +441,7 @@
         "history": "La moneda central del as procede de sellos mercantiles florentinos que prometian prosperidad material.",
         "elemento": "Tierra",
         "astrologia": "Tierra pura",
-        "respuesta": "Sí"
+        "respuesta": "SÃ­"
     },
     {
         "id": 131,
@@ -450,12 +450,12 @@
         "file": "arcanosmenores/oros2",
         "meaning": {
             "upright": "Equilibrio, manejo de recursos.",
-            "reversed": "Desequilibrio, mala administración."
+            "reversed": "Desequilibrio, mala administraciÃ³n."
         },
         "history": "El malabarista del dos deriva de artistas ambulantes que equilibraban ingresos en ferias medievales.",
         "elemento": "Tierra",
-        "astrologia": "Júpiter en Capricornio",
-        "respuesta": "Depende"
+        "astrologia": "JÃºpiter en Capricornio",
+        "respuesta": "Si"
     },
     {
         "id": 132,
@@ -463,13 +463,13 @@
         "name": "Tres de Oros",
         "file": "arcanosmenores/oros3",
         "meaning": {
-            "upright": "Trabajo en equipo, maestría.",
-            "reversed": "Falla en colaboración, ego en proyectos."
+            "upright": "Trabajo en equipo, maestrÃ­a.",
+            "reversed": "Falla en colaboraciÃ³n, ego en proyectos."
         },
         "history": "Los tres de oros celebran fraternidades de constructores, siguiendo planos goticos compartidos.",
         "elemento": "Tierra",
         "astrologia": "Marte en Capricornio",
-        "respuesta": "Sí"
+        "respuesta": "SÃ­"
     },
     {
         "id": 133,
@@ -477,7 +477,7 @@
         "name": "Cuatro de Oros",
         "file": "arcanosmenores/oros4",
         "meaning": {
-            "upright": "Apego, retención, seguridad material.",
+            "upright": "Apego, retenciÃ³n, seguridad material.",
             "reversed": "Estancamiento financiero, avaricia."
         },
         "history": "En el cuatro, banqueros genoveses preservaban cofres cerrados para resguardar capital en tiempos de guerra.",
@@ -491,8 +491,8 @@
         "name": "Cinco de Oros",
         "file": "arcanosmenores/oros5",
         "meaning": {
-            "upright": "Privación, necesidad.",
-            "reversed": "Recuperación, ayuda recibida."
+            "upright": "PrivaciÃ³n, necesidad.",
+            "reversed": "RecuperaciÃ³n, ayuda recibida."
         },
         "history": "El cinco recuerda hospitales templarios que socorria a los pobres durante inviernos crueles.",
         "elemento": "Tierra",
@@ -506,12 +506,12 @@
         "file": "arcanosmenores/oros6",
         "meaning": {
             "upright": "Generosidad, intercambio.",
-            "reversed": "Desigualdad, egoísmo."
+            "reversed": "Desigualdad, egoÃ­smo."
         },
         "history": "El seis cita relatos de benefactores burgueses que distribuian limosnas ante los gremios.",
         "elemento": "Tierra",
         "astrologia": "Luna en Tauro",
-        "respuesta": "Sí"
+        "respuesta": "SÃ­"
     },
     {
         "id": 136,
@@ -525,7 +525,7 @@
         "history": "Los aprendices del siete estudian calendarios agricolas renacentistas antes de cosechar recompensas.",
         "elemento": "Tierra",
         "astrologia": "Saturno en Tauro",
-        "respuesta": "Depende"
+        "respuesta": "Si"
     },
     {
         "id": 137,
@@ -533,13 +533,13 @@
         "name": "Ocho de Oros",
         "file": "arcanosmenores/oros8",
         "meaning": {
-            "upright": "Práctica, trabajo detallado.",
+            "upright": "PrÃ¡ctica, trabajo detallado.",
             "reversed": "Perfeccionismo, trabajo sin recompensa."
         },
         "history": "El ocho retrata talleres de orfebreria en Amberes donde la practica constante forjaba maestria.",
         "elemento": "Tierra",
         "astrologia": "Sol en Virgo",
-        "respuesta": "Sí"
+        "respuesta": "SÃ­"
     },
     {
         "id": 138,
@@ -553,7 +553,7 @@
         "history": "Los huertos del nueve se inspiran en fincas toscanas administradas por mujeres autonomas.",
         "elemento": "Tierra",
         "astrologia": "Venus en Virgo",
-        "respuesta": "Sí"
+        "respuesta": "SÃ­"
     },
     {
         "id": 139,
@@ -562,12 +562,12 @@
         "file": "arcanosmenores/oros10",
         "meaning": {
             "upright": "Legado, estabilidad familiar.",
-            "reversed": "Problemas familiares, pérdida."
+            "reversed": "Problemas familiares, pÃ©rdida."
         },
         "history": "El diez muestra los blasones familiares que aseguraban herencias y redes comerciales entre generaciones.",
         "elemento": "Tierra",
         "astrologia": "Mercurio en Virgo",
-        "respuesta": "Sí"
+        "respuesta": "SÃ­"
     },
     {
         "id": 140,
@@ -581,7 +581,7 @@
         "history": "La sota de bastos evoca a los pajes mensajeros que anunciaban decretos en las cortes provenzales.",
         "elemento": "Fuego",
         "astrologia": "Fuego / Aries-Leo-Sagitario",
-        "respuesta": "Sí"
+        "respuesta": "SÃ­"
     },
     {
         "id": 141,
@@ -589,13 +589,13 @@
         "name": "Caballo de Bastos",
         "file": "arcanosmenores/bastoscaballo",
         "meaning": {
-            "upright": "Acción impulsiva, viaje corto.",
-            "reversed": "Impulsividad sin dirección."
+            "upright": "AcciÃ³n impulsiva, viaje corto.",
+            "reversed": "Impulsividad sin direcciÃ³n."
         },
         "history": "El caballo de bastos se basa en cronistas que narraron campanas rapidas de jinetes aragoneses.",
         "elemento": "Fuego",
         "astrologia": "Sagitario / Aries",
-        "respuesta": "Sí"
+        "respuesta": "SÃ­"
     },
     {
         "id": 142,
@@ -609,7 +609,7 @@
         "history": "La reina de bastos retoma arquetipos de sacerdotisas solares veneradas en mitos mediterraneos.",
         "elemento": "Fuego",
         "astrologia": "Leo",
-        "respuesta": "Sí"
+        "respuesta": "SÃ­"
     },
     {
         "id": 143,
@@ -617,13 +617,13 @@
         "name": "Rey de Bastos",
         "file": "arcanosmenores/bastosrey",
         "meaning": {
-            "upright": "Visión, autoridad creativa.",
-            "reversed": "Tiranía, impaciencia."
+            "upright": "VisiÃ³n, autoridad creativa.",
+            "reversed": "TiranÃ­a, impaciencia."
         },
         "history": "El rey de bastos fusiona la figura del monarca constructor con lideres visionarios del comercio colonial.",
         "elemento": "Fuego",
         "astrologia": "Aries",
-        "respuesta": "Sí"
+        "respuesta": "SÃ­"
     },
     {
         "id": 144,
@@ -636,8 +636,8 @@
         },
         "history": "La sota de copas recuerda a los pajes de torneos que ofrecian copas ceremoniales a los campeones.",
         "elemento": "Agua",
-        "astrologia": "Agua / Cáncer-Escorpio-Piscis",
-        "respuesta": "Sí"
+        "astrologia": "Agua / CÃ¡ncer-Escorpio-Piscis",
+        "respuesta": "SÃ­"
     },
     {
         "id": 145,
@@ -646,12 +646,12 @@
         "file": "arcanosmenores/copascaballo",
         "meaning": {
             "upright": "Mensajero afectivo, romanticismo activo.",
-            "reversed": "Drama emocional, promesas vacías."
+            "reversed": "Drama emocional, promesas vacÃ­as."
         },
         "history": "El caballo de copas nace de romances medievales donde el mensajero llevaba cartas de amor cortes.",
         "elemento": "Agua",
         "astrologia": "Piscis",
-        "respuesta": "Sí"
+        "respuesta": "SÃ­"
     },
     {
         "id": 146,
@@ -659,13 +659,13 @@
         "name": "Reina de Copas",
         "file": "arcanosmenores/copasreina",
         "meaning": {
-            "upright": "Intuición, empatía y apoyo emocional.",
-            "reversed": "Dependencia emocional, fronteras débiles."
+            "upright": "IntuiciÃ³n, empatÃ­a y apoyo emocional.",
+            "reversed": "Dependencia emocional, fronteras dÃ©biles."
         },
         "history": "La reina de copas recoge la tradicion de consejeras curativas que servian en cortes renacentistas.",
         "elemento": "Agua",
         "astrologia": "Escorpio",
-        "respuesta": "Sí"
+        "respuesta": "SÃ­"
     },
     {
         "id": 147,
@@ -673,13 +673,13 @@
         "name": "Rey de Copas",
         "file": "arcanosmenores/copasrey",
         "meaning": {
-            "upright": "Equilibrio emocional, control empático.",
-            "reversed": "Manipulación afectiva."
+            "upright": "Equilibrio emocional, control empÃ¡tico.",
+            "reversed": "ManipulaciÃ³n afectiva."
         },
         "history": "El rey de copas sintetiza a los reyes navegantes que regian con diplomacia y dominio de mareas.",
         "elemento": "Agua",
-        "astrologia": "Cáncer",
-        "respuesta": "Sí"
+        "astrologia": "CÃ¡ncer",
+        "respuesta": "SÃ­"
     },
     {
         "id": 148,
@@ -687,13 +687,13 @@
         "name": "Sota de Espadas",
         "file": "arcanosmenores/espadassota",
         "meaning": {
-            "upright": "Curiosidad mental, aprendiz crítico.",
-            "reversed": "Desinformación, inmadurez intelectual."
+            "upright": "Curiosidad mental, aprendiz crÃ­tico.",
+            "reversed": "DesinformaciÃ³n, inmadurez intelectual."
         },
         "history": "La sota de espadas representa a los aprendices que custodiaban archivos militares y noticias estrategicas.",
         "elemento": "Aire",
-        "astrologia": "Aire / Géminis-Libra-Acuario",
-        "respuesta": "Depende"
+        "astrologia": "Aire / GÃ©minis-Libra-Acuario",
+        "respuesta": "Si"
     },
     {
         "id": 149,
@@ -701,13 +701,13 @@
         "name": "Caballo de Espadas",
         "file": "arcanosmenores/espadascaballo",
         "meaning": {
-            "upright": "Pensamiento rápido, confrontación.",
+            "upright": "Pensamiento rÃ¡pido, confrontaciÃ³n.",
             "reversed": "Impulsividad verbal, conflicto innecesario."
         },
         "history": "El caballo de espadas se inspira en cronicas sajonas sobre incursiones rapidas de caballeria ligera.",
         "elemento": "Aire",
-        "astrologia": "Géminis",
-        "respuesta": "Sí"
+        "astrologia": "GÃ©minis",
+        "respuesta": "SÃ­"
     },
     {
         "id": 150,
@@ -721,7 +721,7 @@
         "history": "La reina de espadas honra a viudas gobernadoras que dictaban justicia con mente aguda en ausencia de reyes.",
         "elemento": "Aire",
         "astrologia": "Libra",
-        "respuesta": "Depende"
+        "respuesta": "Si"
     },
     {
         "id": 151,
@@ -735,7 +735,7 @@
         "history": "El rey de espadas rememora magistrados ilustrados que codificaron leyes durante la Ilustracion.",
         "elemento": "Aire",
         "astrologia": "Acuario",
-        "respuesta": "Sí"
+        "respuesta": "SÃ­"
     },
     {
         "id": 152,
@@ -744,12 +744,12 @@
         "file": "arcanosmenores/orossota",
         "meaning": {
             "upright": "Practicidad joven, aprendizaje de oficio.",
-            "reversed": "Falta de enfoque, distracción material."
+            "reversed": "Falta de enfoque, distracciÃ³n material."
         },
         "history": "La sota de oros simboliza estudiantes de contabilidad que registraban inventarios en casas de comercio.",
         "elemento": "Tierra",
         "astrologia": "Tierra / Tauro-Virgo-Capricornio",
-        "respuesta": "Sí"
+        "respuesta": "SÃ­"
     },
     {
         "id": 153,
@@ -763,7 +763,7 @@
         "history": "El caballo de oros reproduce a correos mercantiles que llevaban contratos a traves de rutas seguras.",
         "elemento": "Tierra",
         "astrologia": "Virgo",
-        "respuesta": "Sí"
+        "respuesta": "SÃ­"
     },
     {
         "id": 154,
@@ -771,13 +771,13 @@
         "name": "Reina de Oros",
         "file": "arcanosmenores/orosreina",
         "meaning": {
-            "upright": "Abundancia práctica, cuidado y seguridad.",
-            "reversed": "Materialismo, sobreprotección."
+            "upright": "Abundancia prÃ¡ctica, cuidado y seguridad.",
+            "reversed": "Materialismo, sobreprotecciÃ³n."
         },
         "history": "La reina de oros describe matriarcas que administraban fincas, asegurando bienestar para su clan.",
         "elemento": "Tierra",
         "astrologia": "Capricornio",
-        "respuesta": "Sí"
+        "respuesta": "SÃ­"
     },
     {
         "id": 155,
@@ -785,12 +785,12 @@
         "name": "Rey de Oros",
         "file": "arcanosmenores/orosrey",
         "meaning": {
-            "upright": "Éxito material, autoridad financiera.",
+            "upright": "Ã‰xito material, autoridad financiera.",
             "reversed": "Avaricia, prioridades distorsionadas."
         },
         "history": "El rey de oros refleja a los patricios que financiaron obras publicas y bancos en las republicas italianas.",
         "elemento": "Tierra",
         "astrologia": "Tauro",
-        "respuesta": "Sí"
+        "respuesta": "SÃ­"
     }
 ]
