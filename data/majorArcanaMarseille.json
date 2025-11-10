@@ -5,7 +5,10 @@
     "links": {
       "Wikipedia": "https://es.wikipedia.org/wiki/Tarot_de_Marsella",
       "Tarot Heritage": "https://tarot-heritage.com/history-4/the-tarot-de-marseilles"
-    }
+    },
+    "libros": [
+      "El tarot de Marsella, Paul Marteau"
+    ]
   },
   {
     "id": 0,

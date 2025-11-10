@@ -6,7 +6,10 @@
             "Wikipedia": "https://es.wikipedia.org/wiki/Tarot_Rider-Waite",
             "USGames": "https://www.usgamesinc.com/Tarot_and_Inspiration/pamela-colman-smith",
             "Tarot Heritage": "https://tarot-heritage.com/history-4/the-rider-waite-smith-deck/"
-        }
+        },
+        "libros": [
+            "La clave ilustrada del Tarot, Arthur Edward Waite"
+        ]
     },
     {
         "id": 0,

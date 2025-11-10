@@ -102,6 +102,10 @@ document.addEventListener('DOMContentLoaded', function () {
     Marseille: [],
     Rider: []
   };
+  const majorArcanaDeckBooks = {
+    Marseille: [],
+    Rider: []
+  };
   const deckLoadState = {
     Marseille: false,
     Rider: false
@@ -122,6 +126,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.dispatchEvent(new CustomEvent('pudutarot:major-arcana-loaded', { detail: { deck: currentDeck } }));
     // mostrar la historia del mazo cargado inicialmente
     try { updateHistoryDeck(currentDeck); } catch (e) { /* noop */ }
+    try { updateRecommendedBooks(currentDeck); } catch (e) { /* noop */ }
   })();
 
   function normalizeCard(card) {
@@ -157,6 +162,25 @@ document.addEventListener('DOMContentLoaded', function () {
     }, []);
   }
 
+  function normalizeDeckBooks(rawBooks) {
+    if (!Array.isArray(rawBooks)) return [];
+    return rawBooks.reduce((acc, entry) => {
+      if (!entry) return acc;
+      if (typeof entry === 'string') {
+        acc.push({ title: entry.trim(), author: '', url: '' });
+        return acc;
+      }
+      if (typeof entry === 'object') {
+        const title = (entry.title || entry.name || entry.label || '').trim();
+        if (!title) return acc;
+        const author = (entry.author || entry.autor || '').trim();
+        const url = typeof entry.url === 'string' ? entry.url.trim() : (typeof entry.link === 'string' ? entry.link.trim() : '');
+        acc.push({ title, author, url });
+      }
+      return acc;
+    }, []);
+  }
+
   async function loadDeckData(deck) {
     if (deckLoadState[deck]) return majorArcanaDeckData[deck];
     if (deckLoadPromises[deck]) return deckLoadPromises[deck];
@@ -171,9 +195,11 @@ document.addEventListener('DOMContentLoaded', function () {
         if (Array.isArray(data) && data.length && typeof data[0] === 'object') {
           majorArcanaDeckHistory[deck] = data[0].HistoryDeck || data[0].History || '';
           majorArcanaDeckLinks[deck] = normalizeDeckLinks(data[0].links || data[0].Links);
+          majorArcanaDeckBooks[deck] = normalizeDeckBooks(data[0].libros || data[0].Libros || data[0].books || data[0].Books);
         } else {
           majorArcanaDeckHistory[deck] = '';
           majorArcanaDeckLinks[deck] = [];
+          majorArcanaDeckBooks[deck] = [];
         }
         // If no deck-level history is present, provide a small default for Marseille
         if ((!majorArcanaDeckHistory[deck] || !majorArcanaDeckHistory[deck].trim()) && deck === 'Marseille') {
@@ -187,6 +213,7 @@ document.addEventListener('DOMContentLoaded', function () {
         majorArcanaDeckData[deck] = majorArcanaFallback.map(normalizeCard);
         majorArcanaDeckHistory[deck] = '';
         majorArcanaDeckLinks[deck] = [];
+        majorArcanaDeckBooks[deck] = [];
       } finally {
         deckLoadState[deck] = true;
         deckLoadPromises[deck] = null;
@@ -452,6 +479,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     // actualizar el párrafo de historia del mazo
     try { updateHistoryDeck(deck); } catch (e) { /* noop */ }
+    try { updateRecommendedBooks(deck); } catch (e) { /* noop */ }
     document.dispatchEvent(new CustomEvent('pudutarot:deck-changed', { detail: { deck } }));
   }
 
@@ -470,6 +498,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const arcanaDetailDesc = document.getElementById('arcana-detail-desc');
   const arcanaDetailHistory = document.getElementById('arcana-detail-history');
   const historyDeckEl = document.getElementById('history-deck');
+  const recommendedBooksSection = document.getElementById('recommended-books-section');
+  const recommendedBooksList = document.getElementById('recommended-books-list');
+  const recommendedBooksTitle = document.getElementById('recommended-books-title');
 
   function updateHistoryDeck(deck) {
     if (!historyDeckEl) return;
@@ -532,6 +563,44 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
+  function updateRecommendedBooks(deck) {
+    if (!recommendedBooksSection || !recommendedBooksList) return;
+    const books = majorArcanaDeckBooks[deck] || [];
+    recommendedBooksList.innerHTML = '';
+    if (!Array.isArray(books) || !books.length) {
+      recommendedBooksSection.classList.add('hidden');
+      return;
+    }
+    books.forEach(book => {
+      if (!book || !book.title) return;
+      const li = document.createElement('li');
+      if (!li.classList.contains('history-deck-paragraph')) {
+        li.classList.add('history-deck-paragraph');
+      }
+      if (book.url) {
+        const anchor = document.createElement('a');
+        anchor.href = book.url;
+        anchor.target = '_blank';
+        anchor.rel = 'noopener noreferrer';
+        anchor.textContent = book.title;
+        li.appendChild(anchor);
+      } else {
+        li.appendChild(document.createTextNode(book.title));
+      }
+      if (book.author) {
+        const authorSpan = document.createElement('span');
+        authorSpan.className = 'recommended-book-author';
+        authorSpan.textContent = ` — ${book.author}`;
+        li.appendChild(authorSpan);
+      }
+      recommendedBooksList.appendChild(li);
+    });
+    if (recommendedBooksTitle) {
+      recommendedBooksTitle.textContent = 'Libros recomendados';
+    }
+    recommendedBooksSection.classList.remove('hidden');
+  }
+
   const showArcanaListButton = document.getElementById('show-arcana-list');
   const arcanaSection = document.getElementById('arcana-section');
   const toggleFullTarotButton = document.getElementById('toggle-full-tarot');
@@ -542,6 +611,7 @@ document.addEventListener('DOMContentLoaded', function () {
       renderArcanaList();
     }
     try { updateHistoryDeck(currentDeck); } catch (e) { /* noop */ }
+    try { updateRecommendedBooks(currentDeck); } catch (e) { /* noop */ }
   });
 
 
@@ -959,15 +1029,38 @@ document.addEventListener('DOMContentLoaded', function () {
     contactsButton.addEventListener('click', function () {
       const hidden = contactsSection.classList.contains('hidden');
       if (hidden) {
+        // show contacts section and ensure the title is visible
         contactsSection.classList.remove('hidden');
+        // ensure contacts-section is scannable (some older CSS used #contact-section)
+        try { contactsSection.style.display = contactsSection.style.display || 'block'; } catch(e) {}
+        if (document && document.body) {
+          document.body.classList.add('contacts-open');
+        }
+        // ensure the title inside contacts is not accidentally hidden by any class
+        const titulo = document.getElementById('titulo-contacts');
+        if (titulo) {
+          titulo.classList.remove('hidden');
+          // ensure the title is explicitly visible (clear any inline hiding and set block as fallback)
+          try { titulo.style.display = 'block'; } catch (e) { titulo.style.display = ''; }
+        }
         loadAndRenderContacts().then(scrollFirstContactIntoView);
         contactsButton.textContent = 'Ocultar Contactos';
         // marcar visualmente el bot�n como seleccionado
         contactsButton.classList.add('selected');
       } else {
         contactsSection.classList.add('hidden');
-        contactsButton.textContent = '�Quieres conocer mas sobre el Tarot?';
+        if (document && document.body) {
+          document.body.classList.remove('contacts-open');
+        }
+        contactsButton.textContent = '¿Quieres conocer mas sobre el Tarot?';
         contactsButton.classList.remove('selected');
+        // hide title as well to keep consistent state
+        const titulo = document.getElementById('titulo-contacts');
+        if (titulo) {
+          titulo.classList.add('hidden');
+          // also set inline display to none to ensure it's hidden across browsers
+          try { titulo.style.display = 'none'; } catch (e) { /* noop */ }
+        }
       }
     });
   }
