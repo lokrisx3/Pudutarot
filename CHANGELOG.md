@@ -3,6 +3,11 @@
 Este archivo registra los cambios, versiones y notas de lanzamiento del proyecto "Pudutarot".
 
 Formato: seguimos una convención tipo "Keep a Changelog" simplificada en español.
+## [1.3.0] - 10 de Noviembre de 2025
+- Mejoras de tamaño
+- Se agregan correspondencias
+- Se agregan hipervinculos a fuentes
+- Se agrega sección de libros recomendados
 
 ## [1.2.2] - 07 de Noviembre de 2025
 - Mejoras visuales

@@ -14,14 +14,14 @@ body.contacts-open {
   overflow-x: hidden;
 }
 
-/* Fondo ocupa toda la pantalla detrÃ¡s del contenido */
+/* Fondo ocupa toda la pantalla detrás del contenido */
 .background {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  /* ðŸ”¹ queda detrÃ¡s del contenido */
+  /* el fondo queda detrás del contenido */
   overflow: hidden;
 }
 
@@ -29,7 +29,7 @@ body.contacts-open {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* ðŸ”¹ mantiene proporciÃ³n y rellena */
+  /* mantiene proporción y rellena */
   transition: opacity 420ms ease-in-out;
   will-change: opacity;
 }
@@ -39,17 +39,17 @@ body.contacts-open {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  /* ðŸ‘ˆ mejor que space-between para que no "salte" */
+  /* mejor que space-between para que no "salte" */
 
   min-height: 100vh;
-  /* ðŸ‘ˆ ocupa toda la altura de la ventana */
+  /* ocupa toda la altura de la ventana */
   width: 100%;
 
   padding: 20px;
   box-sizing: border-box;
 
   position: relative;
-  /* ðŸ‘ˆ asegura que quede sobre el fondo estrellado */
+  /* asegura que quede sobre el fondo estrellado */
 
   /* Fondo eliminado, ya lo maneja la capa .background */
   background: transparent;
@@ -272,7 +272,7 @@ body:not(.celestial-theme) #textYesNoListado {
   height: 100%;
   box-shadow: 0 0 10px #f0c92966;
   border-radius: 10px;
-  /* transiciÃ³n para animar escalado horizontal sutil */
+  /* transición para animar escalado horizontal sutil */
   transform-origin: center center;
   transition: transform 320ms cubic-bezier(.2, .9, .2, 1), box-shadow 320ms ease;
   will-change: transform;
@@ -284,7 +284,7 @@ body:not(.celestial-theme) #textYesNoListado {
 
 #card-container.visible #tarot-card {
   box-shadow: 0 0 20px #f0c92988;
-  /* realzar un poco mientras estÃ¡ expandida */
+  /* realzar un poco mientras está expandida */
 }
 
 #elementImage {
@@ -419,10 +419,10 @@ body:not(.celestial-theme) .contact-empty {
 #deck-rider {
   background: linear-gradient(135deg, #0a3d4a, #0d5c5c);
   color: #ffffff;
-  /* CambiÃ© el color de texto a blanco para mejor contraste */
+  /* Cambié el color de texto a blanco para mejor contraste */
   border: none;
   padding: 6px 12px;
-  /* botones mÃ¡s pequeÃ±os */
+  /* botones más pequeños */
   font-size: 14px;
   border-radius: 5px;
   cursor: pointer;
@@ -455,7 +455,7 @@ body:not(.celestial-theme) .contact-empty {
   transform: scale(0.95);
 }
 
-/* BotÃ³n Consultar */
+/* Botón Consultar */
 #consult-button {
   background: linear-gradient(135deg, #0a3d4a, #0d5c5c);
   color: #ffffff;
@@ -478,7 +478,7 @@ body:not(.celestial-theme) .contact-empty {
   transform: scale(0.95);
 }
 
-/* Estado deshabilitado para el botÃ³n Consultar */
+/* Estado deshabilitado para el botón Consultar */
 #consult-button:disabled,
 #consult-button.disabled {
   opacity: 0.6;

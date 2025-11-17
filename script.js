@@ -1,32 +1,32 @@
 /**
  * PuduTarot popup script
  * ----------------------
- * Responsable de la l�gica de la UI del popup:
+ * Responsable de la lógica de la UI del popup:
  * - carga de datos (majorArcana)
- * - selecci�n aleatoria de cartas y renderizado
+ * - selección aleatoria de cartas y renderizado
  * - manejo de la lista de arcanos
- * - renderizado din�mico de la secci�n de contactos (desde data/contacts.json)
+ * - renderizado dinámico de la sección de contactos (desde data/contacts.json)
  *
- * Dise�o:
+ * Diseño:
  * - usa fetch para cargar JSON local (data/majorArcanaMarseille.json, data/majorArcanaRider.json y data/contacts.json)
  * - mantiene fallbacks locales cuando la carga remota / externa falla
  * - no incluye dependencias externas en runtime (three.js se sirve localmente)
  *
  * Nota: este archivo se ejecuta dentro del popup (document root del popup). Las rutas
- * relativas (p.ej. data/...) est�n relativas al paquete de la extensi�n.
+ * relativas (p.ej. data/...) están relativas al paquete de la extensión.
  */
 
 /**
- * M�dulo popup: script.js
+ * Módulo popup: script.js
  * ----------------------
- * API p�blica (documentada):
- * - getMajorArcana(deck): Array<Object>  � devuelve la lista de arcanos para el mazo solicitado.
- * - getRandomCard(): Object             � retorna una carta aleatoria del mazo actual.
- * - showCard(card): void                � muestra la carta en el UI (maneja imagen y reactivaci�n del bot�n).
- * - loadAndRenderContacts(): Promise<void> � carga `data/contacts.json` y renderiza la tabla de contactos.
- * - renderContactsTable(contacts): void � renderiza tabla de contactos (2 por fila) con logos y enlaces.
- * - applyCellBackgroundWithFallback(cell, logoUrl): void � intenta precargar logo y aplica fallback local si falla.
- * - renderArcanaList(): void            � renderiza el listado lateral de arcanos.
+ * API pública (documentada):
+ * - getMajorArcana(deck): Array<Object>  — devuelve la lista de arcanos para el mazo solicitado.
+ * - getRandomCard(): Object             — retorna una carta aleatoria del mazo actual.
+ * - showCard(card): void                — muestra la carta en el UI (maneja imagen y reactivación del botón).
+ * - loadAndRenderContacts(): Promise<void> — carga `data/contacts.json` y renderiza la tabla de contactos.
+ * - renderContactsTable(contacts): void — renderiza tabla de contactos (2 por fila) con logos y enlaces.
+ * - applyCellBackgroundWithFallback(cell, logoUrl): void — intenta precargar logo y aplica fallback local si falla.
+ * - renderArcanaList(): void            — renderiza el listado lateral de arcanos.
  *
  * Contratos (forma resumida):
  * - Carta: { id:number, name:string, file:string, image:string, meaning?:object, description?:string, history?:string }
@@ -60,27 +60,27 @@ document.addEventListener('DOMContentLoaded', function () {
   // Prefer loading the cards from JSON; keep an in-file fallback if fetch fails
   const majorArcanaFallback = [
     { id: 0, name: 'El Loco', file: 'fool', description: 'Nuevos comienzos, espontaneidad, fe en la vida.' },
-    { id: 1, name: 'El Mago', file: 'magician', description: 'Manifestaci�n, poder personal, habilidad.' },
-    { id: 2, name: 'La Sacerdotisa', file: 'high-priestess', description: 'Intuici�n, sabidur�a inconsciente, misterio.' },
+    { id: 1, name: 'El Mago', file: 'magician', description: 'Manifestación, poder personal, habilidad.' },
+    { id: 2, name: 'La Sacerdotisa', file: 'high-priestess', description: 'Intuición, sabiduría inconsciente, misterio.' },
     { id: 3, name: 'La Emperatriz', file: 'empress', description: 'Fertilidad, creatividad, abundancia.' },
     { id: 4, name: 'El Emperador', file: 'emperor', description: 'Autoridad, estructura, control, liderazgo.' },
-    { id: 5, name: 'El Hierofante', file: 'hierophant', description: 'Tradici�n, conformidad, moralidad, �tica.' },
-    { id: 6, name: 'Los Enamorados', file: 'lovers', description: 'Amor, armon�a, relaciones, valores, elecciones.' },
-    { id: 7, name: 'El Carro', file: 'chariot', description: 'Control, voluntad, �xito, determinaci�n.' },
-    { id: 8, name: 'La Fuerza', file: 'strength', description: 'Coraje, persuasi�n, influencia, compasi�n.' },
-    { id: 9, name: 'El Ermita�o', file: 'hermit', description: 'Introspecci�n, b�squeda, orientaci�n interna.' },
-    { id: 10, name: 'La Rueda de la Fortuna', file: 'wheel-of-fortune', description: 'Cambio, ciclos, destino, punto de inflexi�n.' },
+    { id: 5, name: 'El Hierofante', file: 'hierophant', description: 'Tradición, conformidad, moralidad, ética.' },
+    { id: 6, name: 'Los Enamorados', file: 'lovers', description: 'Amor, armonía, relaciones, valores, elecciones.' },
+    { id: 7, name: 'El Carro', file: 'chariot', description: 'Control, voluntad, éxito, determinación.' },
+    { id: 8, name: 'La Fuerza', file: 'strength', description: 'Coraje, persuasión, influencia, compasión.' },
+    { id: 9, name: 'El Ermitaño', file: 'hermit', description: 'Introspección, búsqueda, orientación interna.' },
+    { id: 10, name: 'La Rueda de la Fortuna', file: 'wheel-of-fortune', description: 'Cambio, ciclos, destino, punto de inflexión.' },
     { id: 11, name: 'La Justicia', file: 'justice', description: 'Justicia, equidad, verdad, ley, equilibrio.' },
-    { id: 12, name: 'El Colgado', file: 'hanged-man', description: 'Rendici�n, perspectiva, suspensi�n, sacrificio.' },
-    { id: 13, name: 'La Muerte', file: 'death', description: 'Fin de un ciclo, cambio, transformaci�n, transici�n.' },
-    { id: 14, name: 'La Templanza', file: 'temperance', description: 'Balance, moderaci�n, paciencia, prop�sito.' },
-    { id: 15, name: 'El Diablo', file: 'devil', description: 'Sombra, apegos, adicci�n, restricci�n, sexualidad.' },
-    { id: 16, name: 'La Torre', file: 'tower', description: 'Cambio repentino, liberaci�n, revelaci�n, despertar.' },
-    { id: 17, name: 'La Estrella', file: 'star', description: 'Esperanza, fe, prop�sito, renovaci�n, espiritualidad.' },
-    { id: 18, name: 'La Luna', file: 'moon', description: 'Ilusi�n, miedo, ansiedad, subconsciente, intuici�n.' },
-    { id: 19, name: 'El Sol', file: 'sun', description: 'Positividad, diversi�n, calidez, �xito, vitalidad.' },
-    { id: 20, name: 'El Juicio', file: 'judgement', description: 'Reflexi�n, renacimiento, renovaci�n interna, absoluci�n.' },
-    { id: 21, name: 'El Mundo', file: 'world', description: 'Realizaci�n, integraci�n, logro, viaje, armon�a.' }
+    { id: 12, name: 'El Colgado', file: 'hanged-man', description: 'Rendición, perspectiva, suspensión, sacrificio.' },
+    { id: 13, name: 'La Muerte', file: 'death', description: 'Fin de un ciclo, cambio, transformación, transición.' },
+    { id: 14, name: 'La Templanza', file: 'temperance', description: 'Balance, moderación, paciencia, propósito.' },
+    { id: 15, name: 'El Diablo', file: 'devil', description: 'Sombra, apegos, adicción, restricción, sexualidad.' },
+    { id: 16, name: 'La Torre', file: 'tower', description: 'Cambio repentino, liberación, revelación, despertar.' },
+    { id: 17, name: 'La Estrella', file: 'star', description: 'Esperanza, fe, propósito, renovación, espiritualidad.' },
+    { id: 18, name: 'La Luna', file: 'moon', description: 'Ilusión, miedo, ansiedad, subconsciente, intuición.' },
+    { id: 19, name: 'El Sol', file: 'sun', description: 'Positividad, diversión, calidez, éxito, vitalidad.' },
+    { id: 20, name: 'El Juicio', file: 'judgement', description: 'Reflexión, renacimiento, renovación interna, absolución.' },
+    { id: 21, name: 'El Mundo', file: 'world', description: 'Realización, integración, logro, viaje, armonía.' }
   ];
 
   // Fuentes de datos por mazo (Marseille y Rider)
@@ -277,7 +277,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   let majorArcana = getMajorArcana(currentDeck);
 
-  // Funci�n para seleccionar una carta aleatoria
+  // Función para seleccionar una carta aleatoria
   function getRandomCard() {
     // If full deck mode is enabled include minor arcana when available
     const useFull = fullDeckMode && minorArcanaLoaded;
@@ -367,12 +367,12 @@ document.addEventListener('DOMContentLoaded', function () {
   /**
    * showCard(card)
    * ----------------
-   * Muestra la carta seleccionada en el popup: actualiza la imagen, el t�tulo
-   * y la descripci�n. Adem�s gestiona la reactivaci�n del bot�n de "Consultar"
-   * cuando la imagen haya terminado de cargarse para evitar m�ltiples clics
-   * durante la animaci�n de revelado.
+  * Muestra la carta seleccionada en el popup: actualiza la imagen, el título
+  * y la descripción. Además gestiona la reactivación del botón de "Consultar"
+  * cuando la imagen haya terminado de cargarse para evitar múltiples clics
+  * durante la animación de revelado.
    *
-   * Par�metros:
+  * Parámetros:
    * - card: objeto con al menos { image, name, meaning?, description? }
    */
 
@@ -435,16 +435,16 @@ document.addEventListener('DOMContentLoaded', function () {
     applyCardMetaValue(textYesNoNode, 'Respuesta Si/No', yesNoValue);
     applyYesNoImage(yesnoImageNode, yesNoValue);
 
-    // Reactivar el bot�n de consultar cuando la imagen haya terminado de cargarse y la carta est� visible
+    // Reactivar el botón de consultar cuando la imagen haya terminado de cargarse y la carta esté visible
     function enableConsultButton() {
       consultButton.disabled = false;
       consultButton.classList.remove('disabled');
     }
 
-    // Si la imagen se carga correctamente, aseguramos reactivar el bot�n
+    // Si la imagen se carga correctamente, aseguramos reactivar el botón
     // usamos 'load' porque garantiza que la imagen se ha renderizado y las dimensiones son conocidas
     tarotCard.addEventListener('load', function () {
-      // peque�a espera para garantizar que las transiciones de visibilidad hayan terminado
+      // pequeña espera para garantizar que las transiciones de visibilidad hayan terminado
       setTimeout(function () {
         if (cardContainer.classList.contains('visible')) enableConsultButton();
       }, 90);
@@ -471,9 +471,9 @@ document.addEventListener('DOMContentLoaded', function () {
     if (arcanaDetail) arcanaDetail.classList.add('hidden');
   }
 
-  // Evento al hacer clic en el bot�n de consulta
+  // Evento al hacer clic en el botón de consulta
   consultButton.addEventListener('click', function () {
-    // deshabilitar el bot�n para evitar m�ltiples consultas mientras se procesa
+    // deshabilitar el botón para evitar múltiples consultas mientras se procesa
     consultButton.disabled = true;
     consultButton.classList.add('disabled');
 
@@ -647,17 +647,17 @@ document.addEventListener('DOMContentLoaded', function () {
     // Prefer an explicit history field from JSON when available
     if (card.history && card.history.trim().length > 0) return card.history;
     const desc = (card.description && typeof card.description === 'string') ? card.description : ((card.meaning && card.meaning.upright) ? card.meaning.upright : 'significados tradicionales');
-    return `Historia (prueba): La carta "${card.name}" tiene ra�ces simb�licas que se remontan a tradiciones antiguas; representa ${desc.toLowerCase()} y su iconograf�a ha variado seg�n las escuelas.`;
+    return `Historia (prueba): La carta "${card.name}" tiene raíces simbólicas que se remontan a tradiciones antiguas; representa ${desc.toLowerCase()} y su iconografía ha variado según las escuelas.`;
   }
 
   /**
    * Crea el HTML de una tabla de 2 celdas (horizontal) con Derecho / Invertido.
    * Devuelve una cadena con marcado seguro para su uso en innerHTML. Conserva
    * enlaces/formatos que vengan en los textos (el proyecto ya usa innerHTML en
-   * otros lugares) � si se requiere sanitizaci�n m�s adelante, aplicar una
-   * librer�a de sanitizaci�n.
+  * otros lugares) — si se requiere sanitización más adelante, aplicar una
+  * librería de sanitización.
    *
-   * @param {string} upright - texto o HTML para la lectura en posici�n normal
+  * @param {string} upright - texto o HTML para la lectura en posición normal
    * @param {string} reversed - texto o HTML para la lectura invertida
    * @returns {string} HTML de una tabla responsiva con dos celdas
    */
@@ -808,7 +808,7 @@ document.addEventListener('DOMContentLoaded', function () {
   function truncateText(s, max) {
     if (!s) return '';
     if (s.length <= max) return s;
-    return s.slice(0, max - 1) + '�';
+    return s.slice(0, max - 1) + '…';
   }
 
 
@@ -857,12 +857,12 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // ---------------------- Contactos din�micos ----------------------
+  // ---------------------- Contactos dinámicos ----------------------
   const contactsButton = document.getElementById('contacts-socials-boton');
   const contactsSection = document.getElementById('contacts-section');
   const contactsContainer = document.getElementById('contacts-container');
 
-  // �conos simples inline por red (se pueden ampliar)
+  // Iconos simples inline por red (se pueden ampliar)
   const socialIcons = {
     whatsapp: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.52 3.48A11.93 11.93 0 0 0 12 0C5.373 0 .003 5.373 0 12c0 2.12.557 4.17 1.616 5.98L0 24l6.29-1.604A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12 0-3.2-1.25-6.2-3.48-8.52z" fill="#25D366"/><path d="M17.472 14.382c-.297-.149-1.76-.867-2.033-.966-.273-.099-.472-.148-.672.15-.198.297-.768.966-.942 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.884-.787-1.48-1.761-1.652-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.447-.52.149-.174.198-.298.297-.497.099-.198.05-.372-.025-.52-.074-.148-.672-1.62-.92-2.219-.243-.58-.49-.5-.672-.51l-.573-.01c-.198 0-.52.074-.793.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487 2.982 1.287 2.982.858 3.517.806.536-.05 1.76-.717 2.005-1.409.247-.692.247-1.285.173-1.409-.074-.124-.273-.198-.57-.347z" fill="#fff"/></svg>',
     instagram: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#f58529"/><stop offset="0.5" stop-color="#dd2a7b"/><stop offset="1" stop-color="#515bd4"/></linearGradient><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5z" stroke="url(#g1)" stroke-width="1.6" fill="none"/><circle cx="12" cy="12" r="3.2" stroke="url(#g1)" stroke-width="1.6" fill="none"/><circle cx="18.2" cy="5.8" r="0.6" fill="#dd2a7b"/></svg>',
@@ -917,7 +917,7 @@ document.addEventListener('DOMContentLoaded', function () {
       // detectar campo logo (puede venir dentro de links.logo o como c.logo)
       const logoUrl = (c.logo) ? c.logo : (c.links && c.links.logo) ? c.links.logo : null;
       if (logoUrl) {
-        // aplicar background con comprobaci�n: si la imagen externa no carga, usar fallback local
+        // aplicar background con comprobación: si la imagen externa no carga, usar fallback local
         applyCellBackgroundWithFallback(cell, logoUrl);
       }
 
@@ -953,7 +953,7 @@ document.addEventListener('DOMContentLoaded', function () {
           return;
         }
 
-        // Normalizar enlaces de imgur: si detectamos una URL de galer�a o imgur.com/ID,
+        // Normalizar enlaces de imgur: si detectamos una URL de galería o imgur.com/ID,
         // intentamos convertirla a i.imgur.com/ID.jpg (si ya es directa no la tocamos).
         if (url.includes('imgur.com') && !url.includes('i.imgur.com')) {
           try {
@@ -968,7 +968,7 @@ document.addEventListener('DOMContentLoaded', function () {
           }
         }
 
-        // Construcci�n del enlace (<a>) con icono y texto
+        // Construcción del enlace (<a>) con icono y texto
         const a = document.createElement('a');
         a.href = url;
         a.target = '_blank';
@@ -992,7 +992,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       cell.appendChild(linksWrap);
       row.appendChild(cell);
-      // animaci�n de entrada: staggered
+      // animación de entrada: staggered
       setTimeout(() => cell.classList.add('entered'), 80 * (idx % 2 === 0 ? Math.floor(idx / 2) : Math.floor(idx / 2) + 1));
     });
 
@@ -1017,7 +1017,7 @@ document.addEventListener('DOMContentLoaded', function () {
       cell.style.backgroundPosition = 'center';
     };
 
-    // onload / onerror gestionan �xito o fallo de carga
+    // onload / onerror gestionan éxito o fallo de carga
     testImg.onload = function () {
       if (settled) return;
       settled = true;
@@ -1082,7 +1082,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (document && document.body) {
           document.body.classList.remove('contacts-open');
         }
-        contactsButton.textContent = '¿Quieres conocer mas sobre el Tarot?';
+        contactsButton.textContent = '¿Quieres conocer más sobre el Tarot?';
         contactsButton.classList.remove('selected');
         // hide title as well to keep consistent state
         const titulo = document.getElementById('titulo-contacts');
@@ -1096,8 +1096,8 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // --- Fallback de logo: si la URL externa no carga, usar imagen local por defecto ---
-  // Comprobaci�n por cada celda en renderContactsTable: intentamos precargar la imagen y
-  // si falla, reemplazamos el background con un fallback est�tico.
+  // Comprobación por cada celda en renderContactsTable: intentamos precargar la imagen y
+  // si falla, reemplazamos el background con un fallback estático.
 
   const sunLogo = document.querySelector(".sun-logo");
   const moonLogo = document.querySelector(".header-brand-icon");
